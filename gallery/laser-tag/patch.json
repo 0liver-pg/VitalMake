@@ -1,0 +1,75 @@
+{
+  "name": "Laser Tag",
+  "description": "Retro sci-fi zaps: a square wave with a touch of FM whose pitch free-falls more than three octaves in a quarter second, echoed down a tempo delay.",
+  "wavetables": {
+    "osc_2": [
+      {
+        "shape": "sine"
+      }
+    ],
+    "osc_1": [
+      {
+        "shape": "square"
+      }
+    ]
+  },
+  "params": {
+    "osc_1_level": 0.7,
+    "osc_1_distortion_type": 7,
+    "osc_1_distortion_amount": "4%",
+    "osc_2_on": "On",
+    "osc_2_level": 0,
+    "osc_2_transpose": 12,
+    "env_1_attack": "0ms",
+    "env_1_decay": "280ms",
+    "env_1_sustain": 0,
+    "env_1_release": "120ms",
+    "env_2_attack": "0ms",
+    "env_2_decay": "250ms",
+    "env_2_sustain": 0,
+    "env_2_decay_power": -2,
+    "delay_on": "On",
+    "delay_style": "Ping Pong",
+    "delay_tempo": "1/16",
+    "delay_feedback": "45%",
+    "delay_dry_wet": "30%",
+    "beats_per_minute": 128
+  },
+  "mods": [
+    {
+      "source": "env_2",
+      "dest": "osc_1_transpose",
+      "amount": "+40st"
+    },
+    {
+      "source": "env_2",
+      "dest": "osc_1_distortion_amount",
+      "amount": 0.15
+    }
+  ],
+  "play": {
+    "notes": [
+      {
+        "note": "C3",
+        "start": 0.0,
+        "dur": 0.2
+      },
+      {
+        "note": "G3",
+        "start": 0.35,
+        "dur": 0.2
+      },
+      {
+        "note": "C4",
+        "start": 0.6,
+        "dur": 0.2
+      },
+      {
+        "note": "F2",
+        "start": 1.2,
+        "dur": 0.3
+      }
+    ],
+    "tail": 1.4
+  }
+}

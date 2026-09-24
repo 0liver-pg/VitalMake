@@ -1,0 +1,10 @@
+== Glass Choir ==
+Character: slow swell (0.7s attack), bright, clean tone, closes down over time (x3.3 darker), pulsing ~0.3 Hz (5 dB), wobbling brightness ~0.9 Hz, very wide
+Level: peak -3.7 dBFS, rms -24.8 dBFS, crest 21.1 dB | Envelope: attack 702 ms (half-level in 338 ms), peak at 1.35s, sustain -7 dB
+Pitch: no single clear pitch (chord, noise or inharmonic; clarity 0.67); see partials
+Strongest partials: 131Hz C3-4c (-2dB); 196Hz G3+3c (-2dB); 262Hz C4+5c (-3dB); 293Hz D4-5c (-1dB); 330Hz E4+3c (-5dB); 520Hz C5-10c (-7dB); 586Hz D5-5c (0dB); 658Hz E5-4c (-5dB)
+Spectrum: centroid 2335 Hz (start 2011 -> end 611), 85% rolloff 1184 Hz, flatness 0.032, harmonicity 0.94
+Energy by band: sub 0.0%, bass 18.9%, low-mid 62.5%, mid 16.4%, presence 1.7%, air 0.5%
+Motion: level pulses at 0.32 Hz (5.1 dB p-p); brightness wobbles at 0.95 Hz (±44%)
+Stereo: width 0.814 (side/mid), L/R correlation 0.203
+Timeline (t: level dB, centroid Hz): 0.0s:-32/1608  0.89s:-20/2082  1.8s:-20/2206  2.69s:-23/2804  3.6s:-24/2875  4.5s:-24/2423  5.4s:-30/1638  6.3s:-41/1124  7.2s:-51/730  8.1s:-61/621

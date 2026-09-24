@@ -1,0 +1,11 @@
+== Laser Tag - first note alone ==
+Character: percussive attack, short, plucky decay, very bright / sizzly, breathy / grainy, spectrum glides down (-124.9 st/s), wide stereo
+Level: peak -8.1 dBFS, rms -28.8 dBFS, crest 20.6 dB | Envelope: attack 0 ms (half-level in 0 ms), peak at 0.01s, -20 dB after 0.15s
+Pitch: no single clear pitch (chord, noise or inharmonic; clarity 0.36); see partials
+Strongest partials: 260Hz C4-13c (-1dB); 640Hz D#5+48c (-2dB); 695Hz F5-10c (-1dB); 754Hz F#5+33c (-1dB); 826Hz G#5-9c (-1dB); 882Hz A5+5c (0dB); 978Hz B5-18c (-2dB); 1191Hz D6+24c (-2dB)
+Spectrum: centroid 4361 Hz (start 3678 -> end 2774), 85% rolloff 1647 Hz, flatness 0.131
+Energy by band: sub 0.1%, bass 3.1%, low-mid 58.5%, mid 32.1%, presence 4.7%, air 1.5%
+Motion: partials glide -124.9 semitones/s (82% of the time)
+Stereo: width 0.496 (side/mid), L/R correlation 0.606
+Timeline (t: level dB, centroid Hz): 0.0s:-20/4429  0.15s:-29/4334  0.31s:-29/4135  0.48s:-37/4126  0.64s:-35/3900  0.8s:-46/3413  0.95s:-41/3863  1.11s:-50/2913  1.28s:-48/3782  1.44s:-53/3198
+Phrase: 2.9s, peak -4.5 dBFS, rms -25.4 dBFS, centroid 4650 Hz, width 0.492, partials: 409Hz G#4-28c; 517Hz C5-20c; 594Hz D5+20c; 665Hz E5+14c; 745Hz F#5+11c; 797Hz G5+29c; 873Hz A5-14c; 1192Hz D6+26c

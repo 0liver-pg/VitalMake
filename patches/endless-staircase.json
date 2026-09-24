@@ -1,0 +1,18 @@
+{
+  "name": "Endless Staircase",
+  "description": "A Shepard tone: sixteen octave-spaced voices under a bell-shaped spectral window, so the pitch climbs forever without ever getting higher.",
+  "lfos": {"lfo_1": {"shape": "ramp_up"}},
+  "params": {
+    "osc_1_level": 0.7, "osc_1_unison_voices": 10, "osc_1_unison_detune": "9.6%",
+    "osc_1_spectral_morph_type": "Shepard Tone", "osc_1_spectral_morph_amount": "0%",
+    "lfo_1_sync": "Seconds", "lfo_1_frequency": "0.4Hz", "lfo_1_sync_type": "Sync",
+    "filter_1_on": "On", "filter_1_model": "Analog", "filter_1_cutoff": "3kHz",
+    "env_1_attack": "300ms", "env_1_sustain": 1.0, "env_1_release": "1s",
+    "reverb_on": "On", "reverb_dry_wet": "25%",
+    "volume": "-8dB"
+  },
+  "mods": [
+    {"source": "lfo_1", "dest": "osc_1_spectral_morph_amount", "amount": 1.0}
+  ],
+  "play": {"note": "C3", "dur": 7.5, "tail": 1.5}
+}

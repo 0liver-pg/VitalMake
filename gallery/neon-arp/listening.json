@@ -1,0 +1,114 @@
+{
+  "duration": 5.168,
+  "peak_db": -7.1,
+  "rms_db": -24.9,
+  "crest_db": 17.8,
+  "attack_ms": 3.6,
+  "rise50_ms": 2.2,
+  "peak_time": 3.17,
+  "sustain_db": -5.1,
+  "decay_20db": null,
+  "release_60db": null,
+  "f0_hz": 43.79,
+  "f0_note": "-",
+  "pitch_clarity": 0.5,
+  "pitch_start": "E3-2c",
+  "pitch_end": "G3+2c",
+  "peaks": [
+    "92Hz F#2-19c (-5dB)",
+    "106Hz G#2+32c (-4dB)",
+    "130Hz C3-8c (-3dB)",
+    "166Hz E3+8c (-3dB)",
+    "195Hz G3-5c (-1dB)",
+    "220Hz A3+4c (-1dB)",
+    "250Hz B3+22c (0dB)",
+    "291Hz D4-15c (-6dB)"
+  ],
+  "centroid_hz": 1538,
+  "centroid_start": 1225,
+  "centroid_end": 1193,
+  "attack_centroid_hz": 1343,
+  "onset_sweep": "",
+  "rolloff_hz": 528,
+  "flatness": 0.0362,
+  "harmonicity": null,
+  "bands": {
+    "sub": 0.1,
+    "bass": 59.5,
+    "low-mid": 32.9,
+    "mid": 6.2,
+    "presence": 1.2,
+    "air": 0.1
+  },
+  "tremolo_hz": 7.0,
+  "tremolo_db": 10.9,
+  "wobble_hz": 7.0,
+  "wobble_pct": 162.6,
+  "glide_st_per_s": 0.0,
+  "glide_consistency": 0.0,
+  "width": 0.619,
+  "correlation": 0.446,
+  "clipped": 0,
+  "timeline": [
+    {
+      "t": 0.0,
+      "level_db": -22.6,
+      "centroid_hz": 1309
+    },
+    {
+      "t": 0.51,
+      "level_db": -24.5,
+      "centroid_hz": 2090
+    },
+    {
+      "t": 1.03,
+      "level_db": -23.9,
+      "centroid_hz": 1434
+    },
+    {
+      "t": 1.54,
+      "level_db": -23.3,
+      "centroid_hz": 1688
+    },
+    {
+      "t": 2.07,
+      "level_db": -24.5,
+      "centroid_hz": 1461
+    },
+    {
+      "t": 2.59,
+      "level_db": -22.2,
+      "centroid_hz": 1609
+    },
+    {
+      "t": 3.1,
+      "level_db": -24.1,
+      "centroid_hz": 1261
+    },
+    {
+      "t": 3.62,
+      "level_db": -32.0,
+      "centroid_hz": 1480
+    },
+    {
+      "t": 4.13,
+      "level_db": -37.2,
+      "centroid_hz": 1348
+    },
+    {
+      "t": 4.66,
+      "level_db": -45.2,
+      "centroid_hz": 1487
+    }
+  ],
+  "words": [
+    "hard attack",
+    "sustained",
+    "bright",
+    "clean tone",
+    "pulsing ~7.0 Hz (11 dB)",
+    "wobbling brightness ~7.0 Hz",
+    "pitch moves E3-2c -> G3+2c",
+    "wide stereo"
+  ]
+}

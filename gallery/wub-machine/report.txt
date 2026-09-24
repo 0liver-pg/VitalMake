@@ -1,0 +1,11 @@
+== Wub Machine - first note alone ==
+Character: hard attack, dark, clean tone, bass-heavy, opens up over time (x1.9 brighter), pulsing ~5.0 Hz (6 dB), wide stereo
+Level: peak -10.0 dBFS, rms -18.0 dBFS, crest 8.0 dB | Envelope: attack 10 ms (half-level in 2 ms), peak at 0.08s, sustain -8 dB, release to -60 dB in 0.10s
+Pitch: F1-3c (43.57 Hz, clarity 0.81)
+Strongest partials: 44Hz F1+10c (0dB); 86Hz F2-17c (-6dB); 130Hz C3-6c (-7dB); 170Hz F3-50c (-16dB); 262Hz C4+3c (-18dB); 304Hz D#4-38c (-15dB); 347Hz F4-10c (-17dB); 393Hz G4+3c (-19dB)
+Spectrum: centroid 301 Hz (start 188 -> end 352), 85% rolloff 140 Hz, flatness 0.000, harmonicity 0.92
+Energy by band: sub 52.4%, bass 33.1%, low-mid 9.8%, mid 0.7%, presence 0.0%, air 0.0%
+Motion: level pulses at 4.99 Hz (6.3 dB p-p)
+Stereo: width 0.645 (side/mid), L/R correlation 0.411
+Timeline (t: level dB, centroid Hz): 0.0s:-15/223  0.21s:-15/202  0.43s:-16/264  0.64s:-18/338  0.86s:-19/428  1.08s:-18/360  1.29s:-18/422  1.51s:-20/490  1.72s:-60/123  1.94s:-120/0
+Phrase: 5.5s, peak -9.8 dBFS, rms -17.5 dBFS, centroid 347 Hz, width 0.681, partials: 52Hz G#1+11c; 130Hz C3-7c; 196Hz G3+1c; 260Hz C4-13c; 305Hz D#4-32c; 348Hz F4-5c; 391Hz G4-3c; 456Hz A#4-37c

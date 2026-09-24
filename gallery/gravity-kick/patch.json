@@ -1,0 +1,62 @@
+{
+  "name": "Gravity Kick",
+  "description": "An 808-style kick built from a pure sine: a 4-octave pitch dive in the first 40 ms, round decay, soft-clip distortion for weight.",
+  "wavetables": {
+    "osc_1": [
+      {
+        "shape": "sine"
+      }
+    ]
+  },
+  "params": {
+    "osc_1_level": 1.0,
+    "osc_1_random_phase": "0%",
+    "osc_1_phase": 90,
+    "env_1_attack": "0ms",
+    "env_1_decay": "650ms",
+    "env_1_sustain": 0,
+    "env_1_release": "300ms",
+    "env_2_attack": "0ms",
+    "env_2_decay": "45ms",
+    "env_2_sustain": 0,
+    "env_2_decay_power": -4,
+    "distortion_on": "On",
+    "distortion_type": "Soft Clip",
+    "distortion_drive": "9dB",
+    "polyphony": 1,
+    "volume": "-6dB"
+  },
+  "mods": [
+    {
+      "source": "env_2",
+      "dest": "osc_1_transpose",
+      "amount": "+44st"
+    }
+  ],
+  "play": {
+    "notes": [
+      {
+        "note": "F1",
+        "start": 0.0,
+        "dur": 0.1
+      },
+      {
+        "note": "F1",
+        "start": 0.5,
+        "dur": 0.1
+      },
+      {
+        "note": "F1",
+        "start": 1.0,
+        "dur": 0.1,
+        "vel": 0.6
+      },
+      {
+        "note": "F1",
+        "start": 1.25,
+        "dur": 0.1
+      }
+    ],
+    "tail": 1.0
+  }
+}

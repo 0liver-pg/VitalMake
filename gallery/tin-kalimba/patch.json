@@ -1,0 +1,74 @@
+{
+  "name": "Tin Kalimba",
+  "description": "A plucked metal tine: sine body with a slightly stretched (inharmonic) overtone set, a bright click that dies in 50 ms, and a dotted ping-pong echo.",
+  "wavetables": {
+    "osc_1": [
+      {
+        "harmonics": [
+          1,
+          0,
+          0.12,
+          0,
+          0.05
+        ]
+      }
+    ],
+    "osc_2": [
+      {
+        "harmonics": [
+          1,
+          0,
+          0.4
+        ]
+      }
+    ]
+  },
+  "params": {
+    "osc_1_level": 0.8,
+    "osc_1_random_phase": "0%",
+    "osc_1_spectral_morph_type": "Inharmonic Stretch",
+    "osc_1_spectral_morph_amount": "22%",
+    "osc_2_on": "On",
+    "osc_2_transpose": 24,
+    "osc_2_level": 0,
+    "osc_2_spectral_morph_type": "Inharmonic Stretch",
+    "osc_2_spectral_morph_amount": "30%",
+    "env_1_attack": "0.5ms",
+    "env_1_decay": "1.1s",
+    "env_1_sustain": 0,
+    "env_1_release": "0.9s",
+    "env_2_attack": "0ms",
+    "env_2_decay": "60ms",
+    "env_2_sustain": 0,
+    "delay_on": "On",
+    "delay_style": "Ping Pong",
+    "delay_sync": "Tempo Dotted",
+    "delay_tempo": "1/8",
+    "delay_feedback": "38%",
+    "delay_dry_wet": "22%",
+    "reverb_on": "On",
+    "reverb_dry_wet": "18%",
+    "reverb_decay_time": "1.8s",
+    "beats_per_minute": 96,
+    "volume": "-9dB"
+  },
+  "mods": [
+    {
+      "source": "env_2",
+      "dest": "osc_2_level",
+      "amount": 0.75
+    },
+    {
+      "source": "velocity",
+      "dest": "osc_2_spectral_morph_amount",
+      "amount": 0.3
+    }
+  ],
+  "play": {
+    "sequence": "A4 C5 E5 A5 G5 E5 D5 _ E5 C5 A4 _ G4 A4! _ _",
+    "step": 0.156,
+    "gate": 0.5,
+    "vel": 0.75,
+    "tail": 2.2
+  }
+}

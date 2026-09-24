@@ -1,0 +1,112 @@
+{
+  "duration": 2.9,
+  "peak_db": -4.5,
+  "rms_db": -25.4,
+  "crest_db": 20.9,
+  "attack_ms": 0.0,
+  "rise50_ms": 0.0,
+  "peak_time": 0.615,
+  "sustain_db": -9.1,
+  "decay_20db": 0.499,
+  "release_60db": null,
+  "f0_hz": 770.65,
+  "f0_note": "-",
+  "pitch_clarity": 0.05,
+  "pitch_start": "B3-9c",
+  "pitch_end": "B3-9c",
+  "peaks": [
+    "409Hz G#4-28c (-2dB)",
+    "517Hz C5-20c (0dB)",
+    "594Hz D5+20c (-2dB)",
+    "665Hz E5+14c (-2dB)",
+    "745Hz F#5+11c (-2dB)",
+    "797Hz G5+29c (-2dB)",
+    "873Hz A5-14c (-1dB)",
+    "1192Hz D6+26c (-2dB)"
+  ],
+  "centroid_hz": 4650,
+  "centroid_start": 3788,
+  "centroid_end": 2740,
+  "attack_centroid_hz": 4885,
+  "onset_sweep": "",
+  "rolloff_hz": 2444,
+  "flatness": 0.2064,
+  "harmonicity": null,
+  "bands": {
+    "sub": 0.1,
+    "bass": 4.1,
+    "low-mid": 45.4,
+    "mid": 42.3,
+    "presence": 6.1,
+    "air": 2.0
+  },
+  "tremolo_hz": 3.36,
+  "tremolo_db": 23.7,
+  "wobble_hz": 0.0,
+  "wobble_pct": 140.5,
+  "glide_st_per_s": -124.89,
+  "glide_consistency": 0.86,
+  "width": 0.492,
+  "correlation": 0.611,
+  "clipped": 0,
+  "timeline": [
+    {
+      "t": 0.0,
+      "level_db": -22.4,
+      "centroid_hz": 4419
+    },
+    {
+      "t": 0.29,
+      "level_db": -22.1,
+      "centroid_hz": 5002
+    },
+    {
+      "t": 0.58,
+      "level_db": -21.3,
+      "centroid_hz": 5378
+    },
+    {
+      "t": 0.87,
+      "level_db": -28.9,
+      "centroid_hz": 5019
+    },
+    {
+      "t": 1.16,
+      "level_db": -22.1,
+      "centroid_hz": 3874
+    },
+    {
+      "t": 1.45,
+      "level_db": -28.7,
+      "centroid_hz": 3505
+    },
+    {
+      "t": 1.74,
+      "level_db": -35.0,
+      "centroid_hz": 3376
+    },
+    {
+      "t": 2.03,
+      "level_db": -42.2,
+      "centroid_hz": 3239
+    },
+    {
+      "t": 2.32,
+      "level_db": -49.6,
+      "centroid_hz": 2717
+    },
+    {
+      "t": 2.61,
+      "level_db": -52.0,
+      "centroid_hz": 2940
+    }
+  ],
+  "words": [
+    "percussive attack",
+    "very bright / sizzly",
+    "breathy / grainy",
+    "pulsing ~3.4 Hz (24 dB)",
+    "spectrum glides down (-124.9 st/s)",
+    "wide stereo"
+  ]
+}

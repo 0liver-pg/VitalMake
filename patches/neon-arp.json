@@ -1,0 +1,52 @@
+{
+  "name": "Neon Arp",
+  "description": "Synthwave supersaw arpeggio: seven-voice saw, filter snapping open on every note and closing within 200 ms, dotted-eighth echo.",
+  "params": {
+    "beats_per_minute": 105,
+    "osc_1_level": 0.7,
+    "osc_1_unison_voices": 7,
+    "osc_1_unison_detune": "22%",
+    "osc_1_stereo_spread": "90%",
+    "filter_1_on": "On",
+    "filter_1_model": "Analog",
+    "filter_1_style": "24dB",
+    "filter_1_cutoff": "500Hz",
+    "filter_1_resonance": "30%",
+    "filter_1_keytrack": "50%",
+    "env_1_attack": "1ms",
+    "env_1_decay": "400ms",
+    "env_1_sustain": 0.3,
+    "env_1_release": "250ms",
+    "env_2_attack": "0ms",
+    "env_2_decay": "320ms",
+    "env_2_sustain": 0,
+    "env_2_decay_power": -2,
+    "delay_on": "On",
+    "delay_style": "Ping Pong",
+    "delay_sync": "Tempo Dotted",
+    "delay_tempo": "1/8",
+    "delay_feedback": "42%",
+    "delay_dry_wet": "28%",
+    "reverb_on": "On",
+    "reverb_dry_wet": "20%"
+  },
+  "mods": [
+    {
+      "source": "env_2",
+      "dest": "filter_1_cutoff",
+      "amount": "+60st"
+    },
+    {
+      "source": "velocity",
+      "dest": "filter_1_cutoff",
+      "amount": "+12st"
+    }
+  ],
+  "play": {
+    "sequence": "A2 E3 A3! C4 E4 C4 A3 E3 F2 C3 F3! A3 C4 A3 F3 C3 G2 D3 G3! B3 D4 B3 G3 D3",
+    "step": 0.143,
+    "gate": 0.55,
+    "vel": 0.7,
+    "tail": 1.8
+  }
+}

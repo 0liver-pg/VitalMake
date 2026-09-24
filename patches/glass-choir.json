@@ -1,0 +1,108 @@
+{
+  "name": "Glass Choir",
+  "description": "Evolving detuned pad with a slow filter sweep: a wavetable that drifts from hollow organ to a brighter vowel-like spectrum, filter blooming over several seconds, chorus and a long hall.",
+  "wavetables": {
+    "osc_1": [
+      {
+        "harmonics": [
+          1,
+          0,
+          0.5,
+          0,
+          0.3,
+          0,
+          0.2,
+          0,
+          0.1
+        ]
+      },
+      {
+        "harmonics": [
+          1,
+          0.6,
+          0.2,
+          0.7,
+          0.1,
+          0.5,
+          0.05,
+          0.3,
+          0.02,
+          0.2
+        ]
+      },
+      {
+        "partials": 48,
+        "falloff": 0.8
+      }
+    ]
+  },
+  "lfos": {
+    "lfo_1": {
+      "shape": "sine"
+    }
+  },
+  "params": {
+    "osc_1_level": 0.6,
+    "osc_1_unison_voices": 7,
+    "osc_1_unison_detune": "18%",
+    "osc_1_stereo_spread": "100%",
+    "osc_2_on": "On",
+    "osc_2_transpose": 12,
+    "osc_2_level": 0.25,
+    "osc_2_unison_voices": 3,
+    "osc_2_unison_detune": "10%",
+    "filter_1_on": "On",
+    "filter_1_model": "Analog",
+    "filter_1_style": "24dB",
+    "filter_1_cutoff": "350Hz",
+    "filter_1_resonance": "25%",
+    "env_1_attack": "1.4s",
+    "env_1_decay": "2s",
+    "env_1_sustain": 0.8,
+    "env_1_release": "3s",
+    "env_2_attack": "3s",
+    "env_2_decay": "4s",
+    "env_2_sustain": 0.5,
+    "lfo_1_sync": "Seconds",
+    "lfo_1_frequency": "0.15Hz",
+    "chorus_on": "On",
+    "chorus_dry_wet": "35%",
+    "reverb_on": "On",
+    "reverb_dry_wet": "40%",
+    "reverb_decay_time": "5s",
+    "reverb_size": "80%",
+    "volume": "-10dB"
+  },
+  "mods": [
+    {
+      "source": "env_2",
+      "dest": "filter_1_cutoff",
+      "amount": "+40st"
+    },
+    {
+      "source": "lfo_1",
+      "dest": "osc_1_wave_frame",
+      "amount": 1.0
+    },
+    {
+      "source": "lfo_1",
+      "dest": "filter_1_cutoff",
+      "amount": "+6st",
+      "bipolar": true
+    }
+  ],
+  "macros": {
+    "1": "BLOOM"
+  },
+  "play": {
+    "chord": [
+      "C3",
+      "G3",
+      "D4",
+      "E4"
+    ],
+    "dur": 5,
+    "tail": 4,
+    "vel": 0.7
+  }
+}

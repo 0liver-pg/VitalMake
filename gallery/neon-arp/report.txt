@@ -1,0 +1,11 @@
+== Neon Arp - first note alone ==
+Character: hard attack, warm, clean tone, bass-heavy, wide stereo
+Level: peak -10.9 dBFS, rms -31.8 dBFS, crest 20.9 dB | Envelope: attack 2 ms (half-level in 1 ms), peak at 0.02s
+Pitch: A2-2c (109.89 Hz, clarity 0.96)
+Strongest partials: 29Hz A#0-34c (-26dB); 110Hz A2+1c (0dB); 221Hz A3+11c (-13dB); 329Hz E4-5c (-20dB); 436Hz A4-17c (-20dB); 548Hz C#5-20c (-21dB); 658Hz E5-2c (-23dB); 768Hz G5-35c (-26dB)
+Spectrum: centroid 702 Hz (start 658 -> end 684), 85% rolloff 129 Hz, flatness 0.005, harmonicity 0.82
+Energy by band: sub 0.4%, bass 92.0%, low-mid 5.3%, mid 2.0%, presence 0.3%, air 0.0%
+Motion: no periodic modulation or glide detected
+Stereo: width 0.494 (side/mid), L/R correlation 0.613
+Timeline (t: level dB, centroid Hz): 0.0s:-23/707  0.19s:-33/690  0.37s:-41/677  0.56s:-36/649  0.74s:-34/694  0.94s:-40/705  1.13s:-55/479  1.31s:-40/644  1.5s:-47/739  1.68s:-48/737
+Phrase: 5.2s, peak -7.1 dBFS, rms -24.9 dBFS, centroid 1538 Hz, width 0.619, partials: 92Hz F#2-19c; 106Hz G#2+32c; 130Hz C3-8c; 166Hz E3+8c; 195Hz G3-5c; 220Hz A3+4c; 250Hz B3+22c; 291Hz D4-15c

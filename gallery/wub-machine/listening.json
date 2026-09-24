@@ -1,0 +1,115 @@
+{
+  "duration": 5.528,
+  "peak_db": -9.8,
+  "rms_db": -17.5,
+  "crest_db": 7.6,
+  "attack_ms": 11.6,
+  "rise50_ms": 1.5,
+  "peak_time": 2.74,
+  "sustain_db": -4.6,
+  "decay_20db": null,
+  "release_60db": 0.104,
+  "f0_hz": 52.06,
+  "f0_note": "G#1+5c",
+  "pitch_clarity": 0.87,
+  "pitch_start": "F1+9c",
+  "pitch_end": "C2-11c",
+  "peaks": [
+    "52Hz G#1+11c (0dB)",
+    "130Hz C3-7c (-6dB)",
+    "196Hz G3+1c (-10dB)",
+    "260Hz C4-13c (-16dB)",
+    "305Hz D#4-32c (-15dB)",
+    "348Hz F4-5c (-18dB)",
+    "391Hz G4-3c (-17dB)",
+    "456Hz A#4-37c (-17dB)"
+  ],
+  "centroid_hz": 347,
+  "centroid_start": 369,
+  "centroid_end": 423,
+  "attack_centroid_hz": 261,
+  "onset_sweep": "",
+  "rolloff_hz": 183,
+  "flatness": 0.0004,
+  "harmonicity": 0.561,
+  "bands": {
+    "sub": 41.8,
+    "bass": 43.5,
+    "low-mid": 9.2,
+    "mid": 0.9,
+    "presence": 0.0,
+    "air": 0.0
+  },
+  "tremolo_hz": 1.08,
+  "tremolo_db": 9.3,
+  "wobble_hz": 1.06,
+  "wobble_pct": 259.8,
+  "glide_st_per_s": 0.0,
+  "glide_consistency": 0.0,
+  "width": 0.681,
+  "correlation": 0.361,
+  "clipped": 0,
+  "timeline": [
+    {
+      "t": 0.0,
+      "level_db": -18.0,
+      "centroid_hz": 341
+    },
+    {
+      "t": 0.55,
+      "level_db": -18.4,
+      "centroid_hz": 391
+    },
+    {
+      "t": 1.1,
+      "level_db": -19.3,
+      "centroid_hz": 422
+    },
+    {
+      "t": 1.66,
+      "level_db": -16.3,
+      "centroid_hz": 245
+    },
+    {
+      "t": 2.21,
+      "level_db": -17.1,
+      "centroid_hz": 291
+    },
+    {
+      "t": 2.76,
+      "level_db": -14.6,
+      "centroid_hz": 275
+    },
+    {
+      "t": 3.32,
+      "level_db": -15.3,
+      "centroid_hz": 344
+    },
+    {
+      "t": 3.87,
+      "level_db": -18.2,
+      "centroid_hz": 473
+    },
+    {
+      "t": 4.42,
+      "level_db": -18.0,
+      "centroid_hz": 502
+    },
+    {
+      "t": 4.98,
+      "level_db": -26.4,
+      "centroid_hz": 428
+    }
+  ],
+  "words": [
+    "hard attack",
+    "sustained",
+    "dark",
+    "inharmonic / metallic",
+    "bass-heavy",
+    "pulsing ~1.1 Hz (9 dB)",
+    "wobbling brightness ~1.1 Hz",
+    "pitch moves F1+9c -> C2-11c",
+    "wide stereo"
+  ]
+}

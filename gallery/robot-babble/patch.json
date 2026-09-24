@@ -1,0 +1,76 @@
+{
+  "name": "Robot Babble",
+  "description": "A machine trying to talk: a buzzy saw through a formant (vowel) filter whose mouth shape is jumped around by sample-and-hold randomness, like syllables.",
+  "params": {
+    "osc_1_level": 0.8,
+    "osc_1_unison_voices": 2,
+    "osc_1_unison_detune": "4%",
+    "filter_1_on": "On",
+    "filter_1_model": "Formant",
+    "filter_1_formant_resonance": "90%",
+    "filter_1_formant_x": 0.5,
+    "filter_1_formant_y": 0.5,
+    "env_1_attack": "10ms",
+    "env_1_sustain": 1.0,
+    "env_1_release": "120ms",
+    "random_1_style": "Sample & Hold",
+    "random_1_sync": "Tempo",
+    "random_1_tempo": "1/16",
+    "random_1_sync_type": "On",
+    "random_2_style": "Sine Interpolate",
+    "random_2_sync": "Tempo",
+    "random_2_tempo": "1/8",
+    "lfo_1_sync": "Seconds",
+    "lfo_1_frequency": "5.5Hz",
+    "beats_per_minute": 110,
+    "chorus_on": "On",
+    "chorus_dry_wet": "20%",
+    "reverb_on": "On",
+    "reverb_dry_wet": "15%"
+  },
+  "lfos": {
+    "lfo_1": {
+      "shape": "sine"
+    }
+  },
+  "mods": [
+    {
+      "source": "random_1",
+      "dest": "filter_1_formant_x",
+      "amount": 1.0,
+      "bipolar": true
+    },
+    {
+      "source": "random_2",
+      "dest": "filter_1_formant_y",
+      "amount": 1.0,
+      "bipolar": true
+    },
+    {
+      "source": "lfo_1",
+      "dest": "osc_1_tune",
+      "amount": 0.004,
+      "bipolar": true
+    }
+  ],
+  "play": {
+    "notes": [
+      {
+        "note": "A2",
+        "start": 0.0,
+        "dur": 1.1
+      },
+      {
+        "note": "C3",
+        "start": 1.2,
+        "dur": 0.5
+      },
+      {
+        "note": "G2",
+        "start": 1.75,
+        "dur": 1.4
+      }
+    ],
+    "tail": 0.8
+  }
+}

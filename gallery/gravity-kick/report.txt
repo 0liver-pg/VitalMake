@@ -1,0 +1,13 @@
+== Gravity Kick - first note alone ==
+Character: percussive attack, dark, clean tone, bass-heavy, closes down over time (x4.6 darker), mono
+Level: peak -6.9 dBFS, rms -18.3 dBFS, crest 11.4 dB | Envelope: attack 19 ms (half-level in 2 ms), peak at 0.06s, release to -60 dB in 0.30s
+Pitch: F1+13c (43.97 Hz, clarity 0.86)
+Strongest partials: 44Hz F1+8c (0dB); 122Hz B2-25c (-19dB); 214Hz A3-44c (-25dB); 300Hz D4+35c (-28dB)
+Spectrum: centroid 74 Hz (start 197 -> end 43), 85% rolloff 54 Hz, flatness 0.000, harmonicity 0.93
+Onset pitch sweep: 327 Hz -> 44 Hz within 58 ms
+Transient: first 30 ms is much brighter (218 Hz) than the body - a click/zap/pitch-drop onset
+Energy by band: sub 89.9%, bass 9.1%, low-mid 0.9%, mid 0.0%, presence 0.0%, air 0.0%
+Motion: no periodic modulation or glide detected
+Stereo: width 0.0 (side/mid), L/R correlation 1.0
+Timeline (t: level dB, centroid Hz): 0.0s:-10/86  0.1s:-14/48  0.22s:-29/43  0.33s:-52/43  0.44s:-120/0  0.55s:-120/0  0.66s:-120/0  0.77s:-120/0  0.88s:-120/0  0.99s:-120/0
+Phrase: 2.4s, peak -6.7 dBFS, rms -15.6 dBFS, centroid 76 Hz, width 0.0, partials: 44Hz F1+9c; 121Hz B2-35c; 215Hz A3-43c; 299Hz D4+32c

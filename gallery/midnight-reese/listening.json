@@ -1,0 +1,115 @@
+{
+  "duration": 5.6,
+  "peak_db": -6.8,
+  "rms_db": -16.9,
+  "crest_db": 10.1,
+  "attack_ms": 5.1,
+  "rise50_ms": 4.4,
+  "peak_time": 2.589,
+  "sustain_db": -4.0,
+  "decay_20db": 0.372,
+  "release_60db": 0.163,
+  "f0_hz": 49.08,
+  "f0_note": "G1+3c",
+  "pitch_clarity": 0.96,
+  "pitch_start": "E1+14c",
+  "pitch_end": "D1+9c",
+  "peaks": [
+    "43Hz F1-42c (0dB)",
+    "79Hz D#2+28c (-5dB)",
+    "153Hz D#3-29c (-14dB)",
+    "197Hz G3+10c (-15dB)",
+    "250Hz B3+19c (-16dB)",
+    "293Hz D4-5c (-18dB)",
+    "334Hz E4+22c (-20dB)",
+    "444Hz A4+16c (-23dB)"
+  ],
+  "centroid_hz": 370,
+  "centroid_start": 351,
+  "centroid_end": 479,
+  "attack_centroid_hz": 172,
+  "onset_sweep": "",
+  "rolloff_hz": 129,
+  "flatness": 0.0003,
+  "harmonicity": 0.683,
+  "bands": {
+    "sub": 53.2,
+    "bass": 37.6,
+    "low-mid": 5.7,
+    "mid": 0.9,
+    "presence": 0.0,
+    "air": 0.0
+  },
+  "tremolo_hz": 1.05,
+  "tremolo_db": 11.9,
+  "wobble_hz": 1.84,
+  "wobble_pct": 159.4,
+  "glide_st_per_s": 0.0,
+  "glide_consistency": 0.0,
+  "width": 0.902,
+  "correlation": 0.1,
+  "clipped": 0,
+  "timeline": [
+    {
+      "t": 0.0,
+      "level_db": -16.6,
+      "centroid_hz": 348
+    },
+    {
+      "t": 0.56,
+      "level_db": -14.2,
+      "centroid_hz": 299
+    },
+    {
+      "t": 1.11,
+      "level_db": -17.9,
+      "centroid_hz": 499
+    },
+    {
+      "t": 1.67,
+      "level_db": -18.3,
+      "centroid_hz": 413
+    },
+    {
+      "t": 2.24,
+      "level_db": -13.2,
+      "centroid_hz": 299
+    },
+    {
+      "t": 2.8,
+      "level_db": -18.8,
+      "centroid_hz": 417
+    },
+    {
+      "t": 3.36,
+      "level_db": -18.5,
+      "centroid_hz": 435
+    },
+    {
+      "t": 3.92,
+      "level_db": -16.2,
+      "centroid_hz": 400
+    },
+    {
+      "t": 4.48,
+      "level_db": -18.2,
+      "centroid_hz": 478
+    },
+    {
+      "t": 5.04,
+      "level_db": -120.0,
+      "centroid_hz": 0
+    }
+  ],
+  "words": [
+    "percussive attack",
+    "short, plucky decay",
+    "dark",
+    "clean tone",
+    "bass-heavy",
+    "pulsing ~1.1 Hz (12 dB)",
+    "wobbling brightness ~1.8 Hz",
+    "pitch moves E1+14c -> D1+9c",
+    "very wide"
+  ]
+}

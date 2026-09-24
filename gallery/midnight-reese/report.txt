@@ -1,0 +1,11 @@
+== Midnight Reese - first note alone ==
+Character: hard attack, sustained, dark, clean tone, bass-heavy, opens up over time (x1.8 brighter), pulsing ~1.2 Hz (9 dB), wobbling brightness ~1.3 Hz, very wide
+Level: peak -7.1 dBFS, rms -18.1 dBFS, crest 10.9 dB | Envelope: attack 5 ms (half-level in 3 ms), peak at 0.70s, sustain -2 dB, release to -60 dB in 0.16s
+Pitch: E1+1c (41.24 Hz, clarity 0.91)
+Strongest partials: 41Hz E1-4c (0dB); 82Hz E2-1c (-2dB); 124Hz B2+7c (-9dB); 166Hz E3+7c (-12dB); 207Hz G#3-8c (-13dB); 248Hz B3+8c (-15dB); 288Hz D4-31c (-17dB); 330Hz E4+0c (-19dB)
+Spectrum: centroid 396 Hz (start 317 -> end 570), 85% rolloff 129 Hz, flatness 0.000, harmonicity 0.91
+Energy by band: sub 44.4%, bass 46.5%, low-mid 6.1%, mid 1.0%, presence 0.0%, air 0.0%
+Motion: level pulses at 1.21 Hz (8.8 dB p-p); brightness wobbles at 1.28 Hz (±47%)
+Stereo: width 0.977 (side/mid), L/R correlation 0.021
+Timeline (t: level dB, centroid Hz): 0.0s:-18/323  0.26s:-19/457  0.51s:-14/344  0.78s:-17/421  1.03s:-21/534  1.3s:-16/492  1.56s:-14/356  1.81s:-28/510  2.08s:-120/0  2.33s:-120/0
+Phrase: 5.6s, peak -6.8 dBFS, rms -16.9 dBFS, centroid 370 Hz, width 0.902, partials: 43Hz F1-42c; 79Hz D#2+28c; 153Hz D#3-29c; 197Hz G3+10c; 250Hz B3+19c; 293Hz D4-5c; 334Hz E4+22c; 444Hz A4+16c

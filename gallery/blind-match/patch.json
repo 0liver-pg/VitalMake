@@ -1,0 +1,52 @@
+{
+  "name": "Blind Match",
+  "params": {
+    "osc_1_unison_voices": 3,
+    "osc_1_unison_detune": "15%",
+    "osc_1_random_phase": "0%",
+    "filter_1_on": "On",
+    "filter_1_style": "24dB",
+    "env_1_attack": "0ms",
+    "env_2_attack": "0ms",
+    "env_2_sustain": 0,
+    "filter_1_cutoff": {
+      "raw": 70.75515
+    },
+    "filter_1_resonance": {
+      "raw": 0.55741
+    },
+    "env_1_decay": {
+      "raw": 0.79673
+    },
+    "env_1_sustain": {
+      "raw": 0.17387
+    },
+    "env_2_decay": {
+      "raw": 0.69762
+    },
+    "modulation_1_amount": {
+      "raw": 0.28833
+    }
+  },
+  "mods": [
+    {
+      "source": "env_2",
+      "dest": "filter_1_cutoff",
+      "amount": 0.3
+    }
+  ],
+  "play": {
+    "note": "A2",
+    "dur": 0.6,
+    "tail": 0.8
+  },
+  "fitted": {
+    "filter_1_cutoff": "487 Hz (B4)",
+    "filter_1_resonance": "55.7%",
+    "env_1_decay": "403 ms",
+    "env_1_sustain": "0.174",
+    "env_2_decay": "237 ms",
+    "modulation_1_amount": "0.288"
+  },
+  "fit_distance": 0.1261
+}

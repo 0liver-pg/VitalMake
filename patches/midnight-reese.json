@@ -1,0 +1,83 @@
+{
+  "name": "Midnight Reese",
+  "description": "Drum-and-bass reese: two saws a few cents apart beating against each other, stacked unison, driven ladder filter, slow phase-y movement.",
+  "params": {
+    "osc_1_level": 0.7,
+    "osc_1_unison_voices": 4,
+    "osc_1_unison_detune": "12%",
+    "osc_1_stereo_spread": "70%",
+    "osc_2_on": "On",
+    "osc_2_level": 0.7,
+    "osc_2_tune": 0.12,
+    "osc_2_unison_voices": 4,
+    "osc_2_unison_detune": "16%",
+    "osc_3_on": "On",
+    "osc_3_transpose": 0,
+    "osc_3_level": 0.4,
+    "osc_3_destination": "DIRECT OUT",
+    "filter_1_on": "On",
+    "filter_1_model": "Ladder",
+    "filter_1_style": "24dB",
+    "filter_1_cutoff": "1.4kHz",
+    "filter_1_resonance": "25%",
+    "filter_1_drive": "18dB",
+    "osc_2_destination": "FILTER 1",
+    "env_1_attack": "8ms",
+    "env_1_sustain": 1.0,
+    "env_1_release": "150ms",
+    "lfo_1_sync": "Seconds",
+    "lfo_1_frequency": "0.25Hz",
+    "distortion_on": "On",
+    "distortion_type": "Soft Clip",
+    "distortion_drive": "10dB",
+    "distortion_mix": "60%",
+    "phaser_on": "On",
+    "phaser_dry_wet": "30%",
+    "phaser_feedback": "40%",
+    "volume": "-9dB"
+  },
+  "wavetables": {
+    "osc_3": [
+      {
+        "shape": "sine"
+      }
+    ]
+  },
+  "lfos": {
+    "lfo_1": {
+      "shape": "triangle"
+    }
+  },
+  "mods": [
+    {
+      "source": "lfo_1",
+      "dest": "filter_1_cutoff",
+      "amount": "+14st"
+    },
+    {
+      "source": "lfo_1",
+      "dest": "osc_1_unison_detune",
+      "amount": 0.25
+    }
+  ],
+  "play": {
+    "notes": [
+      {
+        "note": "E1",
+        "start": 0.0,
+        "dur": 1.8
+      },
+      {
+        "note": "G1",
+        "start": 2.0,
+        "dur": 0.9
+      },
+      {
+        "note": "D1",
+        "start": 3.0,
+        "dur": 1.8
+      }
+    ],
+    "tail": 0.8
+  }
+}

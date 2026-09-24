@@ -1,0 +1,115 @@
+{
+  "name": "Wub Machine",
+  "description": "140 bpm dubstep wobble: tempo-synced LFO slamming a resonant dirty filter and sweeping the wavetable, then distortion for grit.",
+  "wavetables": {
+    "osc_1": [
+      {
+        "shape": "saw"
+      },
+      {
+        "shape": "pulse",
+        "width": 0.2
+      },
+      {
+        "expr": "tanh(4*sin(2*pi*x) + 2*sin(6*pi*x))"
+      }
+    ],
+    "osc_2": [
+      {
+        "shape": "sine"
+      }
+    ]
+  },
+  "lfos": {
+    "lfo_1": {
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0.12,
+          1
+        ],
+        [
+          0.5,
+          0.35
+        ],
+        [
+          0.62,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "smooth": true
+    }
+  },
+  "params": {
+    "beats_per_minute": 140,
+    "osc_1_level": 0.8,
+    "osc_1_unison_voices": 3,
+    "osc_1_unison_detune": "8%",
+    "osc_2_on": "On",
+    "osc_2_transpose": 0,
+    "osc_2_level": 0.4,
+    "osc_2_unison_voices": 1,
+    "filter_1_on": "On",
+    "filter_1_model": "Dirty",
+    "filter_1_style": "12dB",
+    "filter_1_cutoff": "120Hz",
+    "filter_1_resonance": "55%",
+    "filter_1_drive": "8dB",
+    "env_1_attack": "3ms",
+    "env_1_sustain": 1.0,
+    "env_1_release": "80ms",
+    "lfo_1_sync": "Tempo",
+    "lfo_1_tempo": "1/4",
+    "lfo_1_sync_type": "Trigger",
+    "distortion_on": "On",
+    "distortion_type": "Hard Clip",
+    "distortion_drive": "14dB",
+    "distortion_mix": "70%",
+    "volume": "-12dB",
+    "osc_2_destination": "DIRECT OUT"
+  },
+  "mods": [
+    {
+      "source": "lfo_1",
+      "dest": "filter_1_cutoff",
+      "amount": "+60st"
+    },
+    {
+      "source": "lfo_1",
+      "dest": "osc_1_wave_frame",
+      "amount": 0.9
+    }
+  ],
+  "play": {
+    "notes": [
+      {
+        "note": "F1",
+        "start": 0.0,
+        "dur": 1.65
+      },
+      {
+        "note": "F1",
+        "start": 1.714,
+        "dur": 0.8
+      },
+      {
+        "note": "Ab1",
+        "start": 2.571,
+        "dur": 0.8
+      },
+      {
+        "note": "C2",
+        "start": 3.428,
+        "dur": 1.6
+      }
+    ],
+    "tail": 0.5
+  }
+}

@@ -1,0 +1,11 @@
+== Robot Babble - first note alone ==
+Character: hard attack, sustained, warm, clean tone, very wide, phasey (L/R anti-correlated: may vanish in mono)
+Level: peak -2.3 dBFS, rms -20.0 dBFS, crest 17.8 dB | Envelope: attack 9 ms (half-level in 4 ms), peak at 0.95s, sustain -5 dB
+Pitch: A2-1c (109.93 Hz, clarity 0.93)
+Strongest partials: 110Hz A2+4c (-11dB); 220Hz A3-2c (-9dB); 330Hz E4+3c (-4dB); 442Hz A4+7c (0dB); 550Hz C#5-14c (-5dB); 880Hz A5-0c (-17dB); 1100Hz C#6-14c (-16dB); 1206Hz D6+46c (-18dB)
+Spectrum: centroid 935 Hz (start 842 -> end 644), 85% rolloff 549 Hz, flatness 0.001, harmonicity 0.91
+Energy by band: sub 0.0%, bass 9.6%, low-mid 84.9%, mid 5.4%, presence 0.1%, air 0.0%
+Motion: no periodic modulation or glide detected
+Stereo: width 1.183 (side/mid), L/R correlation -0.168
+Timeline (t: level dB, centroid Hz): 0.0s:-18/820  0.19s:-17/919  0.37s:-20/1058  0.57s:-19/1069  0.75s:-18/934  0.95s:-16/907  1.14s:-34/860  1.32s:-46/716  1.52s:-54/667  1.71s:-64/647
+Phrase: 4.0s, peak -2.6 dBFS, rms -17.4 dBFS, centroid 854 Hz, width 1.031, partials: 107Hz G#2+45c; 219Hz A3-7c; 294Hz D4+2c; 330Hz E4+1c; 392Hz G4+0c; 438Hz A4-6c; 492Hz B4-8c; 547Hz C#5-22c

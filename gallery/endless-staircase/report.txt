@@ -1,0 +1,10 @@
+== Endless Staircase ==
+Character: slow swell (0.3s attack), warm, clean tone, bass-heavy, pulsing ~0.4 Hz (8 dB), wobbling brightness ~0.5 Hz, spectrum glides up (+4.6 st/s), pitch moves C#3-40c -> B2+31c, very wide
+Level: peak -10.8 dBFS, rms -26.8 dBFS, crest 15.9 dB | Envelope: attack 288 ms (half-level in 107 ms), peak at 5.19s, sustain -8 dB, release to -60 dB in 1.10s
+Pitch: no single clear pitch (chord, noise or inharmonic; clarity 0.59); see partials, start C#3-40c -> end B2+31c
+Strongest partials: 135Hz C#3-40c (0dB); 191Hz G3-43c (-8dB); 221Hz A3+8c (-9dB); 270Hz C#4-43c (-10dB); 341Hz F4-44c (-12dB); 405Hz G#4-43c (-11dB); 469Hz A#4+12c (-15dB); 519Hz C5-16c (-14dB)
+Spectrum: centroid 1254 Hz (start 1530 -> end 1206), 85% rolloff 678 Hz, flatness 0.005
+Energy by band: sub 0.0%, bass 66.4%, low-mid 22.6%, mid 10.7%, presence 0.2%, air 0.0%
+Motion: level pulses at 0.44 Hz (8.2 dB p-p); brightness wobbles at 0.46 Hz (±34%); partials glide +4.6 semitones/s (100% of the time)
+Stereo: width 0.997 (side/mid), L/R correlation 0.003
+Timeline (t: level dB, centroid Hz): 0.0s:-29/1523  0.89s:-27/1366  1.8s:-26/1289  2.69s:-25/1211  3.6s:-28/1524  4.5s:-22/973  5.4s:-29/1577  6.3s:-27/1354  7.2s:-30/1395  8.1s:-63/1143

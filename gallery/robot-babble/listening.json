@@ -1,0 +1,115 @@
+{
+  "duration": 3.95,
+  "peak_db": -2.6,
+  "rms_db": -17.4,
+  "crest_db": 14.8,
+  "attack_ms": 88.5,
+  "rise50_ms": 24.7,
+  "peak_time": 0.673,
+  "sustain_db": -8.4,
+  "decay_20db": 0.488,
+  "release_60db": 0.801,
+  "f0_hz": 109.85,
+  "f0_note": "A2-2c",
+  "pitch_clarity": 0.96,
+  "pitch_start": "A2+4c",
+  "pitch_end": "G2+5c",
+  "peaks": [
+    "107Hz G#2+45c (-14dB)",
+    "219Hz A3-7c (-13dB)",
+    "294Hz D4+2c (-8dB)",
+    "330Hz E4+1c (-7dB)",
+    "392Hz G4+0c (0dB)",
+    "438Hz A4-6c (-1dB)",
+    "492Hz B4-8c (-10dB)",
+    "547Hz C#5-22c (-11dB)"
+  ],
+  "centroid_hz": 854,
+  "centroid_start": 985,
+  "centroid_end": 552,
+  "attack_centroid_hz": 1121,
+  "onset_sweep": "",
+  "rolloff_hz": 452,
+  "flatness": 0.0014,
+  "harmonicity": 0.436,
+  "bands": {
+    "sub": 0.0,
+    "bass": 4.8,
+    "low-mid": 91.7,
+    "mid": 3.5,
+    "presence": 0.0,
+    "air": 0.0
+  },
+  "tremolo_hz": 2.62,
+  "tremolo_db": 9.8,
+  "wobble_hz": 2.83,
+  "wobble_pct": 83.7,
+  "glide_st_per_s": 0.0,
+  "glide_consistency": 0.0,
+  "width": 1.031,
+  "correlation": -0.03,
+  "clipped": 0,
+  "timeline": [
+    {
+      "t": 0.0,
+      "level_db": -16.0,
+      "centroid_hz": 834
+    },
+    {
+      "t": 0.39,
+      "level_db": -14.4,
+      "centroid_hz": 845
+    },
+    {
+      "t": 0.79,
+      "level_db": -18.8,
+      "centroid_hz": 922
+    },
+    {
+      "t": 1.18,
+      "level_db": -17.6,
+      "centroid_hz": 994
+    },
+    {
+      "t": 1.58,
+      "level_db": -15.5,
+      "centroid_hz": 714
+    },
+    {
+      "t": 1.97,
+      "level_db": -16.5,
+      "centroid_hz": 871
+    },
+    {
+      "t": 2.37,
+      "level_db": -17.4,
+      "centroid_hz": 909
+    },
+    {
+      "t": 2.76,
+      "level_db": -17.1,
+      "centroid_hz": 860
+    },
+    {
+      "t": 3.16,
+      "level_db": -33.0,
+      "centroid_hz": 986
+    },
+    {
+      "t": 3.55,
+      "level_db": -52.7,
+      "centroid_hz": 420
+    }
+  ],
+  "words": [
+    "soft attack",
+    "warm",
+    "inharmonic / metallic",
+    "closes down over time (x1.8 darker)",
+    "pulsing ~2.6 Hz (10 dB)",
+    "wobbling brightness ~2.8 Hz",
+    "pitch moves A2+4c -> G2+5c",
+    "very wide",
+    "phasey (L/R anti-correlated: may vanish in mono)"
+  ]
+}

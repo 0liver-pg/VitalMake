@@ -1,0 +1,11 @@
+== Tin Kalimba - first note alone ==
+Character: hard attack, warm, clean tone, wide stereo
+Level: peak -2.8 dBFS, rms -26.6 dBFS, crest 23.8 dB | Envelope: attack 0 ms (half-level in 0 ms), peak at 0.01s
+Pitch: A4+1c (440.14 Hz, clarity 0.99)
+Strongest partials: 440Hz A4-0c (0dB); 880Hz A5+0c (-17dB); 1582Hz G6+15c (-32dB); 1626Hz G#6-37c (-29dB); 1760Hz A6-0c (-10dB); 1871Hz A#6+6c (-28dB); 5279Hz E8+2c (-19dB); 7042Hz A8+0c (-34dB)
+Spectrum: centroid 1244 Hz (start 639 -> end 866), 85% rolloff 1755 Hz, flatness 0.001, harmonicity 0.96
+Energy by band: sub 0.0%, bass 0.0%, low-mid 75.4%, mid 22.0%, presence 2.6%, air 0.0%
+Motion: no periodic modulation or glide detected
+Stereo: width 0.36 (side/mid), L/R correlation 0.778
+Timeline (t: level dB, centroid Hz): 0.0s:-18/1252  0.22s:-27/1070  0.45s:-45/1299  0.68s:-30/1563  0.91s:-35/1021  1.14s:-42/919  1.37s:-41/1865  1.59s:-38/883  1.82s:-46/1369  2.05s:-55/901
+Phrase: 4.3s, peak 0.4 dBFS, rms -18.5 dBFS, centroid 1798 Hz, width 0.378, partials: 392Hz G4+0c; 440Hz A4-0c; 523Hz C5-1c; 587Hz D5-1c; 659Hz E5-0c; 784Hz G5-0c; 880Hz A5-0c; 1760Hz A6-0c

@@ -1,0 +1,114 @@
+{
+  "duration": 1.4,
+  "peak_db": -12.4,
+  "rms_db": -36.2,
+  "crest_db": 23.8,
+  "attack_ms": 0.0,
+  "rise50_ms": 0.0,
+  "peak_time": 0.012,
+  "sustain_db": -27.6,
+  "decay_20db": 0.209,
+  "release_60db": 0.081,
+  "f0_hz": 109.6,
+  "f0_note": "A2-6c",
+  "pitch_clarity": 0.97,
+  "pitch_start": "A2-7c",
+  "pitch_end": "A2+1c",
+  "peaks": [
+    "110Hz A2-2c (0dB)",
+    "219Hz A3-5c (-8dB)",
+    "330Hz E4-0c (-12dB)",
+    "439Hz A4-4c (-14dB)",
+    "548Hz C#5-19c (-16dB)",
+    "658Hz E5-5c (-18dB)",
+    "767Hz G5-39c (-19dB)",
+    "876Hz A5-8c (-21dB)"
+  ],
+  "centroid_hz": 718,
+  "centroid_start": 752,
+  "centroid_end": 248,
+  "attack_centroid_hz": 706,
+  "onset_sweep": "",
+  "rolloff_hz": 334,
+  "flatness": 0.0,
+  "harmonicity": 0.814,
+  "bands": {
+    "sub": 0.4,
+    "bass": 80.4,
+    "low-mid": 14.7,
+    "mid": 4.4,
+    "presence": 0.0,
+    "air": 0.0
+  },
+  "tremolo_hz": 0.0,
+  "tremolo_db": 3.6,
+  "wobble_hz": 3.21,
+  "wobble_pct": 26.8,
+  "glide_st_per_s": 0.0,
+  "glide_consistency": 0.0,
+  "width": 0.414,
+  "correlation": 0.707,
+  "clipped": 0,
+  "timeline": [
+    {
+      "t": 0.0,
+      "level_db": -26.7,
+      "centroid_hz": 732
+    },
+    {
+      "t": 0.14,
+      "level_db": -40.9,
+      "centroid_hz": 438
+    },
+    {
+      "t": 0.28,
+      "level_db": -50.6,
+      "centroid_hz": 351
+    },
+    {
+      "t": 0.42,
+      "level_db": -52.0,
+      "centroid_hz": 254
+    },
+    {
+      "t": 0.56,
+      "level_db": -56.2,
+      "centroid_hz": 230
+    },
+    {
+      "t": 0.7,
+      "level_db": -118.3,
+      "centroid_hz": 328
+    },
+    {
+      "t": 0.84,
+      "level_db": -120.0,
+      "centroid_hz": 0
+    },
+    {
+      "t": 0.98,
+      "level_db": -120.0,
+      "centroid_hz": 0
+    },
+    {
+      "t": 1.11,
+      "level_db": -120.0,
+      "centroid_hz": 0
+    },
+    {
+      "t": 1.25,
+      "level_db": -120.0,
+      "centroid_hz": 0
+    }
+  ],
+  "words": [
+    "percussive attack",
+    "short, plucky decay",
+    "warm",
+    "clean tone",
+    "bass-heavy",
+    "closes down over time (x3.0 darker)",
+    "wobbling brightness ~3.2 Hz",
+    "wide stereo"
+  ]
+}

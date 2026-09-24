@@ -1,0 +1,114 @@
+{
+  "duration": 4.306,
+  "peak_db": 0.4,
+  "rms_db": -18.5,
+  "crest_db": 18.9,
+  "attack_ms": 0.0,
+  "rise50_ms": 0.0,
+  "peak_time": 1.567,
+  "sustain_db": -2.5,
+  "decay_20db": null,
+  "release_60db": null,
+  "f0_hz": 664.66,
+  "f0_note": "-",
+  "pitch_clarity": 0.69,
+  "pitch_start": "A4+1c",
+  "pitch_end": "A4-3c",
+  "peaks": [
+    "392Hz G4+0c (-7dB)",
+    "440Hz A4-0c (0dB)",
+    "523Hz C5-1c (-3dB)",
+    "587Hz D5-1c (-4dB)",
+    "659Hz E5-0c (-1dB)",
+    "784Hz G5-0c (-5dB)",
+    "880Hz A5-0c (-5dB)",
+    "1760Hz A6-0c (-9dB)"
+  ],
+  "centroid_hz": 1798,
+  "centroid_start": 1177,
+  "centroid_end": 950,
+  "attack_centroid_hz": 2114,
+  "onset_sweep": "",
+  "rolloff_hz": 2175,
+  "flatness": 0.0138,
+  "harmonicity": 0.239,
+  "bands": {
+    "sub": 0.0,
+    "bass": 0.0,
+    "low-mid": 71.3,
+    "mid": 25.9,
+    "presence": 2.5,
+    "air": 0.3
+  },
+  "tremolo_hz": 6.45,
+  "tremolo_db": 7.9,
+  "wobble_hz": 6.39,
+  "wobble_pct": 300.6,
+  "glide_st_per_s": 0.0,
+  "glide_consistency": 0.0,
+  "width": 0.378,
+  "correlation": 0.751,
+  "clipped": 6,
+  "timeline": [
+    {
+      "t": 0.0,
+      "level_db": -15.6,
+      "centroid_hz": 1701
+    },
+    {
+      "t": 0.43,
+      "level_db": -15.2,
+      "centroid_hz": 2396
+    },
+    {
+      "t": 0.86,
+      "level_db": -15.8,
+      "centroid_hz": 1787
+    },
+    {
+      "t": 1.29,
+      "level_db": -15.4,
+      "centroid_hz": 1591
+    },
+    {
+      "t": 1.72,
+      "level_db": -16.8,
+      "centroid_hz": 1488
+    },
+    {
+      "t": 2.15,
+      "level_db": -22.6,
+      "centroid_hz": 1488
+    },
+    {
+      "t": 2.58,
+      "level_db": -27.4,
+      "centroid_hz": 1421
+    },
+    {
+      "t": 3.01,
+      "level_db": -33.5,
+      "centroid_hz": 1368
+    },
+    {
+      "t": 3.44,
+      "level_db": -36.3,
+      "centroid_hz": 1284
+    },
+    {
+      "t": 3.87,
+      "level_db": -48.2,
+      "centroid_hz": 1380
+    }
+  ],
+  "words": [
+    "hard attack",
+    "sustained",
+    "bright",
+    "inharmonic / metallic",
+    "pulsing ~6.5 Hz (8 dB)",
+    "wobbling brightness ~6.4 Hz",
+    "wide stereo",
+    "hot: 6 samples over 0 dBFS (turn volume down)"
+  ]
+}

@@ -1,0 +1,1334 @@
+<title>Sounds Made Deaf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --ground: #eceff3; --panel: #f7f8fa; --ink: #19202b; --muted: #5a6475; --line: #cfd5de;
+  --accent: #0e7f86; --accent-ink: #ffffff; --chip: #dde7ea; --screen: #101418;
+  --display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ground: #11151b; --panel: #171c24; --ink: #e2e7ee; --muted: #97a1b1; --line: #2a323e;
+    --accent: #43c3c8; --accent-ink: #0b1115; --chip: #1f2b31;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground: #11151b; --panel: #171c24; --ink: #e2e7ee; --muted: #97a1b1; --line: #2a323e;
+  --accent: #43c3c8; --accent-ink: #0b1115; --chip: #1f2b31;
+}
+* { box-sizing: border-box; }
+body { background: var(--ground); color: var(--ink); font: 15px/1.55 var(--body); padding-inline: 16px; padding-block: 0 64px; }
+.wrap { max-width: 1180px; margin: 0 auto; }
+.masthead { padding-block: 48px 28px; display: grid; gap: 14px; max-width: 760px; }
+.eyebrow { font: 500 12px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+h1 { font: 700 clamp(34px, 6vw, 60px)/1.02 var(--display); margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+.lede { font-size: 17px; color: var(--muted); margin: 0; max-width: 65ch; }
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 14px; border-block: 1px solid var(--line); font: 500 13px/1.4 var(--mono); }
+.toc a { color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; }
+.toc a:hover, .toc a:focus-visible { border-color: var(--accent); outline: none; }
+.sound { padding-block: 40px; border-bottom: 1px solid var(--line); display: grid; gap: 18px; }
+.sound-head { display: grid; gap: 6px; max-width: 760px; }
+h2 { font: 700 30px/1.1 var(--display); margin: 0; }
+.brief { margin: 0; color: var(--muted); max-width: 65ch; }
+.sound-body { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+@media (max-width: 860px) { .sound-body { grid-template-columns: 1fr; } }
+.listen { display: grid; gap: 12px; }
+audio { width: 100%; }
+figure { margin: 0; background: var(--screen); border-radius: 6px; overflow: hidden; }
+figure img { display: block; width: 100%; height: auto; }
+.read { display: grid; gap: 12px; }
+h3 { font: 600 12px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 8px 0 0; }
+.chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.chips li { background: var(--chip); padding: 3px 9px; border-radius: 999px; font-size: 13px; }
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 0; }
+.facts div { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; }
+.facts dt { font: 500 11px/1 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.facts dd { margin: 4px 0 0; font: 500 15px/1.2 var(--mono); font-variant-numeric: tabular-nums; }
+@media (max-width: 480px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.mods { margin: 0; padding-left: 18px; font: 13px/1.6 var(--mono); }
+.small { margin: 0; font-size: 13px; color: var(--muted); }
+code { font: 12.5px var(--mono); }
+details { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; }
+summary { cursor: pointer; font-weight: 500; }
+summary:focus-visible, .copy:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+pre { font: 12px/1.5 var(--mono); white-space: pre-wrap; word-break: break-word; margin: 10px 0 2px; max-height: 420px; overflow: auto; }
+.copy { font: 500 12px var(--mono); background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 4px; padding: 5px 10px; margin-top: 10px; cursor: pointer; }
+.section-title { font: 700 clamp(26px, 4vw, 38px)/1.1 var(--display); margin: 56px 0 8px; }
+.experiment { max-width: 820px; display: grid; gap: 12px; }
+.experiment p { margin: 0; max-width: 70ch; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; font: 13px/1.4 var(--mono); font-variant-numeric: tabular-nums; min-width: 520px; }
+th, td { text-align: left; padding: 7px 14px 7px 0; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-weight: 500; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+<div class="wrap">
+  <header class="masthead">
+    <span class="eyebrow">VitalMake · Vital synthesizer, driven by text</span>
+    <h1>Sounds designed by a model that cannot hear</h1>
+    <p class="lede">Each patch below was written as JSON by Claude, rendered headlessly through the real Vital engine, and judged only through a machine-listening report and a spectrogram image. Press play to hear what it could only read about. 10 sounds, plus two blind-reconstruction experiments at the end.</p>
+  </header>
+  <nav class="toc" aria-label="Sounds"><a href="#glass-choir">Glass Choir</a><a href="#words-as-waves">Words As Waves</a><a href="#endless-staircase">Endless Staircase</a><a href="#robot-babble">Robot Babble</a><a href="#midnight-reese">Midnight Reese</a><a href="#wub-machine">Wub Machine</a><a href="#gravity-kick">Gravity Kick</a><a href="#laser-tag">Laser Tag</a><a href="#tin-kalimba">Tin Kalimba</a><a href="#neon-arp">Neon Arp</a><a href="#experiments">Blind match</a></nav>
+  
+<article class="sound" id="glass-choir">
+  <header class="sound-head">
+    <h2>Glass Choir</h2>
+    <p class="brief">Evolving detuned pad with a slow filter sweep: a wavetable that drifts from hollow organ to a brighter vowel-like spectrum, filter blooming over several seconds, chorus and a long hall.</p>
+  </header>
+  <div class="sound-body">
+    <div class="listen">
+      <audio controls preload="none" src="glass-choir/sound.wav"></audio>
+      <figure><img loading="lazy" src="glass-choir/sheet.png" alt="Spectrogram and waveform of Glass Choir"></figure>
+    </div>
+    <div class="read">
+      <h3>What the ears reported</h3>
+      <ul class="chips"><li>slow swell (0.7s attack)</li><li>bright</li><li>clean tone</li><li>closes down over time (x3.3 darker)</li><li>pulsing ~0.3 Hz (5 dB)</li><li>wobbling brightness ~0.9 Hz</li><li>very wide</li></ul>
+      <dl class="facts">
+        <div><dt>Pitch</dt><dd>-</dd></div>
+        <div><dt>Centroid</dt><dd>2335 Hz</dd></div>
+        <div><dt>Attack</dt><dd>702 ms</dd></div>
+        <div><dt>Width</dt><dd>0.814</dd></div>
+      </dl>
+      <details><summary>Full listening report</summary><pre>== Glass Choir ==
+Character: slow swell (0.7s attack), bright, clean tone, closes down over time (x3.3 darker), pulsing ~0.3 Hz (5 dB), wobbling brightness ~0.9 Hz, very wide
+Level: peak -3.7 dBFS, rms -24.8 dBFS, crest 21.1 dB | Envelope: attack 702 ms (half-level in 338 ms), peak at 1.35s, sustain -7 dB
+Pitch: no single clear pitch (chord, noise or inharmonic; clarity 0.67); see partials
+Strongest partials: 131Hz C3-4c (-2dB); 196Hz G3+3c (-2dB); 262Hz C4+5c (-3dB); 293Hz D4-5c (-1dB); 330Hz E4+3c (-5dB); 520Hz C5-10c (-7dB); 586Hz D5-5c (0dB); 658Hz E5-4c (-5dB)
+Spectrum: centroid 2335 Hz (start 2011 -&gt; end 611), 85% rolloff 1184 Hz, flatness 0.032, harmonicity 0.94
+Energy by band: sub 0.0%, bass 18.9%, low-mid 62.5%, mid 16.4%, presence 1.7%, air 0.5%
+Motion: level pulses at 0.32 Hz (5.1 dB p-p); brightness wobbles at 0.95 Hz (±44%)
+Stereo: width 0.814 (side/mid), L/R correlation 0.203
+Timeline (t: level dB, centroid Hz): 0.0s:-32/1608  0.89s:-20/2082  1.8s:-20/2206  2.69s:-23/2804  3.6s:-24/2875  4.5s:-24/2423  5.4s:-30/1638  6.3s:-41/1124  7.2s:-51/730  8.1s:-61/621</pre></details>
+      <h3>How it was built</h3>
+      <p class="small">Wavetables: osc_1: 3 frame(s) · 30 settings · preset file <code>Glass Choir.vital</code></p>
+      <ul class="mods"><li>env_2 → filter_1_cutoff +40st</li><li>lfo_1 → osc_1_wave_frame 1.0</li><li>lfo_1 → filter_1_cutoff +6st ±</li></ul>
+      <details><summary>Patch spec (JSON)</summary>
+        <button class="copy" type="button" data-target="spec-glass-choir">Copy JSON</button>
+        <pre id="spec-glass-choir">{
+  &quot;name&quot;: &quot;Glass Choir&quot;,
+  &quot;description&quot;: &quot;Evolving detuned pad with a slow filter sweep: a wavetable that drifts from hollow organ to a brighter vowel-like spectrum, filter blooming over several seconds, chorus and a long hall.&quot;,
+  &quot;wavetables&quot;: {
+    &quot;osc_1&quot;: [
+      {
+        &quot;harmonics&quot;: [
+          1,
+          0,
+          0.5,
+          0,
+          0.3,
+          0,
+          0.2,
+          0,
+          0.1
+        ]
+      },
+      {
+        &quot;harmonics&quot;: [
+          1,
+          0.6,
+          0.2,
+          0.7,
+          0.1,
+          0.5,
+          0.05,
+          0.3,
+          0.02,
+          0.2
+        ]
+      },
+      {
+        &quot;partials&quot;: 48,
+        &quot;falloff&quot;: 0.8
+      }
+    ]
+  },
+  &quot;lfos&quot;: {
+    &quot;lfo_1&quot;: {
+      &quot;shape&quot;: &quot;sine&quot;
+    }
+  },
+  &quot;params&quot;: {
+    &quot;osc_1_level&quot;: 0.6,
+    &quot;osc_1_unison_voices&quot;: 7,
+    &quot;osc_1_unison_detune&quot;: &quot;18%&quot;,
+    &quot;osc_1_stereo_spread&quot;: &quot;100%&quot;,
+    &quot;osc_2_on&quot;: &quot;On&quot;,
+    &quot;osc_2_transpose&quot;: 12,
+    &quot;osc_2_level&quot;: 0.25,
+    &quot;osc_2_unison_voices&quot;: 3,
+    &quot;osc_2_unison_detune&quot;: &quot;10%&quot;,
+    &quot;filter_1_on&quot;: &quot;On&quot;,
+    &quot;filter_1_model&quot;: &quot;Analog&quot;,
+    &quot;filter_1_style&quot;: &quot;24dB&quot;,
+    &quot;filter_1_cutoff&quot;: &quot;350Hz&quot;,
+    &quot;filter_1_resonance&quot;: &quot;25%&quot;,
+    &quot;env_1_attack&quot;: &quot;1.4s&quot;,
+    &quot;env_1_decay&quot;: &quot;2s&quot;,
+    &quot;env_1_sustain&quot;: 0.8,
+    &quot;env_1_release&quot;: &quot;3s&quot;,
+    &quot;env_2_attack&quot;: &quot;3s&quot;,
+    &quot;env_2_decay&quot;: &quot;4s&quot;,
+    &quot;env_2_sustain&quot;: 0.5,
+    &quot;lfo_1_sync&quot;: &quot;Seconds&quot;,
+    &quot;lfo_1_frequency&quot;: &quot;0.15Hz&quot;,
+    &quot;chorus_on&quot;: &quot;On&quot;,
+    &quot;chorus_dry_wet&quot;: &quot;35%&quot;,
+    &quot;reverb_on&quot;: &quot;On&quot;,
+    &quot;reverb_dry_wet&quot;: &quot;40%&quot;,
+    &quot;reverb_decay_time&quot;: &quot;5s&quot;,
+    &quot;reverb_size&quot;: &quot;80%&quot;,
+    &quot;volume&quot;: &quot;-10dB&quot;
+  },
+  &quot;mods&quot;: [
+    {
+      &quot;source&quot;: &quot;env_2&quot;,
+      &quot;dest&quot;: &quot;filter_1_cutoff&quot;,
+      &quot;amount&quot;: &quot;+40st&quot;
+    },
+    {
+      &quot;source&quot;: &quot;lfo_1&quot;,
+      &quot;dest&quot;: &quot;osc_1_wave_frame&quot;,
+      &quot;amount&quot;: 1.0
+    },
+    {
+      &quot;source&quot;: &quot;lfo_1&quot;,
+      &quot;dest&quot;: &quot;filter_1_cutoff&quot;,
+      &quot;amount&quot;: &quot;+6st&quot;,
+      &quot;bipolar&quot;: true
+    }
+  ],
+  &quot;macros&quot;: {
+    &quot;1&quot;: &quot;BLOOM&quot;
+  },
+  &quot;play&quot;: {
+    &quot;chord&quot;: [
+      &quot;C3&quot;,
+      &quot;G3&quot;,
+      &quot;D4&quot;,
+      &quot;E4&quot;
+    ],
+    &quot;dur&quot;: 5,
+    &quot;tail&quot;: 4,
+    &quot;vel&quot;: 0.7
+  }
+}</pre></details>
+    </div>
+  </div>
+</article>
+<article class="sound" id="words-as-waves">
+  <header class="sound-head">
+    <h2>Words As Waves</h2>
+    <p class="brief">An instrument made of a sentence: each wavetable frame is one word, with letters as harmonic loudness (a quiet, z loud). A slow LFO reads the sentence left to right.</p>
+  </header>
+  <div class="sound-body">
+    <div class="listen">
+      <audio controls preload="none" src="words-as-waves/sound.wav"></audio>
+      <figure><img loading="lazy" src="words-as-waves/sheet.png" alt="Spectrogram and waveform of Words As Waves"></figure>
+    </div>
+    <div class="read">
+      <h3>What the ears reported</h3>
+      <ul class="chips"><li>slow swell (0.4s attack)</li><li>dark</li><li>clean tone</li><li>pulsing ~0.3 Hz (10 dB)</li><li>wobbling brightness ~0.2 Hz</li><li>wide stereo</li></ul>
+      <dl class="facts">
+        <div><dt>Pitch</dt><dd>D3+0c</dd></div>
+        <div><dt>Centroid</dt><dd>363 Hz</dd></div>
+        <div><dt>Attack</dt><dd>430 ms</dd></div>
+        <div><dt>Width</dt><dd>0.624</dd></div>
+      </dl>
+      <details><summary>Full listening report</summary><pre>== Words As Waves ==
+Character: slow swell (0.4s attack), dark, clean tone, pulsing ~0.3 Hz (10 dB), wobbling brightness ~0.2 Hz, wide stereo
+Level: peak -7.4 dBFS, rms -21.8 dBFS, crest 14.4 dB | Envelope: attack 430 ms (half-level in 347 ms), peak at 5.94s, sustain -8 dB
+Pitch: D3+0c (146.86 Hz, clarity 0.9)
+Strongest partials: 147Hz D3+0c (-4dB); 220Hz A3-0c (-6dB); 294Hz D4-0c (0dB); 440Hz A4+0c (-4dB); 588Hz D5+2c (-14dB); 659Hz E5+0c (-14dB); 734Hz F#5-14c (-15dB); 1098Hz C#6-17c (-13dB)
+Spectrum: centroid 363 Hz (start 274 -&gt; end 334), 85% rolloff 441 Hz, flatness 0.000, harmonicity 0.78
+Energy by band: sub 0.0%, bass 30.6%, low-mid 66.6%, mid 2.8%, presence 0.0%, air 0.0%
+Motion: level pulses at 0.33 Hz (10.0 dB p-p); brightness wobbles at 0.25 Hz (±84%)
+Stereo: width 0.624 (side/mid), L/R correlation 0.44
+Timeline (t: level dB, centroid Hz): 0.0s:-21/308  0.94s:-21/238  1.89s:-24/684  2.84s:-21/472  3.8s:-21/416  4.75s:-22/369  5.7s:-18/299  6.65s:-22/314  7.6s:-36/396  8.56s:-51/327</pre></details>
+      <h3>How it was built</h3>
+      <p class="small">Wavetables: osc_1: 10 frame(s) · 20 settings · preset file <code>Words As Waves.vital</code></p>
+      <ul class="mods"><li>lfo_1 → osc_1_wave_frame 1.0</li></ul>
+      <details><summary>Patch spec (JSON)</summary>
+        <button class="copy" type="button" data-target="spec-words-as-waves">Copy JSON</button>
+        <pre id="spec-words-as-waves">{
+  &quot;name&quot;: &quot;Words As Waves&quot;,
+  &quot;description&quot;: &quot;An instrument made of a sentence: each wavetable frame is one word, with letters as harmonic loudness (a quiet, z loud). A slow LFO reads the sentence left to right.&quot;,
+  &quot;wavetables&quot;: {
+    &quot;osc_1&quot;: {
+      &quot;name&quot;: &quot;i am a language model&quot;,
+      &quot;frames&quot;: [
+        {
+          &quot;text&quot;: &quot;i&quot;
+        },
+        {
+          &quot;text&quot;: &quot;am&quot;
+        },
+        {
+          &quot;text&quot;: &quot;a&quot;
+        },
+        {
+          &quot;text&quot;: &quot;language&quot;
+        },
+        {
+          &quot;text&quot;: &quot;model&quot;
+        },
+        {
+          &quot;text&quot;: &quot;and&quot;
+        },
+        {
+          &quot;text&quot;: &quot;this&quot;
+        },
+        {
+          &quot;text&quot;: &quot;is&quot;
+        },
+        {
+          &quot;text&quot;: &quot;my&quot;
+        },
+        {
+          &quot;text&quot;: &quot;voice&quot;
+        }
+      ]
+    }
+  },
+  &quot;lfos&quot;: {
+    &quot;lfo_1&quot;: {
+      &quot;shape&quot;: &quot;ramp_up&quot;
+    }
+  },
+  &quot;params&quot;: {
+    &quot;osc_1_level&quot;: 0.7,
+    &quot;osc_1_unison_voices&quot;: 5,
+    &quot;osc_1_unison_detune&quot;: &quot;7%&quot;,
+    &quot;osc_1_stereo_spread&quot;: &quot;80%&quot;,
+    &quot;osc_1_smooth_interpolation&quot;: &quot;On&quot;,
+    &quot;lfo_1_sync&quot;: &quot;Seconds&quot;,
+    &quot;lfo_1_frequency&quot;: &quot;0.14Hz&quot;,
+    &quot;lfo_1_sync_type&quot;: &quot;Envelope&quot;,
+    &quot;filter_1_on&quot;: &quot;On&quot;,
+    &quot;filter_1_model&quot;: &quot;Analog&quot;,
+    &quot;filter_1_style&quot;: &quot;12dB&quot;,
+    &quot;filter_1_cutoff&quot;: &quot;4kHz&quot;,
+    &quot;env_1_attack&quot;: &quot;250ms&quot;,
+    &quot;env_1_sustain&quot;: 0.9,
+    &quot;env_1_release&quot;: &quot;2s&quot;,
+    &quot;chorus_on&quot;: &quot;On&quot;,
+    &quot;chorus_dry_wet&quot;: &quot;25%&quot;,
+    &quot;reverb_on&quot;: &quot;On&quot;,
+    &quot;reverb_dry_wet&quot;: &quot;30%&quot;,
+    &quot;reverb_decay_time&quot;: &quot;3s&quot;
+  },
+  &quot;mods&quot;: [
+    {
+      &quot;source&quot;: &quot;lfo_1&quot;,
+      &quot;dest&quot;: &quot;osc_1_wave_frame&quot;,
+      &quot;amount&quot;: 1.0
+    }
+  ],
+  &quot;play&quot;: {
+    &quot;chord&quot;: [
+      &quot;D3&quot;,
+      &quot;A3&quot;
+    ],
+    &quot;dur&quot;: 7,
+    &quot;tail&quot;: 2.5,
+    &quot;vel&quot;: 0.7
+  }
+}</pre></details>
+    </div>
+  </div>
+</article>
+<article class="sound" id="endless-staircase">
+  <header class="sound-head">
+    <h2>Endless Staircase</h2>
+    <p class="brief">A Shepard tone: sixteen octave-spaced voices under a bell-shaped spectral window, so the pitch climbs forever without ever getting higher.</p>
+  </header>
+  <div class="sound-body">
+    <div class="listen">
+      <audio controls preload="none" src="endless-staircase/sound.wav"></audio>
+      <figure><img loading="lazy" src="endless-staircase/sheet.png" alt="Spectrogram and waveform of Endless Staircase"></figure>
+    </div>
+    <div class="read">
+      <h3>What the ears reported</h3>
+      <ul class="chips"><li>slow swell (0.3s attack)</li><li>warm</li><li>clean tone</li><li>bass-heavy</li><li>pulsing ~0.4 Hz (8 dB)</li><li>wobbling brightness ~0.5 Hz</li><li>spectrum glides up (+4.6 st/s)</li><li>pitch moves C#3-40c -&gt; B2+31c</li><li>very wide</li></ul>
+      <dl class="facts">
+        <div><dt>Pitch</dt><dd>-</dd></div>
+        <div><dt>Centroid</dt><dd>1254 Hz</dd></div>
+        <div><dt>Attack</dt><dd>288 ms</dd></div>
+        <div><dt>Width</dt><dd>0.997</dd></div>
+      </dl>
+      <details><summary>Full listening report</summary><pre>== Endless Staircase ==
+Character: slow swell (0.3s attack), warm, clean tone, bass-heavy, pulsing ~0.4 Hz (8 dB), wobbling brightness ~0.5 Hz, spectrum glides up (+4.6 st/s), pitch moves C#3-40c -&gt; B2+31c, very wide
+Level: peak -10.8 dBFS, rms -26.8 dBFS, crest 15.9 dB | Envelope: attack 288 ms (half-level in 107 ms), peak at 5.19s, sustain -8 dB, release to -60 dB in 1.10s
+Pitch: no single clear pitch (chord, noise or inharmonic; clarity 0.59); see partials, start C#3-40c -&gt; end B2+31c
+Strongest partials: 135Hz C#3-40c (0dB); 191Hz G3-43c (-8dB); 221Hz A3+8c (-9dB); 270Hz C#4-43c (-10dB); 341Hz F4-44c (-12dB); 405Hz G#4-43c (-11dB); 469Hz A#4+12c (-15dB); 519Hz C5-16c (-14dB)
+Spectrum: centroid 1254 Hz (start 1530 -&gt; end 1206), 85% rolloff 678 Hz, flatness 0.005
+Energy by band: sub 0.0%, bass 66.4%, low-mid 22.6%, mid 10.7%, presence 0.2%, air 0.0%
+Motion: level pulses at 0.44 Hz (8.2 dB p-p); brightness wobbles at 0.46 Hz (±34%); partials glide +4.6 semitones/s (100% of the time)
+Stereo: width 0.997 (side/mid), L/R correlation 0.003
+Timeline (t: level dB, centroid Hz): 0.0s:-29/1523  0.89s:-27/1366  1.8s:-26/1289  2.69s:-25/1211  3.6s:-28/1524  4.5s:-22/973  5.4s:-29/1577  6.3s:-27/1354  7.2s:-30/1395  8.1s:-63/1143</pre></details>
+      <h3>How it was built</h3>
+      <p class="small">Wavetables: Vital init saw · 17 settings · preset file <code>Endless Staircase.vital</code></p>
+      <ul class="mods"><li>lfo_1 → osc_1_spectral_morph_amount 1.0</li></ul>
+      <details><summary>Patch spec (JSON)</summary>
+        <button class="copy" type="button" data-target="spec-endless-staircase">Copy JSON</button>
+        <pre id="spec-endless-staircase">{
+  &quot;name&quot;: &quot;Endless Staircase&quot;,
+  &quot;description&quot;: &quot;A Shepard tone: sixteen octave-spaced voices under a bell-shaped spectral window, so the pitch climbs forever without ever getting higher.&quot;,
+  &quot;lfos&quot;: {
+    &quot;lfo_1&quot;: {
+      &quot;shape&quot;: &quot;ramp_up&quot;
+    }
+  },
+  &quot;params&quot;: {
+    &quot;osc_1_level&quot;: 0.7,
+    &quot;osc_1_unison_voices&quot;: 10,
+    &quot;osc_1_unison_detune&quot;: &quot;9.6%&quot;,
+    &quot;osc_1_spectral_morph_type&quot;: &quot;Shepard Tone&quot;,
+    &quot;osc_1_spectral_morph_amount&quot;: &quot;0%&quot;,
+    &quot;lfo_1_sync&quot;: &quot;Seconds&quot;,
+    &quot;lfo_1_frequency&quot;: &quot;0.4Hz&quot;,
+    &quot;lfo_1_sync_type&quot;: &quot;Sync&quot;,
+    &quot;filter_1_on&quot;: &quot;On&quot;,
+    &quot;filter_1_model&quot;: &quot;Analog&quot;,
+    &quot;filter_1_cutoff&quot;: &quot;3kHz&quot;,
+    &quot;env_1_attack&quot;: &quot;300ms&quot;,
+    &quot;env_1_sustain&quot;: 1.0,
+    &quot;env_1_release&quot;: &quot;1s&quot;,
+    &quot;reverb_on&quot;: &quot;On&quot;,
+    &quot;reverb_dry_wet&quot;: &quot;25%&quot;,
+    &quot;volume&quot;: &quot;-8dB&quot;
+  },
+  &quot;mods&quot;: [
+    {
+      &quot;source&quot;: &quot;lfo_1&quot;,
+      &quot;dest&quot;: &quot;osc_1_spectral_morph_amount&quot;,
+      &quot;amount&quot;: 1.0
+    }
+  ],
+  &quot;play&quot;: {
+    &quot;note&quot;: &quot;C3&quot;,
+    &quot;dur&quot;: 7.5,
+    &quot;tail&quot;: 1.5
+  }
+}</pre></details>
+    </div>
+  </div>
+</article>
+<article class="sound" id="robot-babble">
+  <header class="sound-head">
+    <h2>Robot Babble</h2>
+    <p class="brief">A machine trying to talk: a buzzy saw through a formant (vowel) filter whose mouth shape is jumped around by sample-and-hold randomness, like syllables.</p>
+  </header>
+  <div class="sound-body">
+    <div class="listen">
+      <audio controls preload="none" src="robot-babble/sound.wav"></audio>
+      <figure><img loading="lazy" src="robot-babble/sheet.png" alt="Spectrogram and waveform of Robot Babble"></figure>
+    </div>
+    <div class="read">
+      <h3>What the ears reported</h3>
+      <ul class="chips"><li>soft attack</li><li>warm</li><li>inharmonic / metallic</li><li>closes down over time (x1.8 darker)</li><li>pulsing ~2.6 Hz (10 dB)</li><li>wobbling brightness ~2.8 Hz</li><li>pitch moves A2+4c -&gt; G2+5c</li><li>very wide</li><li>phasey (L/R anti-correlated: may vanish in mono)</li></ul>
+      <dl class="facts">
+        <div><dt>Pitch</dt><dd>A2-2c</dd></div>
+        <div><dt>Centroid</dt><dd>854 Hz</dd></div>
+        <div><dt>Attack</dt><dd>88 ms</dd></div>
+        <div><dt>Width</dt><dd>1.031</dd></div>
+      </dl>
+      <details><summary>Full listening report</summary><pre>== Robot Babble - first note alone ==
+Character: hard attack, sustained, warm, clean tone, very wide, phasey (L/R anti-correlated: may vanish in mono)
+Level: peak -2.3 dBFS, rms -20.0 dBFS, crest 17.8 dB | Envelope: attack 9 ms (half-level in 4 ms), peak at 0.95s, sustain -5 dB
+Pitch: A2-1c (109.93 Hz, clarity 0.93)
+Strongest partials: 110Hz A2+4c (-11dB); 220Hz A3-2c (-9dB); 330Hz E4+3c (-4dB); 442Hz A4+7c (0dB); 550Hz C#5-14c (-5dB); 880Hz A5-0c (-17dB); 1100Hz C#6-14c (-16dB); 1206Hz D6+46c (-18dB)
+Spectrum: centroid 935 Hz (start 842 -&gt; end 644), 85% rolloff 549 Hz, flatness 0.001, harmonicity 0.91
+Energy by band: sub 0.0%, bass 9.6%, low-mid 84.9%, mid 5.4%, presence 0.1%, air 0.0%
+Motion: no periodic modulation or glide detected
+Stereo: width 1.183 (side/mid), L/R correlation -0.168
+Timeline (t: level dB, centroid Hz): 0.0s:-18/820  0.19s:-17/919  0.37s:-20/1058  0.57s:-19/1069  0.75s:-18/934  0.95s:-16/907  1.14s:-34/860  1.32s:-46/716  1.52s:-54/667  1.71s:-64/647
+Phrase: 4.0s, peak -2.6 dBFS, rms -17.4 dBFS, centroid 854 Hz, width 1.031, partials: 107Hz G#2+45c; 219Hz A3-7c; 294Hz D4+2c; 330Hz E4+1c; 392Hz G4+0c; 438Hz A4-6c; 492Hz B4-8c; 547Hz C#5-22c</pre></details>
+      <h3>How it was built</h3>
+      <p class="small">Wavetables: Vital init saw · 25 settings · preset file <code>Robot Babble.vital</code></p>
+      <ul class="mods"><li>random_1 → filter_1_formant_x 1.0 ±</li><li>random_2 → filter_1_formant_y 1.0 ±</li><li>lfo_1 → osc_1_tune 0.004 ±</li></ul>
+      <details><summary>Patch spec (JSON)</summary>
+        <button class="copy" type="button" data-target="spec-robot-babble">Copy JSON</button>
+        <pre id="spec-robot-babble">{
+  &quot;name&quot;: &quot;Robot Babble&quot;,
+  &quot;description&quot;: &quot;A machine trying to talk: a buzzy saw through a formant (vowel) filter whose mouth shape is jumped around by sample-and-hold randomness, like syllables.&quot;,
+  &quot;params&quot;: {
+    &quot;osc_1_level&quot;: 0.8,
+    &quot;osc_1_unison_voices&quot;: 2,
+    &quot;osc_1_unison_detune&quot;: &quot;4%&quot;,
+    &quot;filter_1_on&quot;: &quot;On&quot;,
+    &quot;filter_1_model&quot;: &quot;Formant&quot;,
+    &quot;filter_1_formant_resonance&quot;: &quot;90%&quot;,
+    &quot;filter_1_formant_x&quot;: 0.5,
+    &quot;filter_1_formant_y&quot;: 0.5,
+    &quot;env_1_attack&quot;: &quot;10ms&quot;,
+    &quot;env_1_sustain&quot;: 1.0,
+    &quot;env_1_release&quot;: &quot;120ms&quot;,
+    &quot;random_1_style&quot;: &quot;Sample &amp; Hold&quot;,
+    &quot;random_1_sync&quot;: &quot;Tempo&quot;,
+    &quot;random_1_tempo&quot;: &quot;1/16&quot;,
+    &quot;random_1_sync_type&quot;: &quot;On&quot;,
+    &quot;random_2_style&quot;: &quot;Sine Interpolate&quot;,
+    &quot;random_2_sync&quot;: &quot;Tempo&quot;,
+    &quot;random_2_tempo&quot;: &quot;1/8&quot;,
+    &quot;lfo_1_sync&quot;: &quot;Seconds&quot;,
+    &quot;lfo_1_frequency&quot;: &quot;5.5Hz&quot;,
+    &quot;beats_per_minute&quot;: 110,
+    &quot;chorus_on&quot;: &quot;On&quot;,
+    &quot;chorus_dry_wet&quot;: &quot;20%&quot;,
+    &quot;reverb_on&quot;: &quot;On&quot;,
+    &quot;reverb_dry_wet&quot;: &quot;15%&quot;
+  },
+  &quot;lfos&quot;: {
+    &quot;lfo_1&quot;: {
+      &quot;shape&quot;: &quot;sine&quot;
+    }
+  },
+  &quot;mods&quot;: [
+    {
+      &quot;source&quot;: &quot;random_1&quot;,
+      &quot;dest&quot;: &quot;filter_1_formant_x&quot;,
+      &quot;amount&quot;: 1.0,
+      &quot;bipolar&quot;: true
+    },
+    {
+      &quot;source&quot;: &quot;random_2&quot;,
+      &quot;dest&quot;: &quot;filter_1_formant_y&quot;,
+      &quot;amount&quot;: 1.0,
+      &quot;bipolar&quot;: true
+    },
+    {
+      &quot;source&quot;: &quot;lfo_1&quot;,
+      &quot;dest&quot;: &quot;osc_1_tune&quot;,
+      &quot;amount&quot;: 0.004,
+      &quot;bipolar&quot;: true
+    }
+  ],
+  &quot;play&quot;: {
+    &quot;notes&quot;: [
+      {
+        &quot;note&quot;: &quot;A2&quot;,
+        &quot;start&quot;: 0.0,
+        &quot;dur&quot;: 1.1
+      },
+      {
+        &quot;note&quot;: &quot;C3&quot;,
+        &quot;start&quot;: 1.2,
+        &quot;dur&quot;: 0.5
+      },
+      {
+        &quot;note&quot;: &quot;G2&quot;,
+        &quot;start&quot;: 1.75,
+        &quot;dur&quot;: 1.4
+      }
+    ],
+    &quot;tail&quot;: 0.8
+  }
+}</pre></details>
+    </div>
+  </div>
+</article>
+<article class="sound" id="midnight-reese">
+  <header class="sound-head">
+    <h2>Midnight Reese</h2>
+    <p class="brief">Drum-and-bass reese: two saws a few cents apart beating against each other, stacked unison, driven ladder filter, slow phase-y movement.</p>
+  </header>
+  <div class="sound-body">
+    <div class="listen">
+      <audio controls preload="none" src="midnight-reese/sound.wav"></audio>
+      <figure><img loading="lazy" src="midnight-reese/sheet.png" alt="Spectrogram and waveform of Midnight Reese"></figure>
+    </div>
+    <div class="read">
+      <h3>What the ears reported</h3>
+      <ul class="chips"><li>percussive attack</li><li>short, plucky decay</li><li>dark</li><li>clean tone</li><li>bass-heavy</li><li>pulsing ~1.1 Hz (12 dB)</li><li>wobbling brightness ~1.8 Hz</li><li>pitch moves E1+14c -&gt; D1+9c</li><li>very wide</li></ul>
+      <dl class="facts">
+        <div><dt>Pitch</dt><dd>G1+3c</dd></div>
+        <div><dt>Centroid</dt><dd>370 Hz</dd></div>
+        <div><dt>Attack</dt><dd>5 ms</dd></div>
+        <div><dt>Width</dt><dd>0.902</dd></div>
+      </dl>
+      <details><summary>Full listening report</summary><pre>== Midnight Reese - first note alone ==
+Character: hard attack, sustained, dark, clean tone, bass-heavy, opens up over time (x1.8 brighter), pulsing ~1.2 Hz (9 dB), wobbling brightness ~1.3 Hz, very wide
+Level: peak -7.1 dBFS, rms -18.1 dBFS, crest 10.9 dB | Envelope: attack 5 ms (half-level in 3 ms), peak at 0.70s, sustain -2 dB, release to -60 dB in 0.16s
+Pitch: E1+1c (41.24 Hz, clarity 0.91)
+Strongest partials: 41Hz E1-4c (0dB); 82Hz E2-1c (-2dB); 124Hz B2+7c (-9dB); 166Hz E3+7c (-12dB); 207Hz G#3-8c (-13dB); 248Hz B3+8c (-15dB); 288Hz D4-31c (-17dB); 330Hz E4+0c (-19dB)
+Spectrum: centroid 396 Hz (start 317 -&gt; end 570), 85% rolloff 129 Hz, flatness 0.000, harmonicity 0.91
+Energy by band: sub 44.4%, bass 46.5%, low-mid 6.1%, mid 1.0%, presence 0.0%, air 0.0%
+Motion: level pulses at 1.21 Hz (8.8 dB p-p); brightness wobbles at 1.28 Hz (±47%)
+Stereo: width 0.977 (side/mid), L/R correlation 0.021
+Timeline (t: level dB, centroid Hz): 0.0s:-18/323  0.26s:-19/457  0.51s:-14/344  0.78s:-17/421  1.03s:-21/534  1.3s:-16/492  1.56s:-14/356  1.81s:-28/510  2.08s:-120/0  2.33s:-120/0
+Phrase: 5.6s, peak -6.8 dBFS, rms -16.9 dBFS, centroid 370 Hz, width 0.902, partials: 43Hz F1-42c; 79Hz D#2+28c; 153Hz D#3-29c; 197Hz G3+10c; 250Hz B3+19c; 293Hz D4-5c; 334Hz E4+22c; 444Hz A4+16c</pre></details>
+      <h3>How it was built</h3>
+      <p class="small">Wavetables: osc_3: 1 frame(s) · 33 settings · preset file <code>Midnight Reese.vital</code></p>
+      <ul class="mods"><li>lfo_1 → filter_1_cutoff +14st</li><li>lfo_1 → osc_1_unison_detune 0.25</li></ul>
+      <details><summary>Patch spec (JSON)</summary>
+        <button class="copy" type="button" data-target="spec-midnight-reese">Copy JSON</button>
+        <pre id="spec-midnight-reese">{
+  &quot;name&quot;: &quot;Midnight Reese&quot;,
+  &quot;description&quot;: &quot;Drum-and-bass reese: two saws a few cents apart beating against each other, stacked unison, driven ladder filter, slow phase-y movement.&quot;,
+  &quot;params&quot;: {
+    &quot;osc_1_level&quot;: 0.7,
+    &quot;osc_1_unison_voices&quot;: 4,
+    &quot;osc_1_unison_detune&quot;: &quot;12%&quot;,
+    &quot;osc_1_stereo_spread&quot;: &quot;70%&quot;,
+    &quot;osc_2_on&quot;: &quot;On&quot;,
+    &quot;osc_2_level&quot;: 0.7,
+    &quot;osc_2_tune&quot;: 0.12,
+    &quot;osc_2_unison_voices&quot;: 4,
+    &quot;osc_2_unison_detune&quot;: &quot;16%&quot;,
+    &quot;osc_3_on&quot;: &quot;On&quot;,
+    &quot;osc_3_transpose&quot;: 0,
+    &quot;osc_3_level&quot;: 0.4,
+    &quot;osc_3_destination&quot;: &quot;DIRECT OUT&quot;,
+    &quot;filter_1_on&quot;: &quot;On&quot;,
+    &quot;filter_1_model&quot;: &quot;Ladder&quot;,
+    &quot;filter_1_style&quot;: &quot;24dB&quot;,
+    &quot;filter_1_cutoff&quot;: &quot;1.4kHz&quot;,
+    &quot;filter_1_resonance&quot;: &quot;25%&quot;,
+    &quot;filter_1_drive&quot;: &quot;18dB&quot;,
+    &quot;osc_2_destination&quot;: &quot;FILTER 1&quot;,
+    &quot;env_1_attack&quot;: &quot;8ms&quot;,
+    &quot;env_1_sustain&quot;: 1.0,
+    &quot;env_1_release&quot;: &quot;150ms&quot;,
+    &quot;lfo_1_sync&quot;: &quot;Seconds&quot;,
+    &quot;lfo_1_frequency&quot;: &quot;0.25Hz&quot;,
+    &quot;distortion_on&quot;: &quot;On&quot;,
+    &quot;distortion_type&quot;: &quot;Soft Clip&quot;,
+    &quot;distortion_drive&quot;: &quot;10dB&quot;,
+    &quot;distortion_mix&quot;: &quot;60%&quot;,
+    &quot;phaser_on&quot;: &quot;On&quot;,
+    &quot;phaser_dry_wet&quot;: &quot;30%&quot;,
+    &quot;phaser_feedback&quot;: &quot;40%&quot;,
+    &quot;volume&quot;: &quot;-9dB&quot;
+  },
+  &quot;wavetables&quot;: {
+    &quot;osc_3&quot;: [
+      {
+        &quot;shape&quot;: &quot;sine&quot;
+      }
+    ]
+  },
+  &quot;lfos&quot;: {
+    &quot;lfo_1&quot;: {
+      &quot;shape&quot;: &quot;triangle&quot;
+    }
+  },
+  &quot;mods&quot;: [
+    {
+      &quot;source&quot;: &quot;lfo_1&quot;,
+      &quot;dest&quot;: &quot;filter_1_cutoff&quot;,
+      &quot;amount&quot;: &quot;+14st&quot;
+    },
+    {
+      &quot;source&quot;: &quot;lfo_1&quot;,
+      &quot;dest&quot;: &quot;osc_1_unison_detune&quot;,
+      &quot;amount&quot;: 0.25
+    }
+  ],
+  &quot;play&quot;: {
+    &quot;notes&quot;: [
+      {
+        &quot;note&quot;: &quot;E1&quot;,
+        &quot;start&quot;: 0.0,
+        &quot;dur&quot;: 1.8
+      },
+      {
+        &quot;note&quot;: &quot;G1&quot;,
+        &quot;start&quot;: 2.0,
+        &quot;dur&quot;: 0.9
+      },
+      {
+        &quot;note&quot;: &quot;D1&quot;,
+        &quot;start&quot;: 3.0,
+        &quot;dur&quot;: 1.8
+      }
+    ],
+    &quot;tail&quot;: 0.8
+  }
+}</pre></details>
+    </div>
+  </div>
+</article>
+<article class="sound" id="wub-machine">
+  <header class="sound-head">
+    <h2>Wub Machine</h2>
+    <p class="brief">140 bpm dubstep wobble: tempo-synced LFO slamming a resonant dirty filter and sweeping the wavetable, then distortion for grit.</p>
+  </header>
+  <div class="sound-body">
+    <div class="listen">
+      <audio controls preload="none" src="wub-machine/sound.wav"></audio>
+      <figure><img loading="lazy" src="wub-machine/sheet.png" alt="Spectrogram and waveform of Wub Machine"></figure>
+    </div>
+    <div class="read">
+      <h3>What the ears reported</h3>
+      <ul class="chips"><li>hard attack</li><li>sustained</li><li>dark</li><li>inharmonic / metallic</li><li>bass-heavy</li><li>pulsing ~1.1 Hz (9 dB)</li><li>wobbling brightness ~1.1 Hz</li><li>pitch moves F1+9c -&gt; C2-11c</li><li>wide stereo</li></ul>
+      <dl class="facts">
+        <div><dt>Pitch</dt><dd>G#1+5c</dd></div>
+        <div><dt>Centroid</dt><dd>347 Hz</dd></div>
+        <div><dt>Attack</dt><dd>12 ms</dd></div>
+        <div><dt>Width</dt><dd>0.681</dd></div>
+      </dl>
+      <details><summary>Full listening report</summary><pre>== Wub Machine - first note alone ==
+Character: hard attack, dark, clean tone, bass-heavy, opens up over time (x1.9 brighter), pulsing ~5.0 Hz (6 dB), wide stereo
+Level: peak -10.0 dBFS, rms -18.0 dBFS, crest 8.0 dB | Envelope: attack 10 ms (half-level in 2 ms), peak at 0.08s, sustain -8 dB, release to -60 dB in 0.10s
+Pitch: F1-3c (43.57 Hz, clarity 0.81)
+Strongest partials: 44Hz F1+10c (0dB); 86Hz F2-17c (-6dB); 130Hz C3-6c (-7dB); 170Hz F3-50c (-16dB); 262Hz C4+3c (-18dB); 304Hz D#4-38c (-15dB); 347Hz F4-10c (-17dB); 393Hz G4+3c (-19dB)
+Spectrum: centroid 301 Hz (start 188 -&gt; end 352), 85% rolloff 140 Hz, flatness 0.000, harmonicity 0.92
+Energy by band: sub 52.4%, bass 33.1%, low-mid 9.8%, mid 0.7%, presence 0.0%, air 0.0%
+Motion: level pulses at 4.99 Hz (6.3 dB p-p)
+Stereo: width 0.645 (side/mid), L/R correlation 0.411
+Timeline (t: level dB, centroid Hz): 0.0s:-15/223  0.21s:-15/202  0.43s:-16/264  0.64s:-18/338  0.86s:-19/428  1.08s:-18/360  1.29s:-18/422  1.51s:-20/490  1.72s:-60/123  1.94s:-120/0
+Phrase: 5.5s, peak -9.8 dBFS, rms -17.5 dBFS, centroid 347 Hz, width 0.681, partials: 52Hz G#1+11c; 130Hz C3-7c; 196Hz G3+1c; 260Hz C4-13c; 305Hz D#4-32c; 348Hz F4-5c; 391Hz G4-3c; 456Hz A#4-37c</pre></details>
+      <h3>How it was built</h3>
+      <p class="small">Wavetables: osc_1: 3 frame(s), osc_2: 1 frame(s) · 26 settings · preset file <code>Wub Machine.vital</code></p>
+      <ul class="mods"><li>lfo_1 → filter_1_cutoff +60st</li><li>lfo_1 → osc_1_wave_frame 0.9</li></ul>
+      <details><summary>Patch spec (JSON)</summary>
+        <button class="copy" type="button" data-target="spec-wub-machine">Copy JSON</button>
+        <pre id="spec-wub-machine">{
+  &quot;name&quot;: &quot;Wub Machine&quot;,
+  &quot;description&quot;: &quot;140 bpm dubstep wobble: tempo-synced LFO slamming a resonant dirty filter and sweeping the wavetable, then distortion for grit.&quot;,
+  &quot;wavetables&quot;: {
+    &quot;osc_1&quot;: [
+      {
+        &quot;shape&quot;: &quot;saw&quot;
+      },
+      {
+        &quot;shape&quot;: &quot;pulse&quot;,
+        &quot;width&quot;: 0.2
+      },
+      {
+        &quot;expr&quot;: &quot;tanh(4*sin(2*pi*x) + 2*sin(6*pi*x))&quot;
+      }
+    ],
+    &quot;osc_2&quot;: [
+      {
+        &quot;shape&quot;: &quot;sine&quot;
+      }
+    ]
+  },
+  &quot;lfos&quot;: {
+    &quot;lfo_1&quot;: {
+      &quot;points&quot;: [
+        [
+          0,
+          0
+        ],
+        [
+          0.12,
+          1
+        ],
+        [
+          0.5,
+          0.35
+        ],
+        [
+          0.62,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      &quot;smooth&quot;: true
+    }
+  },
+  &quot;params&quot;: {
+    &quot;beats_per_minute&quot;: 140,
+    &quot;osc_1_level&quot;: 0.8,
+    &quot;osc_1_unison_voices&quot;: 3,
+    &quot;osc_1_unison_detune&quot;: &quot;8%&quot;,
+    &quot;osc_2_on&quot;: &quot;On&quot;,
+    &quot;osc_2_transpose&quot;: 0,
+    &quot;osc_2_level&quot;: 0.4,
+    &quot;osc_2_unison_voices&quot;: 1,
+    &quot;filter_1_on&quot;: &quot;On&quot;,
+    &quot;filter_1_model&quot;: &quot;Dirty&quot;,
+    &quot;filter_1_style&quot;: &quot;12dB&quot;,
+    &quot;filter_1_cutoff&quot;: &quot;120Hz&quot;,
+    &quot;filter_1_resonance&quot;: &quot;55%&quot;,
+    &quot;filter_1_drive&quot;: &quot;8dB&quot;,
+    &quot;env_1_attack&quot;: &quot;3ms&quot;,
+    &quot;env_1_sustain&quot;: 1.0,
+    &quot;env_1_release&quot;: &quot;80ms&quot;,
+    &quot;lfo_1_sync&quot;: &quot;Tempo&quot;,
+    &quot;lfo_1_tempo&quot;: &quot;1/4&quot;,
+    &quot;lfo_1_sync_type&quot;: &quot;Trigger&quot;,
+    &quot;distortion_on&quot;: &quot;On&quot;,
+    &quot;distortion_type&quot;: &quot;Hard Clip&quot;,
+    &quot;distortion_drive&quot;: &quot;14dB&quot;,
+    &quot;distortion_mix&quot;: &quot;70%&quot;,
+    &quot;volume&quot;: &quot;-12dB&quot;,
+    &quot;osc_2_destination&quot;: &quot;DIRECT OUT&quot;
+  },
+  &quot;mods&quot;: [
+    {
+      &quot;source&quot;: &quot;lfo_1&quot;,
+      &quot;dest&quot;: &quot;filter_1_cutoff&quot;,
+      &quot;amount&quot;: &quot;+60st&quot;
+    },
+    {
+      &quot;source&quot;: &quot;lfo_1&quot;,
+      &quot;dest&quot;: &quot;osc_1_wave_frame&quot;,
+      &quot;amount&quot;: 0.9
+    }
+  ],
+  &quot;play&quot;: {
+    &quot;notes&quot;: [
+      {
+        &quot;note&quot;: &quot;F1&quot;,
+        &quot;start&quot;: 0.0,
+        &quot;dur&quot;: 1.65
+      },
+      {
+        &quot;note&quot;: &quot;F1&quot;,
+        &quot;start&quot;: 1.714,
+        &quot;dur&quot;: 0.8
+      },
+      {
+        &quot;note&quot;: &quot;Ab1&quot;,
+        &quot;start&quot;: 2.571,
+        &quot;dur&quot;: 0.8
+      },
+      {
+        &quot;note&quot;: &quot;C2&quot;,
+        &quot;start&quot;: 3.428,
+        &quot;dur&quot;: 1.6
+      }
+    ],
+    &quot;tail&quot;: 0.5
+  }
+}</pre></details>
+    </div>
+  </div>
+</article>
+<article class="sound" id="gravity-kick">
+  <header class="sound-head">
+    <h2>Gravity Kick</h2>
+    <p class="brief">An 808-style kick built from a pure sine: a 4-octave pitch dive in the first 40 ms, round decay, soft-clip distortion for weight.</p>
+  </header>
+  <div class="sound-body">
+    <div class="listen">
+      <audio controls preload="none" src="gravity-kick/sound.wav"></audio>
+      <figure><img loading="lazy" src="gravity-kick/sheet.png" alt="Spectrogram and waveform of Gravity Kick"></figure>
+    </div>
+    <div class="read">
+      <h3>What the ears reported</h3>
+      <ul class="chips"><li>hard attack</li><li>sustained</li><li>dark</li><li>clean tone</li><li>bass-heavy</li><li>pulsing ~1.9 Hz (100 dB)</li><li>mono</li></ul>
+      <dl class="facts">
+        <div><dt>Pitch</dt><dd>-</dd></div>
+        <div><dt>Centroid</dt><dd>76 Hz</dd></div>
+        <div><dt>Attack</dt><dd>8 ms</dd></div>
+        <div><dt>Width</dt><dd>0.0</dd></div>
+      </dl>
+      <details><summary>Full listening report</summary><pre>== Gravity Kick - first note alone ==
+Character: percussive attack, dark, clean tone, bass-heavy, closes down over time (x4.6 darker), mono
+Level: peak -6.9 dBFS, rms -18.3 dBFS, crest 11.4 dB | Envelope: attack 19 ms (half-level in 2 ms), peak at 0.06s, release to -60 dB in 0.30s
+Pitch: F1+13c (43.97 Hz, clarity 0.86)
+Strongest partials: 44Hz F1+8c (0dB); 122Hz B2-25c (-19dB); 214Hz A3-44c (-25dB); 300Hz D4+35c (-28dB)
+Spectrum: centroid 74 Hz (start 197 -&gt; end 43), 85% rolloff 54 Hz, flatness 0.000, harmonicity 0.93
+Onset pitch sweep: 327 Hz -&gt; 44 Hz within 58 ms
+Transient: first 30 ms is much brighter (218 Hz) than the body - a click/zap/pitch-drop onset
+Energy by band: sub 89.9%, bass 9.1%, low-mid 0.9%, mid 0.0%, presence 0.0%, air 0.0%
+Motion: no periodic modulation or glide detected
+Stereo: width 0.0 (side/mid), L/R correlation 1.0
+Timeline (t: level dB, centroid Hz): 0.0s:-10/86  0.1s:-14/48  0.22s:-29/43  0.33s:-52/43  0.44s:-120/0  0.55s:-120/0  0.66s:-120/0  0.77s:-120/0  0.88s:-120/0  0.99s:-120/0
+Phrase: 2.4s, peak -6.7 dBFS, rms -15.6 dBFS, centroid 76 Hz, width 0.0, partials: 44Hz F1+9c; 121Hz B2-35c; 215Hz A3-43c; 299Hz D4+32c</pre></details>
+      <h3>How it was built</h3>
+      <p class="small">Wavetables: osc_1: 1 frame(s) · 16 settings · preset file <code>Gravity Kick.vital</code></p>
+      <ul class="mods"><li>env_2 → osc_1_transpose +44st</li></ul>
+      <details><summary>Patch spec (JSON)</summary>
+        <button class="copy" type="button" data-target="spec-gravity-kick">Copy JSON</button>
+        <pre id="spec-gravity-kick">{
+  &quot;name&quot;: &quot;Gravity Kick&quot;,
+  &quot;description&quot;: &quot;An 808-style kick built from a pure sine: a 4-octave pitch dive in the first 40 ms, round decay, soft-clip distortion for weight.&quot;,
+  &quot;wavetables&quot;: {
+    &quot;osc_1&quot;: [
+      {
+        &quot;shape&quot;: &quot;sine&quot;
+      }
+    ]
+  },
+  &quot;params&quot;: {
+    &quot;osc_1_level&quot;: 1.0,
+    &quot;osc_1_random_phase&quot;: &quot;0%&quot;,
+    &quot;osc_1_phase&quot;: 90,
+    &quot;env_1_attack&quot;: &quot;0ms&quot;,
+    &quot;env_1_decay&quot;: &quot;650ms&quot;,
+    &quot;env_1_sustain&quot;: 0,
+    &quot;env_1_release&quot;: &quot;300ms&quot;,
+    &quot;env_2_attack&quot;: &quot;0ms&quot;,
+    &quot;env_2_decay&quot;: &quot;45ms&quot;,
+    &quot;env_2_sustain&quot;: 0,
+    &quot;env_2_decay_power&quot;: -4,
+    &quot;distortion_on&quot;: &quot;On&quot;,
+    &quot;distortion_type&quot;: &quot;Soft Clip&quot;,
+    &quot;distortion_drive&quot;: &quot;9dB&quot;,
+    &quot;polyphony&quot;: 1,
+    &quot;volume&quot;: &quot;-6dB&quot;
+  },
+  &quot;mods&quot;: [
+    {
+      &quot;source&quot;: &quot;env_2&quot;,
+      &quot;dest&quot;: &quot;osc_1_transpose&quot;,
+      &quot;amount&quot;: &quot;+44st&quot;
+    }
+  ],
+  &quot;play&quot;: {
+    &quot;notes&quot;: [
+      {
+        &quot;note&quot;: &quot;F1&quot;,
+        &quot;start&quot;: 0.0,
+        &quot;dur&quot;: 0.1
+      },
+      {
+        &quot;note&quot;: &quot;F1&quot;,
+        &quot;start&quot;: 0.5,
+        &quot;dur&quot;: 0.1
+      },
+      {
+        &quot;note&quot;: &quot;F1&quot;,
+        &quot;start&quot;: 1.0,
+        &quot;dur&quot;: 0.1,
+        &quot;vel&quot;: 0.6
+      },
+      {
+        &quot;note&quot;: &quot;F1&quot;,
+        &quot;start&quot;: 1.25,
+        &quot;dur&quot;: 0.1
+      }
+    ],
+    &quot;tail&quot;: 1.0
+  }
+}</pre></details>
+    </div>
+  </div>
+</article>
+<article class="sound" id="laser-tag">
+  <header class="sound-head">
+    <h2>Laser Tag</h2>
+    <p class="brief">Retro sci-fi zaps: a square wave with a touch of FM whose pitch free-falls more than three octaves in a quarter second, echoed down a tempo delay.</p>
+  </header>
+  <div class="sound-body">
+    <div class="listen">
+      <audio controls preload="none" src="laser-tag/sound.wav"></audio>
+      <figure><img loading="lazy" src="laser-tag/sheet.png" alt="Spectrogram and waveform of Laser Tag"></figure>
+    </div>
+    <div class="read">
+      <h3>What the ears reported</h3>
+      <ul class="chips"><li>percussive attack</li><li>very bright / sizzly</li><li>breathy / grainy</li><li>pulsing ~3.4 Hz (24 dB)</li><li>spectrum glides down (-124.9 st/s)</li><li>wide stereo</li></ul>
+      <dl class="facts">
+        <div><dt>Pitch</dt><dd>-</dd></div>
+        <div><dt>Centroid</dt><dd>4650 Hz</dd></div>
+        <div><dt>Attack</dt><dd>0 ms</dd></div>
+        <div><dt>Width</dt><dd>0.492</dd></div>
+      </dl>
+      <details><summary>Full listening report</summary><pre>== Laser Tag - first note alone ==
+Character: percussive attack, short, plucky decay, very bright / sizzly, breathy / grainy, spectrum glides down (-124.9 st/s), wide stereo
+Level: peak -8.1 dBFS, rms -28.8 dBFS, crest 20.6 dB | Envelope: attack 0 ms (half-level in 0 ms), peak at 0.01s, -20 dB after 0.15s
+Pitch: no single clear pitch (chord, noise or inharmonic; clarity 0.36); see partials
+Strongest partials: 260Hz C4-13c (-1dB); 640Hz D#5+48c (-2dB); 695Hz F5-10c (-1dB); 754Hz F#5+33c (-1dB); 826Hz G#5-9c (-1dB); 882Hz A5+5c (0dB); 978Hz B5-18c (-2dB); 1191Hz D6+24c (-2dB)
+Spectrum: centroid 4361 Hz (start 3678 -&gt; end 2774), 85% rolloff 1647 Hz, flatness 0.131
+Energy by band: sub 0.1%, bass 3.1%, low-mid 58.5%, mid 32.1%, presence 4.7%, air 1.5%
+Motion: partials glide -124.9 semitones/s (82% of the time)
+Stereo: width 0.496 (side/mid), L/R correlation 0.606
+Timeline (t: level dB, centroid Hz): 0.0s:-20/4429  0.15s:-29/4334  0.31s:-29/4135  0.48s:-37/4126  0.64s:-35/3900  0.8s:-46/3413  0.95s:-41/3863  1.11s:-50/2913  1.28s:-48/3782  1.44s:-53/3198
+Phrase: 2.9s, peak -4.5 dBFS, rms -25.4 dBFS, centroid 4650 Hz, width 0.492, partials: 409Hz G#4-28c; 517Hz C5-20c; 594Hz D5+20c; 665Hz E5+14c; 745Hz F#5+11c; 797Hz G5+29c; 873Hz A5-14c; 1192Hz D6+26c</pre></details>
+      <h3>How it was built</h3>
+      <p class="small">Wavetables: osc_2: 1 frame(s), osc_1: 1 frame(s) · 20 settings · preset file <code>Laser Tag.vital</code></p>
+      <ul class="mods"><li>env_2 → osc_1_transpose +40st</li><li>env_2 → osc_1_distortion_amount 0.15</li></ul>
+      <details><summary>Patch spec (JSON)</summary>
+        <button class="copy" type="button" data-target="spec-laser-tag">Copy JSON</button>
+        <pre id="spec-laser-tag">{
+  &quot;name&quot;: &quot;Laser Tag&quot;,
+  &quot;description&quot;: &quot;Retro sci-fi zaps: a square wave with a touch of FM whose pitch free-falls more than three octaves in a quarter second, echoed down a tempo delay.&quot;,
+  &quot;wavetables&quot;: {
+    &quot;osc_2&quot;: [
+      {
+        &quot;shape&quot;: &quot;sine&quot;
+      }
+    ],
+    &quot;osc_1&quot;: [
+      {
+        &quot;shape&quot;: &quot;square&quot;
+      }
+    ]
+  },
+  &quot;params&quot;: {
+    &quot;osc_1_level&quot;: 0.7,
+    &quot;osc_1_distortion_type&quot;: 7,
+    &quot;osc_1_distortion_amount&quot;: &quot;4%&quot;,
+    &quot;osc_2_on&quot;: &quot;On&quot;,
+    &quot;osc_2_level&quot;: 0,
+    &quot;osc_2_transpose&quot;: 12,
+    &quot;env_1_attack&quot;: &quot;0ms&quot;,
+    &quot;env_1_decay&quot;: &quot;280ms&quot;,
+    &quot;env_1_sustain&quot;: 0,
+    &quot;env_1_release&quot;: &quot;120ms&quot;,
+    &quot;env_2_attack&quot;: &quot;0ms&quot;,
+    &quot;env_2_decay&quot;: &quot;250ms&quot;,
+    &quot;env_2_sustain&quot;: 0,
+    &quot;env_2_decay_power&quot;: -2,
+    &quot;delay_on&quot;: &quot;On&quot;,
+    &quot;delay_style&quot;: &quot;Ping Pong&quot;,
+    &quot;delay_tempo&quot;: &quot;1/16&quot;,
+    &quot;delay_feedback&quot;: &quot;45%&quot;,
+    &quot;delay_dry_wet&quot;: &quot;30%&quot;,
+    &quot;beats_per_minute&quot;: 128
+  },
+  &quot;mods&quot;: [
+    {
+      &quot;source&quot;: &quot;env_2&quot;,
+      &quot;dest&quot;: &quot;osc_1_transpose&quot;,
+      &quot;amount&quot;: &quot;+40st&quot;
+    },
+    {
+      &quot;source&quot;: &quot;env_2&quot;,
+      &quot;dest&quot;: &quot;osc_1_distortion_amount&quot;,
+      &quot;amount&quot;: 0.15
+    }
+  ],
+  &quot;play&quot;: {
+    &quot;notes&quot;: [
+      {
+        &quot;note&quot;: &quot;C3&quot;,
+        &quot;start&quot;: 0.0,
+        &quot;dur&quot;: 0.2
+      },
+      {
+        &quot;note&quot;: &quot;G3&quot;,
+        &quot;start&quot;: 0.35,
+        &quot;dur&quot;: 0.2
+      },
+      {
+        &quot;note&quot;: &quot;C4&quot;,
+        &quot;start&quot;: 0.6,
+        &quot;dur&quot;: 0.2
+      },
+      {
+        &quot;note&quot;: &quot;F2&quot;,
+        &quot;start&quot;: 1.2,
+        &quot;dur&quot;: 0.3
+      }
+    ],
+    &quot;tail&quot;: 1.4
+  }
+}</pre></details>
+    </div>
+  </div>
+</article>
+<article class="sound" id="tin-kalimba">
+  <header class="sound-head">
+    <h2>Tin Kalimba</h2>
+    <p class="brief">A plucked metal tine: sine body with a slightly stretched (inharmonic) overtone set, a bright click that dies in 50 ms, and a dotted ping-pong echo.</p>
+  </header>
+  <div class="sound-body">
+    <div class="listen">
+      <audio controls preload="none" src="tin-kalimba/sound.wav"></audio>
+      <figure><img loading="lazy" src="tin-kalimba/sheet.png" alt="Spectrogram and waveform of Tin Kalimba"></figure>
+    </div>
+    <div class="read">
+      <h3>What the ears reported</h3>
+      <ul class="chips"><li>hard attack</li><li>sustained</li><li>bright</li><li>inharmonic / metallic</li><li>pulsing ~6.5 Hz (8 dB)</li><li>wobbling brightness ~6.4 Hz</li><li>wide stereo</li><li>hot: 6 samples over 0 dBFS (turn volume down)</li></ul>
+      <dl class="facts">
+        <div><dt>Pitch</dt><dd>-</dd></div>
+        <div><dt>Centroid</dt><dd>1798 Hz</dd></div>
+        <div><dt>Attack</dt><dd>0 ms</dd></div>
+        <div><dt>Width</dt><dd>0.378</dd></div>
+      </dl>
+      <details><summary>Full listening report</summary><pre>== Tin Kalimba - first note alone ==
+Character: hard attack, warm, clean tone, wide stereo
+Level: peak -2.8 dBFS, rms -26.6 dBFS, crest 23.8 dB | Envelope: attack 0 ms (half-level in 0 ms), peak at 0.01s
+Pitch: A4+1c (440.14 Hz, clarity 0.99)
+Strongest partials: 440Hz A4-0c (0dB); 880Hz A5+0c (-17dB); 1582Hz G6+15c (-32dB); 1626Hz G#6-37c (-29dB); 1760Hz A6-0c (-10dB); 1871Hz A#6+6c (-28dB); 5279Hz E8+2c (-19dB); 7042Hz A8+0c (-34dB)
+Spectrum: centroid 1244 Hz (start 639 -&gt; end 866), 85% rolloff 1755 Hz, flatness 0.001, harmonicity 0.96
+Energy by band: sub 0.0%, bass 0.0%, low-mid 75.4%, mid 22.0%, presence 2.6%, air 0.0%
+Motion: no periodic modulation or glide detected
+Stereo: width 0.36 (side/mid), L/R correlation 0.778
+Timeline (t: level dB, centroid Hz): 0.0s:-18/1252  0.22s:-27/1070  0.45s:-45/1299  0.68s:-30/1563  0.91s:-35/1021  1.14s:-42/919  1.37s:-41/1865  1.59s:-38/883  1.82s:-46/1369  2.05s:-55/901
+Phrase: 4.3s, peak 0.4 dBFS, rms -18.5 dBFS, centroid 1798 Hz, width 0.378, partials: 392Hz G4+0c; 440Hz A4-0c; 523Hz C5-1c; 587Hz D5-1c; 659Hz E5-0c; 784Hz G5-0c; 880Hz A5-0c; 1760Hz A6-0c</pre></details>
+      <h3>How it was built</h3>
+      <p class="small">Wavetables: osc_1: 1 frame(s), osc_2: 1 frame(s) · 27 settings · preset file <code>Tin Kalimba.vital</code></p>
+      <ul class="mods"><li>env_2 → osc_2_level 0.75</li><li>velocity → osc_2_spectral_morph_amount 0.3</li></ul>
+      <details><summary>Patch spec (JSON)</summary>
+        <button class="copy" type="button" data-target="spec-tin-kalimba">Copy JSON</button>
+        <pre id="spec-tin-kalimba">{
+  &quot;name&quot;: &quot;Tin Kalimba&quot;,
+  &quot;description&quot;: &quot;A plucked metal tine: sine body with a slightly stretched (inharmonic) overtone set, a bright click that dies in 50 ms, and a dotted ping-pong echo.&quot;,
+  &quot;wavetables&quot;: {
+    &quot;osc_1&quot;: [
+      {
+        &quot;harmonics&quot;: [
+          1,
+          0,
+          0.12,
+          0,
+          0.05
+        ]
+      }
+    ],
+    &quot;osc_2&quot;: [
+      {
+        &quot;harmonics&quot;: [
+          1,
+          0,
+          0.4
+        ]
+      }
+    ]
+  },
+  &quot;params&quot;: {
+    &quot;osc_1_level&quot;: 0.8,
+    &quot;osc_1_random_phase&quot;: &quot;0%&quot;,
+    &quot;osc_1_spectral_morph_type&quot;: &quot;Inharmonic Stretch&quot;,
+    &quot;osc_1_spectral_morph_amount&quot;: &quot;22%&quot;,
+    &quot;osc_2_on&quot;: &quot;On&quot;,
+    &quot;osc_2_transpose&quot;: 24,
+    &quot;osc_2_level&quot;: 0,
+    &quot;osc_2_spectral_morph_type&quot;: &quot;Inharmonic Stretch&quot;,
+    &quot;osc_2_spectral_morph_amount&quot;: &quot;30%&quot;,
+    &quot;env_1_attack&quot;: &quot;0.5ms&quot;,
+    &quot;env_1_decay&quot;: &quot;1.1s&quot;,
+    &quot;env_1_sustain&quot;: 0,
+    &quot;env_1_release&quot;: &quot;0.9s&quot;,
+    &quot;env_2_attack&quot;: &quot;0ms&quot;,
+    &quot;env_2_decay&quot;: &quot;60ms&quot;,
+    &quot;env_2_sustain&quot;: 0,
+    &quot;delay_on&quot;: &quot;On&quot;,
+    &quot;delay_style&quot;: &quot;Ping Pong&quot;,
+    &quot;delay_sync&quot;: &quot;Tempo Dotted&quot;,
+    &quot;delay_tempo&quot;: &quot;1/8&quot;,
+    &quot;delay_feedback&quot;: &quot;38%&quot;,
+    &quot;delay_dry_wet&quot;: &quot;22%&quot;,
+    &quot;reverb_on&quot;: &quot;On&quot;,
+    &quot;reverb_dry_wet&quot;: &quot;18%&quot;,
+    &quot;reverb_decay_time&quot;: &quot;1.8s&quot;,
+    &quot;beats_per_minute&quot;: 96,
+    &quot;volume&quot;: &quot;-9dB&quot;
+  },
+  &quot;mods&quot;: [
+    {
+      &quot;source&quot;: &quot;env_2&quot;,
+      &quot;dest&quot;: &quot;osc_2_level&quot;,
+      &quot;amount&quot;: 0.75
+    },
+    {
+      &quot;source&quot;: &quot;velocity&quot;,
+      &quot;dest&quot;: &quot;osc_2_spectral_morph_amount&quot;,
+      &quot;amount&quot;: 0.3
+    }
+  ],
+  &quot;play&quot;: {
+    &quot;sequence&quot;: &quot;A4 C5 E5 A5 G5 E5 D5 _ E5 C5 A4 _ G4 A4! _ _&quot;,
+    &quot;step&quot;: 0.156,
+    &quot;gate&quot;: 0.5,
+    &quot;vel&quot;: 0.75,
+    &quot;tail&quot;: 2.2
+  }
+}</pre></details>
+    </div>
+  </div>
+</article>
+<article class="sound" id="neon-arp">
+  <header class="sound-head">
+    <h2>Neon Arp</h2>
+    <p class="brief">Synthwave supersaw arpeggio: seven-voice saw, filter snapping open on every note and closing within 200 ms, dotted-eighth echo.</p>
+  </header>
+  <div class="sound-body">
+    <div class="listen">
+      <audio controls preload="none" src="neon-arp/sound.wav"></audio>
+      <figure><img loading="lazy" src="neon-arp/sheet.png" alt="Spectrogram and waveform of Neon Arp"></figure>
+    </div>
+    <div class="read">
+      <h3>What the ears reported</h3>
+      <ul class="chips"><li>hard attack</li><li>sustained</li><li>bright</li><li>clean tone</li><li>pulsing ~7.0 Hz (11 dB)</li><li>wobbling brightness ~7.0 Hz</li><li>pitch moves E3-2c -&gt; G3+2c</li><li>wide stereo</li></ul>
+      <dl class="facts">
+        <div><dt>Pitch</dt><dd>-</dd></div>
+        <div><dt>Centroid</dt><dd>1538 Hz</dd></div>
+        <div><dt>Attack</dt><dd>4 ms</dd></div>
+        <div><dt>Width</dt><dd>0.619</dd></div>
+      </dl>
+      <details><summary>Full listening report</summary><pre>== Neon Arp - first note alone ==
+Character: hard attack, warm, clean tone, bass-heavy, wide stereo
+Level: peak -10.9 dBFS, rms -31.8 dBFS, crest 20.9 dB | Envelope: attack 2 ms (half-level in 1 ms), peak at 0.02s
+Pitch: A2-2c (109.89 Hz, clarity 0.96)
+Strongest partials: 29Hz A#0-34c (-26dB); 110Hz A2+1c (0dB); 221Hz A3+11c (-13dB); 329Hz E4-5c (-20dB); 436Hz A4-17c (-20dB); 548Hz C#5-20c (-21dB); 658Hz E5-2c (-23dB); 768Hz G5-35c (-26dB)
+Spectrum: centroid 702 Hz (start 658 -&gt; end 684), 85% rolloff 129 Hz, flatness 0.005, harmonicity 0.82
+Energy by band: sub 0.4%, bass 92.0%, low-mid 5.3%, mid 2.0%, presence 0.3%, air 0.0%
+Motion: no periodic modulation or glide detected
+Stereo: width 0.494 (side/mid), L/R correlation 0.613
+Timeline (t: level dB, centroid Hz): 0.0s:-23/707  0.19s:-33/690  0.37s:-41/677  0.56s:-36/649  0.74s:-34/694  0.94s:-40/705  1.13s:-55/479  1.31s:-40/644  1.5s:-47/739  1.68s:-48/737
+Phrase: 5.2s, peak -7.1 dBFS, rms -24.9 dBFS, centroid 1538 Hz, width 0.619, partials: 92Hz F#2-19c; 106Hz G#2+32c; 130Hz C3-8c; 166Hz E3+8c; 195Hz G3-5c; 220Hz A3+4c; 250Hz B3+22c; 291Hz D4-15c</pre></details>
+      <h3>How it was built</h3>
+      <p class="small">Wavetables: Vital init saw · 27 settings · preset file <code>Neon Arp.vital</code></p>
+      <ul class="mods"><li>env_2 → filter_1_cutoff +60st</li><li>velocity → filter_1_cutoff +12st</li></ul>
+      <details><summary>Patch spec (JSON)</summary>
+        <button class="copy" type="button" data-target="spec-neon-arp">Copy JSON</button>
+        <pre id="spec-neon-arp">{
+  &quot;name&quot;: &quot;Neon Arp&quot;,
+  &quot;description&quot;: &quot;Synthwave supersaw arpeggio: seven-voice saw, filter snapping open on every note and closing within 200 ms, dotted-eighth echo.&quot;,
+  &quot;params&quot;: {
+    &quot;beats_per_minute&quot;: 105,
+    &quot;osc_1_level&quot;: 0.7,
+    &quot;osc_1_unison_voices&quot;: 7,
+    &quot;osc_1_unison_detune&quot;: &quot;22%&quot;,
+    &quot;osc_1_stereo_spread&quot;: &quot;90%&quot;,
+    &quot;filter_1_on&quot;: &quot;On&quot;,
+    &quot;filter_1_model&quot;: &quot;Analog&quot;,
+    &quot;filter_1_style&quot;: &quot;24dB&quot;,
+    &quot;filter_1_cutoff&quot;: &quot;500Hz&quot;,
+    &quot;filter_1_resonance&quot;: &quot;30%&quot;,
+    &quot;filter_1_keytrack&quot;: &quot;50%&quot;,
+    &quot;env_1_attack&quot;: &quot;1ms&quot;,
+    &quot;env_1_decay&quot;: &quot;400ms&quot;,
+    &quot;env_1_sustain&quot;: 0.3,
+    &quot;env_1_release&quot;: &quot;250ms&quot;,
+    &quot;env_2_attack&quot;: &quot;0ms&quot;,
+    &quot;env_2_decay&quot;: &quot;320ms&quot;,
+    &quot;env_2_sustain&quot;: 0,
+    &quot;env_2_decay_power&quot;: -2,
+    &quot;delay_on&quot;: &quot;On&quot;,
+    &quot;delay_style&quot;: &quot;Ping Pong&quot;,
+    &quot;delay_sync&quot;: &quot;Tempo Dotted&quot;,
+    &quot;delay_tempo&quot;: &quot;1/8&quot;,
+    &quot;delay_feedback&quot;: &quot;42%&quot;,
+    &quot;delay_dry_wet&quot;: &quot;28%&quot;,
+    &quot;reverb_on&quot;: &quot;On&quot;,
+    &quot;reverb_dry_wet&quot;: &quot;20%&quot;
+  },
+  &quot;mods&quot;: [
+    {
+      &quot;source&quot;: &quot;env_2&quot;,
+      &quot;dest&quot;: &quot;filter_1_cutoff&quot;,
+      &quot;amount&quot;: &quot;+60st&quot;
+    },
+    {
+      &quot;source&quot;: &quot;velocity&quot;,
+      &quot;dest&quot;: &quot;filter_1_cutoff&quot;,
+      &quot;amount&quot;: &quot;+12st&quot;
+    }
+  ],
+  &quot;play&quot;: {
+    &quot;sequence&quot;: &quot;A2 E3 A3! C4 E4 C4 A3 E3 F2 C3 F3! A3 C4 A3 F3 C3 G2 D3 G3! B3 D4 B3 G3 D3&quot;,
+    &quot;step&quot;: 0.143,
+    &quot;gate&quot;: 0.55,
+    &quot;vel&quot;: 0.7,
+    &quot;tail&quot;: 1.8
+  }
+}</pre></details>
+    </div>
+  </div>
+</article>
+  <section id="experiments">
+    <h2 class="section-title">Blind match</h2>
+    
+<article class="sound" id="blind-match">
+  <header class="sound-head">
+    <h2>Blind Match</h2>
+    <p class="brief"></p>
+  </header>
+  <div class="sound-body">
+    <div class="listen">
+      <audio controls preload="none" src="blind-match/sound.wav"></audio>
+      <figure><img loading="lazy" src="blind-match/sheet.png" alt="Spectrogram and waveform of Blind Match"></figure>
+    </div>
+    <div class="read">
+      <h3>What the ears reported</h3>
+      <ul class="chips"><li>percussive attack</li><li>short, plucky decay</li><li>warm</li><li>clean tone</li><li>bass-heavy</li><li>closes down over time (x3.0 darker)</li><li>wobbling brightness ~3.2 Hz</li><li>wide stereo</li></ul>
+      <dl class="facts">
+        <div><dt>Pitch</dt><dd>A2-6c</dd></div>
+        <div><dt>Centroid</dt><dd>718 Hz</dd></div>
+        <div><dt>Attack</dt><dd>0 ms</dd></div>
+        <div><dt>Width</dt><dd>0.414</dd></div>
+      </dl>
+      <details><summary>Full listening report</summary><pre>== Blind Match ==
+Character: percussive attack, short, plucky decay, warm, clean tone, bass-heavy, closes down over time (x3.0 darker), wobbling brightness ~3.2 Hz, wide stereo
+Level: peak -12.4 dBFS, rms -36.2 dBFS, crest 23.8 dB | Envelope: attack 0 ms (half-level in 0 ms), peak at 0.01s, -20 dB after 0.21s, sustain -28 dB, release to -60 dB in 0.08s
+Pitch: A2-6c (109.6 Hz, clarity 0.97)
+Strongest partials: 110Hz A2-2c (0dB); 219Hz A3-5c (-8dB); 330Hz E4-0c (-12dB); 439Hz A4-4c (-14dB); 548Hz C#5-19c (-16dB); 658Hz E5-5c (-18dB); 767Hz G5-39c (-19dB); 876Hz A5-8c (-21dB)
+Spectrum: centroid 718 Hz (start 752 -&gt; end 248), 85% rolloff 334 Hz, flatness 0.000, harmonicity 0.81
+Energy by band: sub 0.4%, bass 80.4%, low-mid 14.7%, mid 4.4%, presence 0.0%, air 0.0%
+Motion: brightness wobbles at 3.21 Hz (±13%)
+Stereo: width 0.414 (side/mid), L/R correlation 0.707
+Timeline (t: level dB, centroid Hz): 0.0s:-27/732  0.14s:-41/438  0.28s:-51/351  0.42s:-52/254  0.56s:-56/230  0.7s:-118/328  0.84s:-120/0  0.98s:-120/0  1.11s:-120/0  1.25s:-120/0</pre></details>
+      <h3>How it was built</h3>
+      <p class="small">Wavetables: Vital init saw · 14 settings · preset file <code>Blind Match.vital</code></p>
+      <ul class="mods"><li>env_2 → filter_1_cutoff 0.3</li></ul>
+      <details><summary>Patch spec (JSON)</summary>
+        <button class="copy" type="button" data-target="spec-blind-match">Copy JSON</button>
+        <pre id="spec-blind-match">{
+  &quot;name&quot;: &quot;Blind Match&quot;,
+  &quot;params&quot;: {
+    &quot;osc_1_unison_voices&quot;: 3,
+    &quot;osc_1_unison_detune&quot;: &quot;15%&quot;,
+    &quot;osc_1_random_phase&quot;: &quot;0%&quot;,
+    &quot;filter_1_on&quot;: &quot;On&quot;,
+    &quot;filter_1_style&quot;: &quot;24dB&quot;,
+    &quot;env_1_attack&quot;: &quot;0ms&quot;,
+    &quot;env_2_attack&quot;: &quot;0ms&quot;,
+    &quot;env_2_sustain&quot;: 0,
+    &quot;filter_1_cutoff&quot;: {
+      &quot;raw&quot;: 70.75515
+    },
+    &quot;filter_1_resonance&quot;: {
+      &quot;raw&quot;: 0.55741
+    },
+    &quot;env_1_decay&quot;: {
+      &quot;raw&quot;: 0.79673
+    },
+    &quot;env_1_sustain&quot;: {
+      &quot;raw&quot;: 0.17387
+    },
+    &quot;env_2_decay&quot;: {
+      &quot;raw&quot;: 0.69762
+    },
+    &quot;modulation_1_amount&quot;: {
+      &quot;raw&quot;: 0.28833
+    }
+  },
+  &quot;mods&quot;: [
+    {
+      &quot;source&quot;: &quot;env_2&quot;,
+      &quot;dest&quot;: &quot;filter_1_cutoff&quot;,
+      &quot;amount&quot;: 0.3
+    }
+  ],
+  &quot;play&quot;: {
+    &quot;note&quot;: &quot;A2&quot;,
+    &quot;dur&quot;: 0.6,
+    &quot;tail&quot;: 0.8
+  },
+  &quot;fitted&quot;: {
+    &quot;filter_1_cutoff&quot;: &quot;487 Hz (B4)&quot;,
+    &quot;filter_1_resonance&quot;: &quot;55.7%&quot;,
+    &quot;env_1_decay&quot;: &quot;403 ms&quot;,
+    &quot;env_1_sustain&quot;: &quot;0.174&quot;,
+    &quot;env_2_decay&quot;: &quot;237 ms&quot;,
+    &quot;modulation_1_amount&quot;: &quot;0.288&quot;
+  },
+  &quot;fit_distance&quot;: 0.1261
+}</pre></details>
+    </div>
+  </div>
+</article>
+  </section>
+</div>
+<script>
+document.querySelectorAll('.copy').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var el = document.getElementById(b.dataset.target);
+    var done = function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy JSON'; }, 1500); };
+    navigator.clipboard.writeText(el.textContent).then(done, function () {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected - press Cmd+C';
+    });
+  });
+});
+document.addEventListener('play', function (e) {
+  document.querySelectorAll('audio').forEach(function (a) { if (a !== e.target) a.pause(); });
+}, true);
+</script>

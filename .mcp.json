@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "vitalmake": {
+      "command": "uv",
+      "args": ["run", "--directory", ".", "vitalmake-mcp"]
+    }
+  }
+}

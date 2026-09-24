@@ -1,0 +1,112 @@
+{
+  "duration": 9.5,
+  "peak_db": -7.4,
+  "rms_db": -21.8,
+  "crest_db": 14.4,
+  "attack_ms": 429.6,
+  "rise50_ms": 346.8,
+  "peak_time": 5.944,
+  "sustain_db": -8.3,
+  "decay_20db": null,
+  "release_60db": null,
+  "f0_hz": 146.86,
+  "f0_note": "D3+0c",
+  "pitch_clarity": 0.9,
+  "pitch_start": "D2-2c",
+  "pitch_end": "D2+0c",
+  "peaks": [
+    "147Hz D3+0c (-4dB)",
+    "220Hz A3-0c (-6dB)",
+    "294Hz D4-0c (0dB)",
+    "440Hz A4+0c (-4dB)",
+    "588Hz D5+2c (-14dB)",
+    "659Hz E5+0c (-14dB)",
+    "734Hz F#5-14c (-15dB)",
+    "1098Hz C#6-17c (-13dB)"
+  ],
+  "centroid_hz": 363,
+  "centroid_start": 274,
+  "centroid_end": 334,
+  "attack_centroid_hz": 191,
+  "onset_sweep": "",
+  "rolloff_hz": 441,
+  "flatness": 0.0,
+  "harmonicity": 0.779,
+  "bands": {
+    "sub": 0.0,
+    "bass": 30.6,
+    "low-mid": 66.6,
+    "mid": 2.8,
+    "presence": 0.0,
+    "air": 0.0
+  },
+  "tremolo_hz": 0.33,
+  "tremolo_db": 10.0,
+  "wobble_hz": 0.25,
+  "wobble_pct": 167.3,
+  "glide_st_per_s": 0.0,
+  "glide_consistency": 0.0,
+  "width": 0.624,
+  "correlation": 0.44,
+  "clipped": 0,
+  "timeline": [
+    {
+      "t": 0.0,
+      "level_db": -20.7,
+      "centroid_hz": 308
+    },
+    {
+      "t": 0.94,
+      "level_db": -21.2,
+      "centroid_hz": 238
+    },
+    {
+      "t": 1.89,
+      "level_db": -23.5,
+      "centroid_hz": 684
+    },
+    {
+      "t": 2.84,
+      "level_db": -20.7,
+      "centroid_hz": 472
+    },
+    {
+      "t": 3.8,
+      "level_db": -21.3,
+      "centroid_hz": 416
+    },
+    {
+      "t": 4.75,
+      "level_db": -22.3,
+      "centroid_hz": 369
+    },
+    {
+      "t": 5.7,
+      "level_db": -17.7,
+      "centroid_hz": 299
+    },
+    {
+      "t": 6.65,
+      "level_db": -22.0,
+      "centroid_hz": 314
+    },
+    {
+      "t": 7.6,
+      "level_db": -36.4,
+      "centroid_hz": 396
+    },
+    {
+      "t": 8.56,
+      "level_db": -50.6,
+      "centroid_hz": 327
+    }
+  ],
+  "words": [
+    "slow swell (0.4s attack)",
+    "dark",
+    "clean tone",
+    "pulsing ~0.3 Hz (10 dB)",
+    "wobbling brightness ~0.2 Hz",
+    "wide stereo"
+  ]
+}

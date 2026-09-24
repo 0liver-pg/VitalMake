@@ -1,0 +1,115 @@
+{
+  "duration": 9.0,
+  "peak_db": -10.8,
+  "rms_db": -26.8,
+  "crest_db": 15.9,
+  "attack_ms": 288.1,
+  "rise50_ms": 106.7,
+  "peak_time": 5.19,
+  "sustain_db": -7.5,
+  "decay_20db": null,
+  "release_60db": 1.103,
+  "f0_hz": 99.37,
+  "f0_note": "-",
+  "pitch_clarity": 0.59,
+  "pitch_start": "C#3-40c",
+  "pitch_end": "B2+31c",
+  "peaks": [
+    "135Hz C#3-40c (0dB)",
+    "191Hz G3-43c (-8dB)",
+    "221Hz A3+8c (-9dB)",
+    "270Hz C#4-43c (-10dB)",
+    "341Hz F4-44c (-12dB)",
+    "405Hz G#4-43c (-11dB)",
+    "469Hz A#4+12c (-15dB)",
+    "519Hz C5-16c (-14dB)"
+  ],
+  "centroid_hz": 1254,
+  "centroid_start": 1530,
+  "centroid_end": 1206,
+  "attack_centroid_hz": 1500,
+  "onset_sweep": "",
+  "rolloff_hz": 678,
+  "flatness": 0.0047,
+  "harmonicity": null,
+  "bands": {
+    "sub": 0.0,
+    "bass": 66.4,
+    "low-mid": 22.6,
+    "mid": 10.7,
+    "presence": 0.2,
+    "air": 0.0
+  },
+  "tremolo_hz": 0.44,
+  "tremolo_db": 8.2,
+  "wobble_hz": 0.46,
+  "wobble_pct": 68.0,
+  "glide_st_per_s": 4.56,
+  "glide_consistency": 1.0,
+  "width": 0.997,
+  "correlation": 0.003,
+  "clipped": 0,
+  "timeline": [
+    {
+      "t": 0.0,
+      "level_db": -29.3,
+      "centroid_hz": 1523
+    },
+    {
+      "t": 0.89,
+      "level_db": -26.7,
+      "centroid_hz": 1366
+    },
+    {
+      "t": 1.8,
+      "level_db": -25.6,
+      "centroid_hz": 1289
+    },
+    {
+      "t": 2.69,
+      "level_db": -24.7,
+      "centroid_hz": 1211
+    },
+    {
+      "t": 3.6,
+      "level_db": -28.5,
+      "centroid_hz": 1524
+    },
+    {
+      "t": 4.5,
+      "level_db": -22.2,
+      "centroid_hz": 973
+    },
+    {
+      "t": 5.4,
+      "level_db": -28.8,
+      "centroid_hz": 1577
+    },
+    {
+      "t": 6.3,
+      "level_db": -26.9,
+      "centroid_hz": 1354
+    },
+    {
+      "t": 7.2,
+      "level_db": -30.2,
+      "centroid_hz": 1395
+    },
+    {
+      "t": 8.1,
+      "level_db": -62.9,
+      "centroid_hz": 1143
+    }
+  ],
+  "words": [
+    "slow swell (0.3s attack)",
+    "warm",
+    "clean tone",
+    "bass-heavy",
+    "pulsing ~0.4 Hz (8 dB)",
+    "wobbling brightness ~0.5 Hz",
+    "spectrum glides up (+4.6 st/s)",
+    "pitch moves C#3-40c -> B2+31c",
+    "very wide"
+  ]
+}

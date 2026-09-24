@@ -1,0 +1,24 @@
+{
+  "name": "Words As Waves",
+  "description": "An instrument made of a sentence: each wavetable frame is one word, with letters as harmonic loudness (a quiet, z loud). A slow LFO reads the sentence left to right.",
+  "wavetables": {
+    "osc_1": {"name": "i am a language model", "frames": [
+      {"text": "i"}, {"text": "am"}, {"text": "a"}, {"text": "language"}, {"text": "model"},
+      {"text": "and"}, {"text": "this"}, {"text": "is"}, {"text": "my"}, {"text": "voice"}
+    ]}
+  },
+  "lfos": {"lfo_1": {"shape": "ramp_up"}},
+  "params": {
+    "osc_1_level": 0.7, "osc_1_unison_voices": 5, "osc_1_unison_detune": "7%", "osc_1_stereo_spread": "80%",
+    "osc_1_smooth_interpolation": "On",
+    "lfo_1_sync": "Seconds", "lfo_1_frequency": "0.14Hz", "lfo_1_sync_type": "Envelope",
+    "filter_1_on": "On", "filter_1_model": "Analog", "filter_1_style": "12dB", "filter_1_cutoff": "4kHz",
+    "env_1_attack": "250ms", "env_1_sustain": 0.9, "env_1_release": "2s",
+    "chorus_on": "On", "chorus_dry_wet": "25%",
+    "reverb_on": "On", "reverb_dry_wet": "30%", "reverb_decay_time": "3s"
+  },
+  "mods": [
+    {"source": "lfo_1", "dest": "osc_1_wave_frame", "amount": 1.0}
+  ],
+  "play": {"chord": ["D3", "A3"], "dur": 7, "tail": 2.5, "vel": 0.7}
+}
