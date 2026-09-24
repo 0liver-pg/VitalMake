@@ -1,0 +1,22 @@
+== Choir of Machines - first note alone ==
+Character: slow swell (0.3s attack), warm, clean tone, smooth top end, closes down over time (x2.3 darker), pulsing ~2.6 Hz (6 dB), wobbling brightness ~2.6 Hz, pitch moves A4+8c -> D2-1c, auto-panning ~1.3 Hz, very wide
+Level: peak -5.3 dBFS, rms -25.0 dBFS, crest 19.7 dB | Envelope: attack 274 ms (half-level in 134 ms), peak at 0.51s, sustain -9 dB
+Pitch: D2+0c (73.42 Hz, clarity 0.8), start A4+8c -> end D2-1c
+Strongest partials: 220Hz A3-1c (-16dB); 294Hz D4+1c (-5dB); 349Hz F4-2c (-2dB); 441Hz A4+2c (0dB); 585Hz D5-6c (-13dB); 881Hz A5+1c (-16dB); 1037Hz C6-16c (-15dB); 1317Hz E6-2c (-18dB)
+Spectrum: centroid 1146 Hz (start 1297 -> end 570), 85% rolloff 452 Hz, flatness 0.002, harmonicity 0.81, top-end slope -14.8 dB/oct (2-16 kHz)
+Shape: spectral-envelope peaks 395, 980, 2366 Hz; even vs odd harmonics +13 dB (full, saw-like); level 300 ms after release -13 dB re peak
+Roughness (20-150 Hz beating, held part): 0.145, worst near 315 Hz (pure tone ~0, two sines 70 Hz apart ~0.32)
+Energy by band: sub 0.0%, bass 2.0%, low-mid 89.4%, mid 8.2%, presence 0.1%, air 0.0%
+Motion: level pulses at 2.63 Hz (6.4 dB p-p); pulse rate changes 13.64 -> 9.64 Hz across the note; brightness wobbles at 2.63 Hz (±26%); stereo image swings L/R at 1.32 Hz (13.2 dB balance p-p)
+Stereo: width 0.96 (side/mid), L/R correlation 0.043
+Timeline (t: level dB, centroid Hz): 0.0s:-24/1055  0.56s:-22/1233  1.11s:-20/1070  1.67s:-22/1164  2.24s:-25/1298  2.8s:-30/1092  3.36s:-40/884  3.92s:-45/685  4.48s:-54/682  5.04s:-60/576
+Phrase: 11.6s, peak -4.7 dBFS, rms -23.2 dBFS, centroid 1133 Hz, width 0.872, partials: 262Hz C4+0c; 294Hz D4+3c; 347Hz F4-12c; 392Hz G4+2c; 440Hz A4-0c; 521Hz C5-9c; 586Hz D5-5c; 1173Hz D6-2c
+
+Expression check (probe note, low -> high):
+M1 VOWEL (0 -> 1): pitch wobble 8c -> 0c; spectral-envelope peaks [395, 2366] -> [309, 939] Hz; pulse rate early->late x6.06 -> x1.27
+M2 AIR (0 -> 1): brightness 1061 -> 1350 Hz (x1.27); pitch wobble 0c -> 11c; auto-pan 0.0 Hz/11 dB -> 0.0 Hz/8 dB; spectral-envelope peaks [395, 1054] -> [395, 1069, 2366] Hz; level 300 ms after release -15 -> -11 dB; pulse rate early->late x2.29 -> x0.93; onset brightness 1236 -> 1621 Hz
+M3 MOTION (0 -> 1): level -23 -> -22 dB; spectral-envelope peaks [395, 966, 2366] -> [395] Hz
+M4 SPACE (0 -> 1): spectral-envelope peaks [395] -> [395, 1024] Hz; even vs odd harmonics -9 -> +6 dB; level 300 ms after release -13 -> -6 dB
+Mod wheel (0 -> 1): pitch wobble 0c -> 41c @ 5.3 Hz; spectral-envelope peaks [395, 2366] -> [395, 1054] Hz; level 300 ms after release -8 -> -14 dB; pulse rate early->late x2.15 -> x1.00; onset brightness 1070 -> 1530 Hz
+Aftertouch (0 -> 1): attack 359 -> 197 ms; spectral-envelope peaks [395, 1069, 2366] -> [395, 813, 2366] Hz; onset brightness 933 -> 1529 Hz; strongest partials A3 D4 F4 A4 -> D3 A3 D4 F4
+Velocity (0.3 -> 1): level -23 -> -21 dB; auto-pan 2.7 Hz/9 dB -> 2.2 Hz/11 dB; spectral-envelope peaks [395, 925] -> [395, 2366] Hz; pulsing 4.6 Hz/9 dB -> 0.0 Hz/6 dB; pulse rate early->late x0.29 -> x1.00; brightness wobble ±33% -> ±20%; strongest partials D3 A3 D4 F4 -> A3 D4 F4 A4

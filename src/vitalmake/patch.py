@@ -61,15 +61,27 @@ def build(spec: dict, synth: vita.Synth | None = None) -> vita.Synth:
     controls = synth.get_controls()
     errors = []
 
-    for name, value in spec.get("params", {}).items():
+    params = dict(spec.get("params", {}))
+    for k, m in spec.get("macros", {}).items():  # {"1": {"name": "BRIGHT", "value": 0.4}}
+        if isinstance(m, dict) and "value" in m:
+            params.setdefault(f"macro_control_{k}", m["value"])
+    for name, value in params.items():
         try:
             raw = C.to_raw(name, value)  # validates the name, with suggestions
             controls[name].set(raw)
         except (KeyError, ValueError) as e:
             errors.append(str(e).strip('"'))
 
+    # Mods can carry an "id"; another mod can then target its amount as "mod:<id>"
+    # instead of a fragile slot number (modulation_7_amount).
+    slots = {m["id"]: n for n, m in enumerate(spec.get("mods", []), start=1) if "id" in m}
     for i, mod in enumerate(spec.get("mods", []), start=1):
         src, dst = mod.get("source"), mod.get("dest")
+        if isinstance(dst, str) and dst.startswith("mod:"):
+            if dst[4:] not in slots:
+                errors.append(f"mod {i}: no mod with id {dst[4:]!r} (ids: {', '.join(slots) or 'none'})")
+                continue
+            dst = f"modulation_{slots[dst[4:]]}_amount"
         if src not in MOD_SOURCES:
             errors.append(f"mod {i}: unknown source {src!r}; sources: {', '.join(MOD_SOURCES)}")
             continue
@@ -101,7 +113,7 @@ def build(spec: dict, synth: vita.Synth | None = None) -> vita.Synth:
     for lfo_name, lspec in spec.get("lfos", {}).items():
         st["lfos"][int(lfo_name.split("_")[-1]) - 1] = W.lfo(lspec)
     for k, label in spec.get("macros", {}).items():
-        preset[f"macro{k}"] = label
+        preset[f"macro{k}"] = label["name"] if isinstance(label, dict) else label
     preset["preset_name"] = spec.get("name", "Untitled")
     preset["author"] = spec.get("author", "Claude")
     preset["comments"] = spec.get("description", "")

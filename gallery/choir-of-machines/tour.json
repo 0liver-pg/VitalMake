@@ -1,0 +1,86 @@
+[
+  {
+    "control": "M1 VOWEL",
+    "file": "tour-macro_control_1.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "pitch wobble 8c -> 0c; spectral-envelope peaks [395, 2366] -> [309, 939] Hz; pulse rate early->late x6.06 -> x1.27",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M2 AIR",
+    "file": "tour-macro_control_2.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "brightness 1061 -> 1350 Hz (x1.27); pitch wobble 0c -> 11c; auto-pan 0.0 Hz/11 dB -> 0.0 Hz/8 dB; spectral-envelope peaks [395, 1054] -> [395, 1069, 2366] Hz; level 300 ms after release -15 -> -11 dB; pulse rate early->late x2.29 -> x0.93; onset brightness 1236 -> 1621 Hz",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M3 MOTION",
+    "file": "tour-macro_control_3.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -23 -> -22 dB; spectral-envelope peaks [395, 966, 2366] -> [395] Hz",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M4 SPACE",
+    "file": "tour-macro_control_4.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "spectral-envelope peaks [395] -> [395, 1024] Hz; even vs odd harmonics -9 -> +6 dB; level 300 ms after release -13 -> -6 dB",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Mod wheel",
+    "file": "tour-mod_wheel.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "pitch wobble 0c -> 41c @ 5.3 Hz; spectral-envelope peaks [395, 2366] -> [395, 1054] Hz; level 300 ms after release -8 -> -14 dB; pulse rate early->late x2.15 -> x1.00; onset brightness 1070 -> 1530 Hz",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Aftertouch",
+    "file": "tour-aftertouch.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "attack 359 -> 197 ms; spectral-envelope peaks [395, 1069, 2366] -> [395, 813, 2366] Hz; onset brightness 933 -> 1529 Hz; strongest partials A3 D4 F4 A4 -> D3 A3 D4 F4",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Velocity",
+    "file": "tour-velocity.mp3",
+    "steps": [
+      0.3,
+      0.53,
+      0.77,
+      1.0
+    ],
+    "changes": "level -23 -> -21 dB; auto-pan 2.7 Hz/9 dB -> 2.2 Hz/11 dB; spectral-envelope peaks [395, 925] -> [395, 2366] Hz; pulsing 4.6 Hz/9 dB -> 0.0 Hz/6 dB; pulse rate early->late x0.29 -> x1.00; brightness wobble \u00b133% -> \u00b120%; strongest partials D3 A3 D4 F4 -> A3 D4 F4 A4",
+    "range": "0.3 -> 1"
+  }
+]

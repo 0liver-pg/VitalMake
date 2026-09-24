@@ -40,6 +40,80 @@ def stft_mag(mono: np.ndarray, nfft: int = NFFT, hop: int = HOP) -> np.ndarray:
     return np.abs(np.fft.rfft(frames, axis=1))  # (frames, bins)
 
 
+def _hf_slope(avg_power: np.ndarray, freqs: np.ndarray, lo: float = 2000, hi: float = 16000) -> float:
+    """Top-end slope in dB per octave: a line fitted to the peak envelope of the
+    average spectrum in 1/3-octave bands between `lo` and `hi`. Steeply falling
+    (below about -10 dB/oct) reads as smooth; flat or rising reads as fizzy or harsh,
+    because upper partials are as loud as the ones an octave below."""
+    edges = lo * 2 ** (np.arange(0, np.log2(hi / lo) + 1e-9, 1 / 3))
+    xs, ys = [], []
+    for a, b in zip(edges[:-1], edges[1:]):
+        sel = (freqs >= a) & (freqs < b)
+        if sel.any() and avg_power[sel].max() > 0:
+            xs.append(np.log2(np.sqrt(a * b)))
+            ys.append(10 * np.log10(avg_power[sel].max()))
+    if len(xs) < 3:
+        return 0.0
+    return float(np.polyfit(xs, ys, 1)[0])
+
+
+def _envelope_peaks(avg_power: np.ndarray, freqs: np.ndarray, n: int = 3) -> list[float]:
+    """Resonant peaks of the smoothed spectral envelope, 150 Hz-5 kHz: vowel formants,
+    filter resonance bumps. Harmonics are smoothed away (1/3-octave running max+mean),
+    so what's left is the shape a filter or a mouth imposes."""
+    grid = 150 * 2 ** (np.arange(0, np.log2(5000 / 150) * 48) / 48)  # quarter-semitone grid
+    lg = 10 * np.log10(np.interp(grid, freqs, avg_power) + 1e-20)
+    k = 16  # 1/3 octave
+    pad = np.pad(lg, k, mode="edge")
+    mx = np.array([pad[i : i + 2 * k + 1].max() for i in range(len(lg))])
+    sm = np.convolve(mx, np.ones(k) / k, mode="same")
+    cand = [i for i in range(k, len(sm) - k) if sm[i] == sm[i - k : i + k + 1].max() and sm[i] > sm.max() - 24]
+    cand.sort(key=lambda i: -sm[i])
+    chosen: list[int] = []
+    for i in cand:  # keep peaks at least half an octave apart
+        if all(abs(i - j) >= 24 for j in chosen):
+            chosen.append(i)
+        if len(chosen) == n:
+            break
+    return sorted(round(float(grid[i])) for i in chosen)
+
+
+def _odd_even(avg_power: np.ndarray, freqs: np.ndarray, f0: float) -> float | None:
+    """Even-harmonic energy relative to odd (dB) for harmonics 2..16: very negative =
+    square/clarinet-like hollow tone, near 0 = saw-like full tone."""
+    if not f0 or f0 < 30:
+        return None
+    odd = even = 0.0
+    for k in range(2, 17):
+        sel = np.abs(freqs - k * f0) < max(0.03 * k * f0, 6)
+        if not sel.any() or k * f0 > freqs[-1]:
+            break
+        e = avg_power[sel].max()
+        if k % 2:
+            odd += e
+        else:
+            even += e
+    return float(10 * np.log10((even + 1e-20) / (odd + 1e-20))) if odd > 0 else None
+
+
+def _onset_rate(fine: np.ndarray, fs: float, t0: int, t1: int) -> tuple[float, float]:
+    """Pulse rate from level peaks (onsets) in the fine envelope: (early Hz, late Hz).
+    Robust to accelerating gates, where a single periodicity doesn't exist."""
+    seg = 20 * np.log10(fine[t0:t1] + 1e-6)
+    if len(seg) < fs * 0.5:
+        return 0.0, 0.0
+    sm = np.convolve(seg, np.ones(9) / 9, mode="same")
+    w = max(3, int(fs * 0.025))
+    idx = [i for i in range(w, len(sm) - w) if sm[i] == sm[i - w : i + w + 1].max()
+           and sm[i] - sm[i - w : i + w + 1].min() > 4]
+    if len(idx) < 5:
+        return 0.0, 0.0
+    t = np.array(idx) / fs
+    rates = 1 / np.diff(t)
+    half = len(rates) // 2
+    return float(np.median(rates[: max(half, 1)])), float(np.median(rates[half:]))
+
+
 def _centroid(mag: np.ndarray, freqs: np.ndarray, range_db: float = 40.0) -> np.ndarray:
     """Magnitude-weighted spectral centroid per frame, ignoring bins more than
     `range_db` below the frame's loudest bin. Magnitude weighting tracks
@@ -121,6 +195,53 @@ def _glide(mono: np.ndarray, sr: int, step_s: float = 0.025, nfft: int = 2048, h
     return med, agree
 
 
+def _pitch_track(mono: np.ndarray, sr: int, t0: float, t1: float, hop_s: float = 0.02) -> np.ndarray:
+    """Pitch offset in cents of each frame relative to the first, over [t0, t1].
+
+    Each frame's log spectrum is whitened (harmonic peaks kept, spectral envelope
+    removed) and cross-correlated with the reference frame on a 2-cent log grid.
+    Works for chords and unison stacks as long as the whole sound moves together,
+    which is what vibrato, tape wow and pitch bends do.
+    """
+    # 46 ms frames (short enough to follow a 6 Hz vibrato), zero-padded 4x so the
+    # log-frequency interpolation is smooth
+    nwin, nfft, hop = 2048, 8192, int(hop_s * sr)
+    a, b = int(t0 * sr), int(t1 * sr)
+    if b - a < nwin + 4 * hop:
+        return np.zeros(0)
+    freqs = np.fft.rfftfreq(nfft, 1 / sr)
+    grid = 150 * 2 ** (np.arange(0, np.log2(6000 / 150) * 1200, 2) / 1200)
+    win = np.hanning(nwin)
+    k = np.ones(151) / 151  # ~3 semitone smoothing for the envelope
+    rows = []
+    starts = list(range(a, b - nwin, hop))
+    energy = np.array([np.sum(mono[i : i + nwin] ** 2) for i in starts])
+    keep = energy > np.max(energy) * 10 ** (-12 / 10)  # drop frames 12 dB under the loudest (gate troughs)
+    starts = [i for i, k in zip(starts, keep) if k]
+    if len(starts) < 8:
+        return np.zeros(0)
+    for i in starts:
+        m = np.log(np.abs(np.fft.rfft(mono[i : i + nwin] * win, nfft)) + 1e-7)
+        g = np.interp(grid, freqs, m)
+        rows.append(np.maximum(g - np.convolve(g, k, mode="same"), 0))
+    ref = rows[0]
+    lags = np.arange(-60, 61)  # +-120 cents
+    out, conf = [], []
+    for r in rows:
+        c = np.array([np.dot(ref[max(0, -L) : len(ref) - max(0, L)], r[max(0, L) : len(r) - max(0, -L)]) for L in lags])
+        j = int(np.argmax(c))
+        conf.append(c[j] / (np.sqrt(np.dot(ref, ref) * np.dot(r, r)) + 1e-12))
+        if 0 < j < len(c) - 1:  # parabolic refinement
+            den = c[j - 1] - 2 * c[j] + c[j + 1]
+            off = 0.5 * (c[j - 1] - c[j + 1]) / den if den != 0 else 0
+        else:
+            off = 0
+        out.append((lags[j] + off) * 2)
+    if np.median(conf) < 0.5:  # too little harmonic detail above 150 Hz to follow (dark bass, noise)
+        return np.zeros(0)
+    return np.array(out)
+
+
 def _dominant_rate(sig: np.ndarray, fs: float, fmin=0.15, fmax=20.0):
     """Strongest periodicity in a control signal (envelope, brightness)."""
     if len(sig) < 16:
@@ -168,15 +289,27 @@ class Listening:
     onset_sweep: str
     rolloff_hz: float
     flatness: float
+    hf_slope_db_oct: float
+    envelope_peaks_hz: list
+    even_odd_db: float | None
+    tail_300ms_db: float | None
+    roughness: float | None
+    roughness_band_hz: float | None
     harmonicity: float | None
     bands: dict[str, float]
     tremolo_hz: float
     tremolo_db: float
+    pulse_rate_early_hz: float
+    pulse_rate_late_hz: float
     wobble_hz: float
     wobble_pct: float
     glide_st_per_s: float
     glide_consistency: float
     width: float
+    pitch_wobble_cents: float
+    vibrato_hz: float
+    autopan_hz: float
+    autopan_db: float
     correlation: float
     clipped: int
     timeline: list[dict] = field(default_factory=list)
@@ -234,6 +367,9 @@ def listen(audio: np.ndarray, sr: int = 44100, note_off: float | None = None) ->
         seg = env_db[pk_i:off_i]
     else:
         seg = env_db[pk_i:]
+    tail_db = None
+    if note_off is not None and note_off + 0.3 < dur:
+        tail_db = float(env_db[min(int((note_off + 0.3) * sr / HOP), len(env_db) - 1)] - pk_db)
     down = np.where(seg < pk_db - 20)[0]
     decay_20 = float(down[0] * HOP / sr) if len(down) else None
 
@@ -249,6 +385,9 @@ def listen(audio: np.ndarray, sr: int = 44100, note_off: float | None = None) ->
     flatness = float(np.exp(np.mean(np.log(p))) / np.mean(p))
     tot = avg.sum() + 1e-20
     bands = {name: round(float(avg[(freqs >= lo) & (freqs < hi)].sum() / tot * 100), 1) for name, lo, hi in BANDS}
+
+    hf_slope = _hf_slope(avg, freqs)
+    formants = _envelope_peaks(avg, freqs)
 
     # strongest spectral peaks (chord / partial content)
     amp = np.sqrt(avg)
@@ -278,6 +417,7 @@ def listen(audio: np.ndarray, sr: int = 44100, note_off: float | None = None) ->
     p_start = note_name(np.median(track[:3])) if track else "-"
     p_end = note_name(np.median(track[-3:])) if track else "-"
 
+    odd_even = _odd_even(avg, freqs, f0) if clarity > 0.75 else None
     harmonicity = None
     if f0 > 0 and clarity > 0.6:
         h = np.zeros_like(freqs, dtype=bool)
@@ -290,11 +430,16 @@ def listen(audio: np.ndarray, sr: int = 44100, note_off: float | None = None) ->
     s0 = int(min(t90 + 0.05 * fs_ctrl, len(env_db) - 1))
     s1 = int(note_off * fs_ctrl) if note_off else len(env_db)
     held = slice(s0, max(s1, s0 + 1))
-    loud = np.where(env_db[held] > pk_db - 35)[0]
-    trem_hz = trem_db = wob_hz = wob_oct = 0.0
+    loud = np.where(env_db[held] > pk_db - 35)[0] if s1 > s0 else np.array([], dtype=int)
+    trem_hz = trem_db = wob_hz = wob_oct = trem_early = trem_late = 0.0
     if len(loud) > 0.5 * fs_ctrl:  # need half a second of held sound to call it modulation
         held = slice(s0, s0 + loud[-1] + 1)
         trem_hz, trem_db = _dominant_rate(env_db[held], fs_ctrl)
+        # pulse rate early vs late, from level peaks: catches accelerating gates
+        fs_fine = sr / fine_hop
+        if trem_db >= 6:  # only a real gate/tremolo has onsets worth counting
+            trem_early, trem_late = _onset_rate(fine, fs_fine, int(s0 * HOP / fine_hop),
+                                                int((s0 + loud[-1]) * HOP / fine_hop))
         log_c = np.log2(np.maximum(centroid_t[held], 20))
         wob_hz, wob_oct = _dominant_rate(log_c, fs_ctrl)
     on = int(t10)
@@ -307,6 +452,16 @@ def listen(audio: np.ndarray, sr: int = 44100, note_off: float | None = None) ->
     fast, slow = _glide(mono, sr), _glide(mono, sr, step_s=0.2, nfft=4096, hop=512)
     cands = [g for g in (fast, slow) if abs(g[0]) > 0.5 and g[1] > 0.6]
     glide_st, glide_agree = max(cands, key=lambda g: g[1]) if cands else (0.0, 0.0)
+
+    rough = rough_hz = None
+    if note_off is None or note_off >= 0.6:
+        from .roughness import roughness as _rough
+
+        # measured on the held part, after the attack transient
+        r0 = t90 * HOP / sr + 0.05
+        r1 = (note_off if note_off else dur) - 0.02
+        if r1 - r0 >= 0.4:
+            rough, rough_hz = _rough(audio, sr, start=r0, dur=min(1.0, r1 - r0))
 
     # onset pitch sweep (kicks, zaps): upward zero crossings of the first 200 ms
     sweep = ""
@@ -328,6 +483,29 @@ def listen(audio: np.ndarray, sr: int = 44100, note_off: float | None = None) ->
     mid_rms = np.sqrt(np.mean(mono**2)) + 1e-12
     width = float(np.sqrt(np.mean(side**2)) / mid_rms)
     corr = float(np.corrcoef(left, right)[0, 1]) if np.std(left) > 0 and np.std(right) > 0 else 1.0
+
+    # pitch wobble (vibrato, tape wow) during the held part
+    vib_hz = vib_cents = 0.0
+    if len(loud) > 0.5 * fs_ctrl and not (clarity > 0.75 and f0 < 80):  # skip deep bass: too few partials to track
+        track = _pitch_track(mono, sr, s0 * HOP / sr, (s0 + loud[-1]) * HOP / sr)
+        if len(track) > 16:
+            t = np.arange(len(track))
+            detr = track - np.polyval(np.polyfit(t, track, 1), t)
+            vib_cents = float(np.percentile(detr, 95) - np.percentile(detr, 5))
+            vib_hz, _ = _dominant_rate(detr, 1 / 0.02, fmin=0.3, fmax=12)
+            if vib_cents < 4:
+                vib_hz = 0.0
+
+    # auto-pan: periodic swing of the left/right balance
+    pan_hz = pan_db = 0.0
+    if audio.shape[0] > 1 and len(loud) > 0.5 * fs_ctrl:
+        frames = range(s0, s0 + loud[-1] + 1)  # 23 ms windows, fine enough for tremolo-rate panning
+        eL = np.array([np.sum(left[i * HOP : i * HOP + 1024] ** 2) for i in frames])
+        eR = np.array([np.sum(right[i * HOP : i * HOP + 1024] ** 2) for i in frames])
+        bal = 10 * np.log10((eL + 1e-12) / (eR + 1e-12))
+        pan_hz, pan_db = _dominant_rate(bal, fs_ctrl)
+        if pan_db < 1.0:
+            pan_hz = 0.0
 
     # coarse timeline --------------------------------------------------------
     timeline = []
@@ -352,12 +530,17 @@ def listen(audio: np.ndarray, sr: int = 44100, note_off: float | None = None) ->
         pitch_start=p_start, pitch_end=p_end, peaks=peaks,
         centroid_hz=round(centroid), centroid_start=round(c_start), centroid_end=round(c_end),
         attack_centroid_hz=round(attack_c), onset_sweep=sweep,
-        rolloff_hz=round(rolloff), flatness=round(flatness, 4),
+        rolloff_hz=round(rolloff), flatness=round(flatness, 4), hf_slope_db_oct=round(hf_slope, 1), envelope_peaks_hz=formants,
+        even_odd_db=None if odd_even is None else round(odd_even, 1),
+        tail_300ms_db=None if tail_db is None else round(tail_db, 1),
+        roughness=None if rough is None else round(rough, 3), roughness_band_hz=rough_hz,
         harmonicity=None if harmonicity is None else round(harmonicity, 3), bands=bands,
         tremolo_hz=round(trem_hz, 2), tremolo_db=round(trem_db, 1),
+        pulse_rate_early_hz=round(trem_early, 2), pulse_rate_late_hz=round(trem_late, 2),
         wobble_hz=round(wob_hz, 2), wobble_pct=round((2 ** wob_oct - 1) * 100, 1),
         glide_st_per_s=round(glide_st, 2), glide_consistency=round(glide_agree, 2),
-        width=round(width, 3), correlation=round(corr, 3), clipped=int((np.abs(audio) > 0.999).sum()),
+        width=round(width, 3), pitch_wobble_cents=round(vib_cents, 1), vibrato_hz=round(vib_hz, 2),
+        autopan_hz=round(pan_hz, 2), autopan_db=round(pan_db, 1), correlation=round(corr, 3), clipped=int((np.abs(audio) > 0.999).sum()),
         timeline=timeline,
     )
     L.words = describe(L)
@@ -391,6 +574,10 @@ def describe(L: Listening) -> list[str]:
         w.append("inharmonic / metallic")
     else:
         w.append("clean tone")
+    if L.hf_slope_db_oct > -6 and L.centroid_hz > 400:
+        w.append(f"fizzy top end ({L.hf_slope_db_oct:+.0f} dB/oct above 2 kHz)")
+    elif L.hf_slope_db_oct < -14:
+        w.append("smooth top end")
     if L.bands.get("sub", 0) + L.bands.get("bass", 0) > 60:
         w.append("bass-heavy")
     # motion
@@ -406,9 +593,14 @@ def describe(L: Listening) -> list[str]:
         w.append(f"wobbling brightness ~{L.wobble_hz:.1f} Hz")
     if abs(L.glide_st_per_s) > 0.5 and L.glide_consistency > 0.6:
         w.append(f"spectrum glides {'up' if L.glide_st_per_s > 0 else 'down'} ({L.glide_st_per_s:+.1f} st/s)")
-    if L.pitch_start != "-" and L.pitch_end != "-":
+    if L.pitch_clarity >= 0.9 and L.pitch_start != "-" and L.pitch_end != "-":  # chords make this meaningless
         if abs(_cents(L.pitch_start) - _cents(L.pitch_end)) > 40:
             w.append(f"pitch moves {L.pitch_start} -> {L.pitch_end}")
+    if L.pitch_wobble_cents >= 8:
+        w.append(f"vibrato {L.pitch_wobble_cents:.0f}c @ {L.vibrato_hz:.1f} Hz" if L.vibrato_hz
+                 else f"pitch drifts ({L.pitch_wobble_cents:.0f}c, tape-like)")
+    if L.autopan_hz:
+        w.append(f"auto-panning ~{L.autopan_hz:.1f} Hz")
     # space
     w.append("mono" if L.width < 0.05 else "narrow stereo" if L.width < 0.3 else "wide stereo" if L.width < 0.8 else "very wide")
     if L.correlation < 0:
@@ -450,23 +642,40 @@ def report(L: Listening, title: str = "") -> str:
         pitch = f"Pitch: no single clear pitch (chord, noise or inharmonic; clarity {L.pitch_clarity}); see partials"
     else:
         pitch = f"Pitch: {L.f0_note} ({L.f0_hz} Hz, clarity {L.pitch_clarity})"
-    if L.pitch_start != "-" and abs(_cents(L.pitch_start) - _cents(L.pitch_end)) > 40:
+    if L.f0_note != "-" and L.pitch_start != "-" and abs(_cents(L.pitch_start) - _cents(L.pitch_end)) > 40:
         pitch += f", start {L.pitch_start} -> end {L.pitch_end}"
     lines.append(pitch)
     lines.append("Strongest partials: " + "; ".join(L.peaks))
     h = f", harmonicity {L.harmonicity:.2f}" if L.harmonicity is not None else ""
     lines.append(f"Spectrum: centroid {L.centroid_hz} Hz (start {L.centroid_start} -> end {L.centroid_end}), "
-                 f"85% rolloff {L.rolloff_hz} Hz, flatness {L.flatness:.3f}{h}")
+                 f"85% rolloff {L.rolloff_hz} Hz, flatness {L.flatness:.3f}{h}, top-end slope {L.hf_slope_db_oct:+.1f} dB/oct (2-16 kHz)")
     if L.onset_sweep:
         lines.append(f"Onset pitch sweep: {L.onset_sweep}")
     if L.attack_centroid_hz > 1.8 * max(L.centroid_hz, 1):
         lines.append(f"Transient: first 30 ms is much brighter ({L.attack_centroid_hz} Hz) than the body - a click/zap/pitch-drop onset")
+    shape = [f"spectral-envelope peaks {', '.join(str(f) for f in L.envelope_peaks_hz)} Hz"] if L.envelope_peaks_hz else []
+    if L.even_odd_db is not None:
+        shape.append(f"even vs odd harmonics {L.even_odd_db:+.0f} dB ({'hollow, square-like' if L.even_odd_db < -8 else 'full, saw-like'})")
+    if L.tail_300ms_db is not None:
+        shape.append(f"level 300 ms after release {L.tail_300ms_db:+.0f} dB re peak")
+    if shape:
+        lines.append("Shape: " + "; ".join(shape))
+    if L.roughness is not None:
+        lines.append(f"Roughness (20-150 Hz beating, held part): {L.roughness:.3f}, worst near {L.roughness_band_hz:.0f} Hz"
+                     " (pure tone ~0, two sines 70 Hz apart ~0.32)")
     lines.append("Energy by band: " + ", ".join(f"{k} {v}%" for k, v in L.bands.items()))
     mot = []
     if L.tremolo_hz:
         mot.append(f"level pulses at {L.tremolo_hz} Hz ({L.tremolo_db} dB p-p)")
+    if L.pulse_rate_early_hz and L.pulse_rate_late_hz and abs(L.pulse_rate_late_hz / L.pulse_rate_early_hz - 1) > 0.2:
+        mot.append(f"pulse rate changes {L.pulse_rate_early_hz} -> {L.pulse_rate_late_hz} Hz across the note")
     if L.wobble_hz:
         mot.append(f"brightness wobbles at {L.wobble_hz} Hz (±{L.wobble_pct / 2:.0f}%)")
+    if L.pitch_wobble_cents >= 6:
+        kind = f"vibrato at {L.vibrato_hz} Hz" if L.vibrato_hz else "irregular drift (wow / random)"
+        mot.append(f"pitch wobbles {L.pitch_wobble_cents:.0f} cents p-p, {kind}")
+    if L.autopan_hz:
+        mot.append(f"stereo image swings L/R at {L.autopan_hz} Hz ({L.autopan_db} dB balance p-p)")
     if abs(L.glide_st_per_s) > 0.5 and L.glide_consistency > 0.6:
         mot.append(f"partials glide {L.glide_st_per_s:+.1f} semitones/s ({L.glide_consistency:.0%} of the time)")
     lines.append("Motion: " + ("; ".join(mot) if mot else "no periodic modulation or glide detected"))

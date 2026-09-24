@@ -1,0 +1,240 @@
+{
+  "name": "Rubber Band",
+  "style": "Bass",
+  "description": "Funky 80s synth-pop bass: a pulse and a saw through a resonant filter that snaps shut in a quarter second, so every note goes 'bwow'. Hit harder for more snap; WAH adds rubbery resonance, GRIT a little tube-ish drive.",
+  "wavetables": {
+    "osc_1": [
+      {
+        "shape": "pulse",
+        "width": 0.28
+      }
+    ],
+    "osc_3": [
+      {
+        "shape": "sine"
+      }
+    ]
+  },
+  "macros": {
+    "1": {
+      "name": "SNAP",
+      "value": 0.5
+    },
+    "2": {
+      "name": "WAH",
+      "value": 0.4
+    },
+    "3": {
+      "name": "BODY",
+      "value": 0.5
+    },
+    "4": {
+      "name": "GRIT",
+      "value": 0.2
+    }
+  },
+  "params": {
+    "osc_1_level": 0.7,
+    "osc_1_random_phase": "0%",
+    "osc_2_on": "On",
+    "osc_2_level": 0.45,
+    "osc_2_random_phase": "0%",
+    "osc_3_on": "On",
+    "osc_3_level": 0.2,
+    "osc_3_destination": "DIRECT OUT",
+    "filter_1_on": "On",
+    "filter_1_model": "Analog",
+    "filter_1_style": "12dB",
+    "filter_1_cutoff": "280Hz",
+    "filter_1_resonance": "20%",
+    "filter_1_keytrack": "60%",
+    "osc_2_destination": "FILTER 1",
+    "env_1_attack": "1ms",
+    "env_1_decay": "500ms",
+    "env_1_sustain": 0.55,
+    "env_1_release": "60ms",
+    "env_2_attack": "0ms",
+    "env_2_decay": "260ms",
+    "env_2_sustain": 0.0,
+    "env_2_decay_power": -1.5,
+    "compressor_on": "On",
+    "compressor_mix": "60%",
+    "eq_on": "On",
+    "eq_high_cutoff": "6kHz",
+    "eq_high_gain": "-4dB",
+    "polyphony": 1,
+    "legato": "Off",
+    "beats_per_minute": 108,
+    "volume": "-12dB",
+    "distortion_on": "On",
+    "distortion_type": "Soft Clip",
+    "distortion_drive": "0dB",
+    "distortion_mix": "100%",
+    "velocity_track": "40%"
+  },
+  "mods": [
+    {
+      "source": "env_2",
+      "dest": "filter_1_cutoff",
+      "amount": "+18st",
+      "id": "snap"
+    },
+    {
+      "source": "velocity",
+      "dest": "mod:snap",
+      "amount": 0.12
+    },
+    {
+      "source": "macro_control_1",
+      "dest": "mod:snap",
+      "amount": 0.2
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "filter_1_resonance",
+      "amount": 0.55
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "osc_3_level",
+      "amount": 0.5
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "filter_1_cutoff",
+      "amount": "+8st"
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "distortion_drive",
+      "amount": 0.3
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "volume",
+      "amount": -0.08
+    },
+    {
+      "source": "mod_wheel",
+      "dest": "filter_1_cutoff",
+      "amount": "+18st"
+    },
+    {
+      "source": "aftertouch",
+      "dest": "filter_1_resonance",
+      "amount": 0.3
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "mod:snap",
+      "amount": 0.06
+    }
+  ],
+  "play": {
+    "notes": [
+      {
+        "note": "C2",
+        "start": 0.0,
+        "dur": 0.2,
+        "vel": 0.9
+      },
+      {
+        "note": "C3",
+        "start": 0.278,
+        "dur": 0.12,
+        "vel": 0.6
+      },
+      {
+        "note": "C2",
+        "start": 0.417,
+        "dur": 0.2,
+        "vel": 0.75
+      },
+      {
+        "note": "Bb1",
+        "start": 0.833,
+        "dur": 0.25,
+        "vel": 0.85
+      },
+      {
+        "note": "C2",
+        "start": 1.111,
+        "dur": 0.15,
+        "vel": 0.7
+      },
+      {
+        "note": "Eb2",
+        "start": 1.389,
+        "dur": 0.12,
+        "vel": 0.8
+      },
+      {
+        "note": "F2",
+        "start": 1.528,
+        "dur": 0.2,
+        "vel": 0.9
+      },
+      {
+        "note": "G2",
+        "start": 1.806,
+        "dur": 0.25,
+        "vel": 0.75
+      },
+      {
+        "note": "C2",
+        "start": 2.222,
+        "dur": 0.2,
+        "vel": 0.95
+      },
+      {
+        "note": "C3",
+        "start": 2.5,
+        "dur": 0.12,
+        "vel": 0.6
+      },
+      {
+        "note": "C2",
+        "start": 2.639,
+        "dur": 0.2,
+        "vel": 0.75
+      },
+      {
+        "note": "Bb1",
+        "start": 3.056,
+        "dur": 0.25,
+        "vel": 0.85
+      },
+      {
+        "note": "G1",
+        "start": 3.333,
+        "dur": 0.3,
+        "vel": 0.8
+      },
+      {
+        "note": "Bb1",
+        "start": 3.75,
+        "dur": 0.15,
+        "vel": 0.7
+      },
+      {
+        "note": "B1",
+        "start": 3.889,
+        "dur": 0.15,
+        "vel": 0.75
+      },
+      {
+        "note": "C2",
+        "start": 4.028,
+        "dur": 0.4,
+        "vel": 1.0
+      }
+    ],
+    "tail": 0.6
+  },
+  "tour": {
+    "note": "C2",
+    "dur": 0.6,
+    "tail": 0.4,
+    "vel": 0.8
+  }
+}

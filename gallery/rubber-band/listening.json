@@ -1,0 +1,127 @@
+{
+  "duration": 0.8,
+  "peak_db": -10.7,
+  "rms_db": -23.7,
+  "crest_db": 12.9,
+  "attack_ms": 2.2,
+  "rise50_ms": 0.7,
+  "peak_time": 0.023,
+  "sustain_db": null,
+  "decay_20db": null,
+  "release_60db": 0.093,
+  "f0_hz": 65.17,
+  "f0_note": "C2-6c",
+  "pitch_clarity": 0.94,
+  "pitch_start": "C2-4c",
+  "pitch_end": "C2-4c",
+  "peaks": [
+    "65Hz C2-5c (0dB)",
+    "130Hz C3-8c (-10dB)",
+    "196Hz G3-3c (-19dB)",
+    "260Hz C4-8c (-22dB)",
+    "325Hz E4-24c (-18dB)",
+    "391Hz G4-4c (-21dB)",
+    "521Hz C5-8c (-26dB)",
+    "586Hz D5-3c (-25dB)"
+  ],
+  "centroid_hz": 438,
+  "centroid_start": 465,
+  "centroid_end": 121,
+  "attack_centroid_hz": 460,
+  "onset_sweep": "",
+  "rolloff_hz": 118,
+  "flatness": 0.0016,
+  "hf_slope_db_oct": -10.2,
+  "envelope_peaks_hz": [
+    189,
+    287
+  ],
+  "even_odd_db": 5.6,
+  "tail_300ms_db": -104.1,
+  "roughness": null,
+  "roughness_band_hz": null,
+  "harmonicity": 0.975,
+  "bands": {
+    "sub": 14.7,
+    "bass": 80.3,
+    "low-mid": 3.9,
+    "mid": 0.9,
+    "presence": 0.1,
+    "air": 0.0
+  },
+  "tremolo_hz": 0.0,
+  "tremolo_db": 0.0,
+  "pulse_rate_early_hz": 0.0,
+  "pulse_rate_late_hz": 0.0,
+  "wobble_hz": 0.0,
+  "wobble_pct": 0.0,
+  "glide_st_per_s": 0.0,
+  "glide_consistency": 0.0,
+  "width": 0.0,
+  "pitch_wobble_cents": 0.0,
+  "vibrato_hz": 0.0,
+  "autopan_hz": 0.0,
+  "autopan_db": 0.0,
+  "correlation": 1.0,
+  "clipped": 0,
+  "timeline": [
+    {
+      "t": 0.0,
+      "level_db": -16.8,
+      "centroid_hz": 573
+    },
+    {
+      "t": 0.07,
+      "level_db": -18.4,
+      "centroid_hz": 433
+    },
+    {
+      "t": 0.15,
+      "level_db": -20.6,
+      "centroid_hz": 174
+    },
+    {
+      "t": 0.23,
+      "level_db": -38.7,
+      "centroid_hz": 127
+    },
+    {
+      "t": 0.31,
+      "level_db": -120.0,
+      "centroid_hz": 0
+    },
+    {
+      "t": 0.39,
+      "level_db": -120.0,
+      "centroid_hz": 0
+    },
+    {
+      "t": 0.48,
+      "level_db": -120.0,
+      "centroid_hz": 0
+    },
+    {
+      "t": 0.56,
+      "level_db": -120.0,
+      "centroid_hz": 0
+    },
+    {
+      "t": 0.64,
+      "level_db": -120.0,
+      "centroid_hz": 0
+    },
+    {
+      "t": 0.72,
+      "level_db": -120.0,
+      "centroid_hz": 0
+    }
+  ],
+  "words": [
+    "percussive attack",
+    "dark",
+    "clean tone",
+    "bass-heavy",
+    "closes down over time (x3.8 darker)",
+    "mono"
+  ]
+}

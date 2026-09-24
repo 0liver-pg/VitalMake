@@ -1,0 +1,86 @@
+[
+  {
+    "control": "M1 LENGTH",
+    "file": "tour-macro_control_1.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -44 -> -32 dB; attack 1 -> 44 ms; level 300 ms after release -28 -> -11 dB; stereo width 0.702 -> 0.854; strongest partials E4 G#4 B4 E5 -> E4 G#4 E5 B5",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M2 SHIMMER",
+    "file": "tour-macro_control_2.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "spectral-envelope peaks [296, 591, 1183] -> [296, 1183] Hz; level 300 ms after release -17 -> -23 dB; strongest partials E4 G#4 E5 B5 -> E4 G#4 E5 E6",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M3 CRUNCH",
+    "file": "tour-macro_control_3.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -37 -> -39 dB; brightness 1543 -> 2728 Hz (x1.77); even vs odd harmonics +12 -> +6 dB; level 300 ms after release -22 -> -18 dB; partials shift by 30 cents (median) - detune/bend; onset brightness 1340 -> 2124 Hz; strongest partials E4 G#4 E5 B5 -> E4 G#4 E5 E6",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M4 SPACE",
+    "file": "tour-macro_control_4.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -36 -> -39 dB; brightness 1276 -> 1549 Hz (x1.21); level 300 ms after release -31 -> -15 dB; stereo width 0.622 -> 0.952",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Mod wheel",
+    "file": "tour-mod_wheel.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "spectral-envelope peaks [296, 618, 1183] -> [296, 1183] Hz; strongest partials E4 F#4 G#4 E5 -> E4 G#4 C5 E5",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Aftertouch",
+    "file": "tour-aftertouch.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -38 -> -36 dB; stereo width 0.822 -> 0.699; strongest partials E4 G#4 E5 F5 -> E4 G#4 E5 E6",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Velocity",
+    "file": "tour-velocity.mp3",
+    "steps": [
+      0.3,
+      0.53,
+      0.77,
+      1.0
+    ],
+    "changes": "level -42 -> -35 dB; spectral-envelope peaks [296, 1183] -> [296, 618, 1166] Hz; level 300 ms after release -21 -> -24 dB; onset brightness 1185 -> 1559 Hz",
+    "range": "0.3 -> 1"
+  }
+]

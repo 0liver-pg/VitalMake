@@ -15,8 +15,14 @@ The loop:
    spectrogram sheet a multimodal model can look at.
 4. **Iterate**, then save a real `.vital` preset that opens in the plugin.
 
-`gallery/` holds ten sounds made this way. Open `gallery/index.html` to hear
-them next to what the model "heard".
+`gallery/` holds the sounds made this way. Open `gallery/index.html` to hear
+them next to what the model "heard". There are two sets:
+
+- **Song kit** (`patches/kit/`): twelve presets meant for real songs (rock with
+  a Magdalena Bay tint). Each has four named macros plus mod wheel, velocity and
+  aftertouch routings, and each control was measured before it shipped (see
+  *Expression check* below).
+- **First experiments** (`patches/`): the showcase sounds made while building the tools.
 
 ## Quick start
 
@@ -56,10 +62,44 @@ Presets install to `~/Music/Vital/User/Presets/VitalMake/`.
   harmonic loudness).
 - **mods**: `amount` is a fraction of the destination's range, or `"+24st"`. Options:
   `bipolar`, `stereo`, `power`.
+- **mods** can carry an `"id"`; another mod can then modulate that route's amount with
+  `"dest": "mod:<id>"` (for example a macro scaling how much the mod wheel bends). Slot
+  numbers are resolved at build time, so inserting a mod never breaks the chain.
+- **macros**: `{"1": {"name": "BRIGHT", "value": 0.4}}` names the knob and sets where it rests.
 - **play**: `note`, `chord`, `sequence` (`"C2 _ Eb2 G1!"`, `_` rest, `!` accent) or explicit `notes`.
+  A note can carry `"set": {"mod_wheel": 0.7}` to render it with a control held at a value.
+- **tour** (optional): the probe used by the expression check (defaults to the first chord).
 
 Mistakes come back as a list with suggestions (`unknown control 'filter_1_cutof'. Did you mean: filter_1_cutoff`),
 so a model can fix them in one pass.
+
+## What the ears measure
+
+`ears.py` reports, for a note or chord: attack and rise time, decay, sustain, release and the
+level 300 ms after release; pitch (YIN) and an onset pitch-sweep detector for kicks and zaps;
+the strongest partials with note names and cents; brightness (gated magnitude centroid) and
+how it moves; top-end slope in dB/octave; spectral-envelope peaks (vowel formants, filter
+resonance); even-vs-odd harmonic balance (square-like vs saw-like); sensory roughness
+(20-150 Hz beating, `roughness.py`); tremolo, brightness wobble and pulse-rate acceleration;
+vibrato and pitch drift (whitened log-spectrum cross-correlation, accurate to a few cents);
+glides (+/- semitones per second, catches Shepard tones and risers); stereo width,
+correlation and auto-pan rate. Each measure was checked against synthetic signals.
+
+## Expression check
+
+`expression.py` renders a probe with each macro at 0 and 1, the mod wheel at 0 and 1,
+velocity at 0.3 and 1, and aftertouch (vita can't send it, so it's swapped with the mod wheel
+for the test). It then lists what measurably changed:
+
+```
+M1 TINE (0 -> 1): brightness 764 -> 1119 Hz (x1.46); onset brightness 585 -> 782 Hz
+M3 TREMOLO (0 -> 1): auto-pan 0.0 Hz/3 dB -> 4.6 Hz/20 dB; stereo width 0.337 -> 0.52
+Mod wheel (0 -> 1): pitch wobble 16c -> 44c @ 5.2 Hz
+```
+
+A control that shows `NO MEASURABLE CHANGE` is a design bug. For each control it also writes
+`tour-<control>.wav`, the probe played at 0, 1/3, 2/3 and 1, so you can hear the sweep.
+Glide (portamento) can't be tested offline, and the check says so rather than guessing.
 
 ## MCP server
 
@@ -90,16 +130,20 @@ src/vitalmake/
   patch.py       patch spec -> Vital state; .vital -> readable summary
   render.py      notes, chords and sequences -> audio (parallel, deterministic)
   ears.py        machine listening: report, descriptors, spectrogram sheet, distance
+  roughness.py   sensory roughness (critical-band beating)
+  expression.py  macro / mod wheel / velocity / aftertouch verification and tour clips
   match.py       CMA-ES sound matching
   studio.py      make/install/play, shared by CLI and MCP
   cli.py, mcp_server.py, gallery.py
-patches/         patch specs (the source of every gallery sound)
+patches/         patch specs; patches/kit/ is the song kit
 gallery/         rendered .wav, .vital, sheet.png, report per patch + index.html
 experiments/     blind-match experiments and write-ups
 ```
 
 ## Notes and limits
 
+- vita has no aftertouch input, so aftertouch routings are verified by swapping them onto the
+  mod wheel; they're mapped normally in the saved preset.
 - vita renders one note per call. Chords and sequences are rendered note by note and
   summed, so voices don't share a compressor, and legato or portamento between notes isn't possible.
 - Re-rendering on the same `Synth` carries oscillator phase over. `render.py` uses a fresh

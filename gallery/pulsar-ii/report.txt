@@ -1,0 +1,22 @@
+== Pulsar II - first note alone ==
+Character: hard attack, sustained, warm, clean tone, smooth top end, bass-heavy, pulsing ~8.1 Hz (9 dB), wobbling brightness ~8.1 Hz, pitch drifts (19c, tape-like), wide stereo
+Level: peak -9.3 dBFS, rms -28.8 dBFS, crest 19.5 dB | Envelope: attack 4 ms (half-level in 4 ms), peak at 0.02s, sustain -3 dB
+Pitch: no single clear pitch (chord, noise or inharmonic; clarity 0.42); see partials
+Strongest partials: 92Hz F#2-11c (0dB); 122Hz B2-25c (-1dB); 165Hz E3-2c (-6dB); 196Hz G3-3c (-7dB); 247Hz B3+3c (-6dB); 330Hz E4+3c (-7dB); 392Hz G4-0c (-5dB); 495Hz B4+4c (-5dB)
+Spectrum: centroid 947 Hz (start 788 -> end 1183), 85% rolloff 668 Hz, flatness 0.001, top-end slope -21.9 dB/oct (2-16 kHz)
+Shape: spectral-envelope peaks 347 Hz; level 300 ms after release -19 dB re peak
+Roughness (20-150 Hz beating, held part): 0.151, worst near 630 Hz (pure tone ~0, two sines 70 Hz apart ~0.32)
+Energy by band: sub 0.4%, bass 61.9%, low-mid 30.9%, mid 6.6%, presence 0.2%, air 0.0%
+Motion: level pulses at 8.05 Hz (8.7 dB p-p); brightness wobbles at 8.05 Hz (±68%); pitch wobbles 19 cents p-p, irregular drift (wow / random)
+Stereo: width 0.43 (side/mid), L/R correlation 0.687
+Timeline (t: level dB, centroid Hz): 0.0s:-26/847  0.43s:-26/939  0.86s:-26/915  1.29s:-26/994  1.72s:-27/1052  2.15s:-29/952  2.58s:-39/1246  3.01s:-45/1208  3.44s:-52/1173  3.87s:-59/1282
+Phrase: 9.8s, peak -9.0 dBFS, rms -27.2 dBFS, centroid 910 Hz, width 0.405, partials: 93Hz F#2+3c; 164Hz E3-10c; 192Hz G3-32c; 293Hz D4-1c; 330Hz E4-0c; 390Hz G4-7c; 439Hz A4-3c; 657Hz E5-6c
+
+Expression check (probe note, low -> high):
+M1 RATE (0 -> 1): pitch wobble 8c -> 24c; spectral-envelope peaks [222, 443, 1747] -> [296, 1747] Hz; level 300 ms after release -18 -> -14 dB; pulsing 4.0 Hz/10 dB -> 18.9 Hz/3 dB; brightness wobble ±58% -> ±22%; onset brightness 478 -> 337 Hz
+M2 ACCEL (0 -> 1): pitch wobble 13c -> 21c; spectral-envelope peaks [347, 873, 1772] -> [222, 1747] Hz; level 300 ms after release -16 -> -19 dB; pulsing 8.1 Hz/8 dB -> 0.0 Hz/6 dB; brightness wobble ±64% -> ±34%
+M3 TONE (0 -> 1): brightness 600 -> 1645 Hz (x2.74); top-end slope -29 -> -10 dB/oct; pitch wobble 22c -> 11c @ 8.0 Hz; spectral-envelope peaks [347] -> [347, 1798] Hz; pulse rate early->late x0.80 -> x1.05; brightness wobble ±49% -> ±71%; onset brightness 308 -> 751 Hz
+M4 SPACE (0 -> 1): spectral-envelope peaks [347] -> [1772] Hz; level 300 ms after release -21 -> -15 dB; stereo width 0.364 -> 0.53; brightness wobble ±72% -> ±47%; onset brightness 558 -> 428 Hz
+Mod wheel (0 -> 1): level -27 -> -30 dB; decay to -20 dB none -> 0.08s; pitch wobble 12c -> 39c; spectral-envelope peaks [347, 1772] -> [189, 347] Hz; pulsing 8.0 Hz/9 dB -> 8.1 Hz/19 dB; pulse rate early->late x1.64 -> x0.99; brightness wobble ±64% -> ±37%; roughness 0.15 -> 0.20; partials shift by 20 cents (median) - detune/bend; strongest partials F#2 B2 E3 G3 -> F#2 A#2 E3 G3
+Aftertouch (0 -> 1): spectral-envelope peaks [222] -> [296] Hz; pulse rate early->late x1.22 -> x0.88; strongest partials F#2 B2 E3 G3 -> F#2 B2 E3 B3
+Velocity (0.3 -> 1): level -30 -> -26 dB; brightness 829 -> 1021 Hz (x1.23); top-end slope -26 -> -20 dB/oct; auto-pan 0.0 Hz/4 dB -> 0.0 Hz/3 dB; spectral-envelope peaks [347, 1747] -> [347] Hz

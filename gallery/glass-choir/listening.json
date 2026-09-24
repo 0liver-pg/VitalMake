@@ -1,111 +1,114 @@
 {
   "duration": 9.0,
-  "peak_db": -3.7,
-  "rms_db": -24.8,
-  "crest_db": 21.1,
-  "attack_ms": 701.7,
-  "rise50_ms": 338.1,
-  "peak_time": 1.347,
-  "sustain_db": -6.7,
+  "peak_db": -3.9,
+  "rms_db": -24.9,
+  "crest_db": 20.9,
+  "attack_ms": 653.1,
+  "rise50_ms": 407.1,
+  "peak_time": 1.509,
+  "sustain_db": -7.2,
   "decay_20db": null,
   "release_60db": null,
-  "f0_hz": 32.65,
+  "f0_hz": 65.31,
   "f0_note": "-",
-  "pitch_clarity": 0.67,
+  "pitch_clarity": 0.61,
   "pitch_start": "C2-1c",
-  "pitch_end": "C2-0c",
+  "pitch_end": "C2+7c",
   "peaks": [
-    "131Hz C3-4c (-2dB)",
-    "196Hz G3+3c (-2dB)",
-    "262Hz C4+5c (-3dB)",
-    "293Hz D4-5c (-1dB)",
-    "330Hz E4+3c (-5dB)",
-    "520Hz C5-10c (-7dB)",
-    "586Hz D5-5c (0dB)",
-    "658Hz E5-4c (-5dB)"
+    "130Hz C3-6c (-3dB)",
+    "196Hz G3+3c (0dB)",
+    "263Hz C4+6c (-2dB)",
+    "293Hz D4-4c (-1dB)",
+    "330Hz E4+1c (-5dB)",
+    "520Hz C5-11c (-6dB)",
+    "585Hz D5-6c (-0dB)",
+    "658Hz E5-5c (-4dB)"
   ],
-  "centroid_hz": 2335,
-  "centroid_start": 2011,
-  "centroid_end": 611,
-  "attack_centroid_hz": 1577,
+  "centroid_hz": 2405,
+  "centroid_start": 2065,
+  "centroid_end": 584,
+  "attack_centroid_hz": 1769,
   "onset_sweep": "",
   "rolloff_hz": 1184,
-  "flatness": 0.0323,
-  "harmonicity": 0.939,
+  "flatness": 0.0327,
+  "hf_slope_db_oct": -6.2,
+  "roughness": 0.134,
+  "roughness_band_hz": 629.9605249474366,
+  "harmonicity": 0.834,
   "bands": {
     "sub": 0.0,
-    "bass": 18.9,
-    "low-mid": 62.5,
-    "mid": 16.4,
+    "bass": 20.0,
+    "low-mid": 60.0,
+    "mid": 17.8,
     "presence": 1.7,
     "air": 0.5
   },
-  "tremolo_hz": 0.32,
-  "tremolo_db": 5.1,
-  "wobble_hz": 0.95,
-  "wobble_pct": 88.8,
+  "tremolo_hz": 0.31,
+  "tremolo_db": 4.9,
+  "wobble_hz": 0.94,
+  "wobble_pct": 92.8,
   "glide_st_per_s": 0.0,
   "glide_consistency": 0.0,
-  "width": 0.814,
-  "correlation": 0.203,
+  "width": 0.837,
+  "correlation": 0.177,
   "clipped": 0,
   "timeline": [
     {
       "t": 0.0,
-      "level_db": -32.2,
-      "centroid_hz": 1608
+      "level_db": -34.3,
+      "centroid_hz": 2421
     },
     {
       "t": 0.89,
-      "level_db": -20.2,
-      "centroid_hz": 2082
+      "level_db": -20.1,
+      "centroid_hz": 2034
     },
     {
       "t": 1.8,
-      "level_db": -20.5,
-      "centroid_hz": 2206
+      "level_db": -21.1,
+      "centroid_hz": 2500
     },
     {
       "t": 2.69,
-      "level_db": -23.4,
-      "centroid_hz": 2804
+      "level_db": -23.6,
+      "centroid_hz": 2929
     },
     {
       "t": 3.6,
-      "level_db": -23.8,
-      "centroid_hz": 2875
+      "level_db": -23.6,
+      "centroid_hz": 2854
     },
     {
       "t": 4.5,
-      "level_db": -23.5,
-      "centroid_hz": 2423
+      "level_db": -23.2,
+      "centroid_hz": 2303
     },
     {
       "t": 5.4,
-      "level_db": -30.0,
-      "centroid_hz": 1638
+      "level_db": -29.9,
+      "centroid_hz": 1676
     },
     {
       "t": 6.3,
-      "level_db": -40.6,
-      "centroid_hz": 1124
+      "level_db": -40.5,
+      "centroid_hz": 1106
     },
     {
       "t": 7.2,
-      "level_db": -50.8,
-      "centroid_hz": 730
+      "level_db": -51.6,
+      "centroid_hz": 784
     },
     {
       "t": 8.1,
-      "level_db": -61.4,
-      "centroid_hz": 621
+      "level_db": -60.6,
+      "centroid_hz": 601
     }
   ],
   "words": [
     "slow swell (0.7s attack)",
     "bright",
     "clean tone",
-    "closes down over time (x3.3 darker)",
+    "closes down over time (x3.5 darker)",
     "pulsing ~0.3 Hz (5 dB)",
     "wobbling brightness ~0.9 Hz",
     "very wide"

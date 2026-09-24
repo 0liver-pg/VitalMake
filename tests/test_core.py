@@ -60,3 +60,39 @@ def test_saved_preset_roundtrips():
     text = P.to_vital_json(P.build(spec))
     assert json.loads(text)["synth_version"] == "1.5.5"
     assert vita.Synth().load_json(text)
+
+
+def test_mod_ids_resolve_to_slots():
+    spec = {"mods": [
+        {"source": "lfo_1", "dest": "filter_1_cutoff", "amount": 0.0, "id": "wob"},
+        {"source": "mod_wheel", "dest": "mod:wob", "amount": 0.3},
+    ]}
+    st = json.loads(P.to_vital_json(P.build(spec)))["settings"]
+    assert st["modulations"][1] == {"source": "mod_wheel", "destination": "modulation_1_amount"}
+
+
+def test_expression_check_sees_macro_and_vibrato():
+    from vitalmake import expression as X
+
+    spec = {
+        "params": {"filter_1_on": "On", "filter_1_cutoff": "300Hz", "lfo_1_sync": "Seconds", "lfo_1_frequency": "5.5Hz"},
+        "lfos": {"lfo_1": {"shape": "sine"}},
+        "macros": {"1": "BRIGHT"},
+        "mods": [
+            {"source": "macro_control_1", "dest": "filter_1_cutoff", "amount": "+40st"},
+            {"source": "lfo_1", "dest": "voice_tune", "amount": 0.0, "bipolar": True, "id": "vib"},
+            {"source": "aftertouch", "dest": "mod:vib", "amount": 0.15},
+        ],
+        "tour": {"note": "A3", "dur": 1.5, "tail": 0.3},
+    }
+    text, _ = X.tour(spec)
+    assert "M1 BRIGHT" in text and "brightness" in text.split("\n")[0]
+    assert "pitch wobble" in [ln for ln in text.split("\n") if ln.startswith("Aftertouch")][0]
+
+
+def test_per_note_set_reaches_mod_chains():
+    spec = {"wavetables": {"osc_1": [{"shape": "sine"}]}, "params": {"osc_1_random_phase": "0%"},
+            "mods": [{"source": "mod_wheel", "dest": "osc_1_transpose", "amount": "+12st"}]}
+    js = P.to_vital_json(P.build(spec))
+    a = R.render(js, {"note": "A3", "dur": 0.6, "tail": 0.1, "set": {"mod_wheel": 1.0}})
+    assert abs(E.listen(a, note_off=0.6).f0_hz - 440) < 4

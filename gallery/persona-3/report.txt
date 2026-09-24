@@ -1,0 +1,22 @@
+== Persona 3 - first note alone ==
+Character: hard attack, sustained, warm, clean tone, smooth top end, bass-heavy, closes down over time (x2.2 darker), pulsing ~3.0 Hz (4 dB), wobbling brightness ~3.0 Hz, auto-panning ~1.5 Hz, wide stereo
+Level: peak -9.1 dBFS, rms -24.9 dBFS, crest 15.8 dB | Envelope: attack 4 ms (half-level in 4 ms), peak at 0.02s, sustain -4 dB
+Pitch: no single clear pitch (chord, noise or inharmonic; clarity 0.72); see partials
+Strongest partials: 165Hz E3-1c (0dB); 196Hz G3+2c (-1dB); 247Hz B3-1c (-1dB); 495Hz B4+3c (-13dB); 588Hz D5+1c (-12dB); 741Hz F#5+3c (-14dB); 824Hz G#5-14c (-19dB); 980Hz B5-14c (-19dB)
+Spectrum: centroid 996 Hz (start 1106 -> end 496), 85% rolloff 258 Hz, flatness 0.000, harmonicity 0.94, top-end slope -23.7 dB/oct (2-16 kHz)
+Shape: spectral-envelope peaks 527 Hz; level 300 ms after release -32 dB re peak
+Roughness (20-150 Hz beating, held part): 0.084, worst near 794 Hz (pure tone ~0, two sines 70 Hz apart ~0.32)
+Energy by band: sub 0.0%, bass 83.7%, low-mid 11.8%, mid 4.2%, presence 0.1%, air 0.0%
+Motion: level pulses at 3.01 Hz (3.8 dB p-p); brightness wobbles at 3.01 Hz (±19%); stereo image swings L/R at 1.46 Hz (5.0 dB balance p-p)
+Stereo: width 0.419 (side/mid), L/R correlation 0.703
+Timeline (t: level dB, centroid Hz): 0.0s:-20/1027  0.27s:-21/967  0.53s:-23/1003  0.8s:-24/1021  1.08s:-26/1099  1.35s:-24/859  1.61s:-44/1254  1.89s:-58/815  2.16s:-63/640  2.43s:-66/444
+Phrase: 5.8s, peak -8.0 dBFS, rms -23.8 dBFS, centroid 969 Hz, width 0.453, partials: 131Hz C3-0c; 165Hz E3-3c; 196Hz G3-0c; 247Hz B3-1c; 293Hz D4-4c; 495Hz B4+3c; 588Hz D5+2c; 741Hz F#5+2c
+
+Expression check (probe note, low -> high):
+M1 FILTER (0 -> 1): brightness 344 -> 1252 Hz (x3.64); auto-pan 2.6 Hz/10 dB -> 2.8 Hz/8 dB; pulsing 1.3 Hz/5 dB -> 2.2 Hz/8 dB; brightness wobble ±31% -> ±70%; partials shift by 196 cents (median) - detune/bend; onset brightness 292 -> 565 Hz; strongest partials E3 A3 B3 E4 -> E3 E4 B4 G#5
+M2 TONE (0 -> 1): level -26 -> -28 dB; spectral-envelope peaks [443, 912] -> [296] Hz; even vs odd harmonics -26 -> +4 dB; strongest partials E3 B4 G#5 D6 -> E3 E4 B4 E5
+M3 FOLD (0 -> 1): level -30 -> -24 dB; auto-pan 3.4 Hz/9 dB -> 3.1 Hz/4 dB; level 300 ms after release -38 -> -31 dB; stereo width 0.451 -> 0.591; brightness wobble ±21% -> ±28%; onset brightness 708 -> 453 Hz
+M4 VEL SENS (0 -> 1): brightness 476 -> 1071 Hz (x2.25); top-end slope -28 -> -21 dB/oct; auto-pan 1.6 Hz/5 dB -> 2.4 Hz/7 dB; stereo width 0.572 -> 0.386; pulsing 1.5 Hz/12 dB -> 1.8 Hz/7 dB; brightness wobble ±77% -> ±44%; onset brightness 392 -> 909 Hz; strongest partials E3 A3 E4 B4 -> E3 E4 B4 G#5
+Mod wheel (0 -> 1): brightness 952 -> 1145 Hz (x1.20); top-end slope -28 -> -19 dB/oct; pulsing 1.4 Hz/7 dB -> 4.3 Hz/4 dB
+Aftertouch (0 -> 1): level -29 -> -25 dB; brightness 896 -> 726 Hz (x0.81); auto-pan 2.6 Hz/9 dB -> 3.2 Hz/7 dB; level 300 ms after release -36 -> -32 dB; pulsing 2.1 Hz/10 dB -> 2.2 Hz/7 dB; brightness wobble ±60% -> ±43%; onset brightness 557 -> 330 Hz
+Velocity (0.3 -> 1): level -31 -> -27 dB; brightness 630 -> 1104 Hz (x1.75); top-end slope -30 -> -25 dB/oct; brightness wobble ±21% -> ±34%

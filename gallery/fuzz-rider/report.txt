@@ -1,0 +1,21 @@
+== Fuzz Rider - first note alone ==
+Character: percussive attack, dark, clean tone, smooth top end, bass-heavy, closes down over time (x4.2 darker), narrow stereo
+Level: peak -11.9 dBFS, rms -20.3 dBFS, crest 8.3 dB | Envelope: attack 4 ms (half-level in 2 ms), peak at 0.15s, release to -60 dB in 0.10s
+Pitch: E1-1c (41.17 Hz, clarity 0.93)
+Strongest partials: 41Hz E1-9c (0dB); 84Hz E2+42c (-9dB); 123Hz B2-8c (-15dB); 164Hz E3-6c (-10dB); 205Hz G#3-21c (-16dB); 246Hz B3-7c (-19dB); 329Hz E4-3c (-22dB); 370Hz F#4-1c (-25dB)
+Spectrum: centroid 262 Hz (start 353 -> end 84), 85% rolloff 129 Hz, flatness 0.000, harmonicity 0.85, top-end slope -19.9 dB/oct (2-16 kHz)
+Shape: even vs odd harmonics +6 dB (full, saw-like); level 300 ms after release -105 dB re peak
+Energy by band: sub 71.5%, bass 24.0%, low-mid 2.9%, mid 0.4%, presence 0.0%, air 0.0%
+Motion: no periodic modulation or glide detected
+Stereo: width 0.133 (side/mid), L/R correlation 0.967
+Timeline (t: level dB, centroid Hz): 0.0s:-17/334  0.06s:-16/273  0.12s:-15/233  0.17s:-18/201  0.23s:-40/112  0.29s:-120/0  0.35s:-120/0  0.41s:-120/0  0.46s:-120/0  0.52s:-120/0
+Phrase: 7.0s, peak -11.0 dBFS, rms -17.0 dBFS, centroid 329 Hz, width 0.124, partials: 47Hz F#1+31c; 163Hz E3-16c; 197Hz G3+6c; 246Hz B3-9c; 288Hz D4-37c; 328Hz E4-7c; 369Hz F#4-3c; 441Hz A4+3c
+
+Expression check (probe note, low -> high):
+M1 FUZZ (0 -> 1): brightness 139 -> 295 Hz (x2.12); brightness wobble ±27% -> ±14%; roughness 0.15 -> 0.25
+M2 TONE (0 -> 1): level -18 -> -16 dB; brightness 145 -> 240 Hz (x1.66); top-end slope -19 -> -14 dB/oct; even vs odd harmonics +1 -> +6 dB; roughness 0.18 -> 0.23
+M3 OCTAVE (0 -> 1): brightness 193 -> 385 Hz (x1.99); top-end slope -22 -> -16 dB/oct; even vs odd harmonics +1 -> +7 dB
+M4 BITE (0 -> 1): brightness 161 -> 285 Hz (x1.77); even vs odd harmonics +1 -> +7 dB; roughness 0.24 -> 0.18; onset brightness 271 -> 427 Hz
+Mod wheel (0 -> 1): level -18 -> -16 dB; brightness 233 -> 286 Hz (x1.23); even vs odd harmonics +8 -> +0 dB; brightness wobble ±11% -> ±34%; roughness 0.17 -> 0.34; onset brightness 365 -> 260 Hz
+Aftertouch (0 -> 1): even vs odd harmonics +5 -> -0 dB; partials shift by 12 cents (median) - detune/bend
+Velocity (0.3 -> 1): brightness 156 -> 275 Hz (x1.76); brightness wobble ±7% -> ±17%; roughness 0.14 -> 0.23; onset brightness 248 -> 396 Hz

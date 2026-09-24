@@ -1,0 +1,154 @@
+{
+  "name": "Fuzz Rider",
+  "style": "Bass",
+  "description": "Rock synth bass for riffs next to guitars: saw and octave-up saw into a ladder filter, then fuzz with the fizz filtered off and the low mids scooped. FUZZ goes from growl to full Muse-style overdrive without turning to hiss.",
+  "macros": {
+    "1": {
+      "name": "FUZZ",
+      "value": 0.45
+    },
+    "2": {
+      "name": "TONE",
+      "value": 0.45
+    },
+    "3": {
+      "name": "OCTAVE",
+      "value": 0.35
+    },
+    "4": {
+      "name": "BITE",
+      "value": 0.4
+    }
+  },
+  "params": {
+    "osc_1_level": 0.75,
+    "osc_1_unison_voices": 2,
+    "osc_1_unison_detune": "5%",
+    "osc_2_on": "On",
+    "osc_2_transpose": 12,
+    "osc_2_level": 0.0,
+    "osc_2_unison_voices": 2,
+    "osc_2_unison_detune": "8%",
+    "osc_3_on": "On",
+    "osc_3_level": 0.35,
+    "osc_3_destination": "DIRECT OUT",
+    "filter_1_on": "On",
+    "filter_1_model": "Ladder",
+    "filter_1_style": "24dB",
+    "filter_1_cutoff": "260Hz",
+    "filter_1_resonance": "15%",
+    "filter_1_keytrack": "40%",
+    "filter_1_drive": "3dB",
+    "env_1_attack": "1ms",
+    "env_1_decay": "1s",
+    "env_1_sustain": 0.85,
+    "env_1_release": "60ms",
+    "env_2_attack": "0ms",
+    "env_2_decay": "260ms",
+    "env_2_sustain": 0.25,
+    "env_2_decay_power": -2,
+    "distortion_on": "On",
+    "distortion_type": "Soft Clip",
+    "distortion_drive": "6dB",
+    "distortion_mix": "100%",
+    "distortion_filter_order": "Post",
+    "distortion_filter_cutoff": "1.6kHz",
+    "distortion_filter_resonance": "10%",
+    "distortion_filter_blend": 0,
+    "eq_on": "On",
+    "eq_low_mode": "Shelf",
+    "eq_low_cutoff": "90Hz",
+    "eq_low_gain": "2dB",
+    "eq_band_cutoff": "380Hz",
+    "eq_band_gain": "-3dB",
+    "eq_band_resonance": 30,
+    "eq_high_cutoff": "5kHz",
+    "eq_high_gain": "-6dB",
+    "polyphony": 1,
+    "legato": "On",
+    "portamento_time": "20ms",
+    "beats_per_minute": 140,
+    "volume": "-14dB",
+    "velocity_track": "25%",
+    "osc_1_stereo_spread": "10%",
+    "osc_2_stereo_spread": "15%"
+  },
+  "wavetables": {
+    "osc_3": [
+      {
+        "shape": "sine"
+      }
+    ]
+  },
+  "mods": [
+    {
+      "source": "env_2",
+      "dest": "filter_1_cutoff",
+      "amount": "+18st",
+      "id": "bite"
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "mod:bite",
+      "amount": 0.18
+    },
+    {
+      "source": "velocity",
+      "dest": "mod:bite",
+      "amount": 0.1
+    },
+    {
+      "source": "macro_control_1",
+      "dest": "distortion_drive",
+      "amount": 0.4
+    },
+    {
+      "source": "macro_control_1",
+      "dest": "volume",
+      "amount": -0.05
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "filter_1_cutoff",
+      "amount": "+18st"
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "distortion_filter_cutoff",
+      "amount": "+30st"
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "osc_2_level",
+      "amount": 0.6
+    },
+    {
+      "source": "velocity",
+      "dest": "distortion_drive",
+      "amount": 0.08
+    },
+    {
+      "source": "mod_wheel",
+      "dest": "filter_1_cutoff",
+      "amount": "+24st"
+    },
+    {
+      "source": "aftertouch",
+      "dest": "distortion_drive",
+      "amount": 0.15
+    }
+  ],
+  "play": {
+    "sequence": "E1 E1 E1 E1! G1 G1 A1 A1 E1 E1 E1 E1! D2 D2 C2 B1 E1 E1 E1 E1! G1 G1 A1 A1 B1 B1 A1 A1 G1! _ E1 _",
+    "step": 0.214,
+    "gate": 0.85,
+    "vel": 0.75,
+    "tail": 0.4
+  },
+  "tour": {
+    "note": "E1",
+    "dur": 0.9,
+    "tail": 0.4,
+    "vel": 0.75
+  }
+}

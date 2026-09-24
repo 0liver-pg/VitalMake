@@ -1,0 +1,21 @@
+== Rubber Band - first note alone ==
+Character: percussive attack, dark, clean tone, bass-heavy, closes down over time (x3.8 darker), mono
+Level: peak -10.7 dBFS, rms -23.7 dBFS, crest 12.9 dB | Envelope: attack 2 ms (half-level in 1 ms), peak at 0.02s, release to -60 dB in 0.09s
+Pitch: C2-6c (65.17 Hz, clarity 0.94)
+Strongest partials: 65Hz C2-5c (0dB); 130Hz C3-8c (-10dB); 196Hz G3-3c (-19dB); 260Hz C4-8c (-22dB); 325Hz E4-24c (-18dB); 391Hz G4-4c (-21dB); 521Hz C5-8c (-26dB); 586Hz D5-3c (-25dB)
+Spectrum: centroid 438 Hz (start 465 -> end 121), 85% rolloff 118 Hz, flatness 0.002, harmonicity 0.97, top-end slope -10.2 dB/oct (2-16 kHz)
+Shape: spectral-envelope peaks 189, 287 Hz; even vs odd harmonics +6 dB (full, saw-like); level 300 ms after release -104 dB re peak
+Energy by band: sub 14.7%, bass 80.3%, low-mid 3.9%, mid 0.9%, presence 0.1%, air 0.0%
+Motion: no periodic modulation or glide detected
+Stereo: width 0.0 (side/mid), L/R correlation 1.0
+Timeline (t: level dB, centroid Hz): 0.0s:-17/573  0.07s:-18/433  0.15s:-21/174  0.23s:-39/127  0.31s:-120/0  0.39s:-120/0  0.48s:-120/0  0.56s:-120/0  0.64s:-120/0  0.72s:-120/0
+Phrase: 5.0s, peak -7.9 dBFS, rms -20.7 dBFS, centroid 495 Hz, width 0.0, partials: 62Hz B1+12c; 94Hz F#2+27c; 127Hz C3-45c; 175Hz F3+9c; 193Hz G3-29c; 260Hz C4-13c; 291Hz D4-17c; 324Hz E4-27c
+
+Expression check (probe note, low -> high):
+M1 SNAP (0 -> 1): brightness 217 -> 320 Hz (x1.47); top-end slope -15 -> -8 dB/oct; brightness wobble ±14% -> ±33%
+M2 WAH (0 -> 1): brightness 262 -> 328 Hz (x1.25); top-end slope -13 -> -8 dB/oct; onset brightness 567 -> 354 Hz
+M3 BODY (0 -> 1): level -24 -> -20 dB; brightness 302 -> 241 Hz (x0.80); spectral-envelope peaks [189, 362] -> [189] Hz; level 300 ms after release -101 -> -106 dB; onset brightness 910 -> 264 Hz
+M4 GRIT (0 -> 1): level -24 -> -20 dB; brightness 257 -> 349 Hz (x1.36); spectral-envelope peaks [189, 367] -> [231] Hz; onset brightness 351 -> 786 Hz
+Mod wheel (0 -> 1): brightness 282 -> 430 Hz (x1.52); spectral-envelope peaks [189, 367] -> [287] Hz
+Aftertouch (0 -> 1): level -22 -> -24 dB; brightness 282 -> 363 Hz (x1.29)
+Velocity (0.3 -> 1): level -24 -> -21 dB; top-end slope -15 -> -10 dB/oct; level 300 ms after release -101 -> -104 dB; brightness wobble ±15% -> ±25%; onset brightness 814 -> 411 Hz

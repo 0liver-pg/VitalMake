@@ -1,0 +1,166 @@
+{
+  "name": "Glitter Pluck",
+  "style": "Pluck",
+  "description": "Sparkly arp pluck for dreamy synth-pop: soft triangle body with a quiet octave-up saw, chorus and a dotted-eighth echo. SHIMMER adds a two-octave sparkle; CRUNCH adds lo-fi sample-rate grit.",
+  "wavetables": {
+    "osc_1": [
+      {
+        "shape": "triangle"
+      }
+    ],
+    "osc_3": [
+      {
+        "shape": "sine"
+      }
+    ]
+  },
+  "macros": {
+    "1": {
+      "name": "LENGTH",
+      "value": 0.35
+    },
+    "2": {
+      "name": "SHIMMER",
+      "value": 0.3
+    },
+    "3": {
+      "name": "CRUNCH",
+      "value": 0.0
+    },
+    "4": {
+      "name": "SPACE",
+      "value": 0.45
+    }
+  },
+  "params": {
+    "osc_1_level": 0.75,
+    "osc_1_unison_voices": 3,
+    "osc_1_unison_detune": "9%",
+    "osc_1_stereo_spread": "90%",
+    "osc_2_on": "On",
+    "osc_2_transpose": 12,
+    "osc_2_level": 0.28,
+    "osc_2_unison_voices": 2,
+    "osc_2_unison_detune": "6%",
+    "osc_2_stereo_spread": "90%",
+    "osc_3_on": "On",
+    "osc_3_transpose": 24,
+    "osc_3_level": 0.0,
+    "filter_1_on": "On",
+    "filter_1_model": "Analog",
+    "filter_1_style": "12dB",
+    "filter_1_cutoff": "4.5kHz",
+    "filter_1_keytrack": "60%",
+    "osc_2_destination": "FILTER 1",
+    "osc_3_destination": "FILTER 1",
+    "env_1_attack": "1ms",
+    "env_1_decay": "320ms",
+    "env_1_decay_power": -2,
+    "env_1_sustain": 0.0,
+    "env_1_release": "300ms",
+    "env_2_attack": "0ms",
+    "env_2_decay": "150ms",
+    "env_2_sustain": 0.0,
+    "distortion_on": "On",
+    "distortion_type": "Down Sample",
+    "distortion_drive": "0dB",
+    "distortion_mix": "0%",
+    "chorus_on": "On",
+    "chorus_dry_wet": "30%",
+    "chorus_frequency": "0.5Hz",
+    "delay_on": "On",
+    "delay_style": "Ping Pong",
+    "delay_sync": "Tempo Dotted",
+    "delay_tempo": "1/8",
+    "delay_feedback": "40%",
+    "delay_dry_wet": "12%",
+    "reverb_on": "On",
+    "reverb_dry_wet": "12%",
+    "reverb_decay_time": "2.8s",
+    "reverb_size": "65%",
+    "eq_on": "On",
+    "eq_low_cutoff": "200Hz",
+    "eq_low_gain": "-6dB",
+    "eq_high_cutoff": "9kHz",
+    "eq_high_gain": "-2dB",
+    "beats_per_minute": 118,
+    "polyphony": 12,
+    "volume": "-11dB",
+    "velocity_track": "45%"
+  },
+  "mods": [
+    {
+      "source": "env_2",
+      "dest": "filter_1_cutoff",
+      "amount": "+18st"
+    },
+    {
+      "source": "velocity",
+      "dest": "filter_1_cutoff",
+      "amount": "+10st"
+    },
+    {
+      "source": "macro_control_1",
+      "dest": "env_1_decay",
+      "amount": 0.3
+    },
+    {
+      "source": "macro_control_1",
+      "dest": "env_1_release",
+      "amount": 0.2
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "osc_3_level",
+      "amount": 0.4
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "reverb_size",
+      "amount": 0.25
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "distortion_mix",
+      "amount": 0.7
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "distortion_drive",
+      "amount": 0.35
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "delay_dry_wet",
+      "amount": 0.3
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "reverb_dry_wet",
+      "amount": 0.3
+    },
+    {
+      "source": "mod_wheel",
+      "dest": "filter_1_cutoff",
+      "amount": "+18st"
+    },
+    {
+      "source": "aftertouch",
+      "dest": "osc_3_level",
+      "amount": 0.3
+    }
+  ],
+  "play": {
+    "sequence": "E4 B4 G#4 E5 B4 G#4 E4 B4 C#4 G#4 E4 C#5 G#4 E4 C#4 G#4 A3 E4 C#4 A4 E4 C#4 A3 E4 B3 F#4 D#4 B4 F#4 D#4 B3 F#4",
+    "step": 0.127,
+    "gate": 0.5,
+    "vel": 0.7,
+    "tail": 2.2
+  },
+  "tour": {
+    "note": "E4",
+    "dur": 0.3,
+    "tail": 1.0,
+    "vel": 0.75
+  }
+}

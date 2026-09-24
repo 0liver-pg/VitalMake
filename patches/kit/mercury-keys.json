@@ -1,0 +1,280 @@
+{
+  "name": "Mercury Keys",
+  "style": "Keys",
+  "description": "Dreamy FM electric piano: a sine body with a velocity-driven bark, a bell tine on top, suitcase-style stereo tremolo and a soft room. Play it harder for more bite.",
+  "wavetables": {
+    "osc_1": [
+      {
+        "shape": "sine"
+      }
+    ],
+    "osc_2": [
+      {
+        "shape": "sine"
+      }
+    ],
+    "osc_3": [
+      {
+        "shape": "sine"
+      }
+    ]
+  },
+  "lfos": {
+    "lfo_2": {
+      "shape": "sine"
+    }
+  },
+  "macros": {
+    "1": {
+      "name": "TINE",
+      "value": 0.45
+    },
+    "2": {
+      "name": "WARMTH",
+      "value": 0.35
+    },
+    "3": {
+      "name": "TREMOLO",
+      "value": 0.3
+    },
+    "4": {
+      "name": "SPACE",
+      "value": 0.35
+    }
+  },
+  "params": {
+    "osc_1_level": 0.8,
+    "osc_1_random_phase": "0%",
+    "osc_1_distortion_type": 7,
+    "osc_1_distortion_amount": "6%",
+    "osc_2_on": "On",
+    "osc_2_level": 0,
+    "osc_2_random_phase": "0%",
+    "osc_3_on": "On",
+    "osc_3_level": 0,
+    "osc_3_transpose": 43,
+    "osc_3_random_phase": "0%",
+    "env_1_attack": "1ms",
+    "env_1_decay": "3.8s",
+    "env_1_decay_power": -3,
+    "env_1_sustain": 0,
+    "env_1_release": "380ms",
+    "env_2_attack": "0ms",
+    "env_2_decay": "900ms",
+    "env_2_sustain": 0.15,
+    "env_2_release": "300ms",
+    "env_3_attack": "0ms",
+    "env_3_decay": "280ms",
+    "env_3_sustain": 0,
+    "filter_1_on": "On",
+    "filter_1_model": "Analog",
+    "filter_1_style": "12dB",
+    "filter_1_cutoff": "4.5kHz",
+    "filter_1_keytrack": "50%",
+    "filter_1_resonance": "5%",
+    "osc_3_destination": "FILTER 1",
+    "lfo_2_sync": "Seconds",
+    "lfo_2_frequency": "4.6Hz",
+    "distortion_on": "On",
+    "distortion_type": "Soft Clip",
+    "distortion_drive": "0dB",
+    "distortion_mix": "100%",
+    "chorus_on": "On",
+    "chorus_dry_wet": "18%",
+    "chorus_frequency": "0.4Hz",
+    "reverb_on": "On",
+    "reverb_dry_wet": "8%",
+    "reverb_decay_time": "1.6s",
+    "reverb_size": "45%",
+    "delay_on": "On",
+    "delay_sync": "Tempo Dotted",
+    "delay_tempo": "1/8",
+    "delay_style": "Ping Pong",
+    "delay_feedback": "30%",
+    "delay_dry_wet": "0%",
+    "eq_on": "On",
+    "eq_low_cutoff": "90Hz",
+    "eq_low_gain": "-3dB",
+    "eq_high_cutoff": "7kHz",
+    "eq_high_gain": "-3dB",
+    "polyphony": 12,
+    "beats_per_minute": 92,
+    "volume": "-13dB",
+    "velocity_track": "55%"
+  },
+  "mods": [
+    {
+      "source": "env_2",
+      "dest": "osc_1_distortion_amount",
+      "amount": 0.07,
+      "id": "bark"
+    },
+    {
+      "source": "velocity",
+      "dest": "mod:bark",
+      "amount": 0.2
+    },
+    {
+      "source": "env_3",
+      "dest": "osc_3_level",
+      "amount": 0.0,
+      "id": "tine"
+    },
+    {
+      "source": "macro_control_1",
+      "dest": "mod:tine",
+      "amount": 0.7
+    },
+    {
+      "source": "macro_control_1",
+      "dest": "mod:bark",
+      "amount": 0.12
+    },
+    {
+      "source": "velocity",
+      "dest": "osc_1_distortion_amount",
+      "amount": 0.08
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "filter_1_cutoff",
+      "amount": "-30st"
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "distortion_drive",
+      "amount": 0.08
+    },
+    {
+      "source": "lfo_2",
+      "dest": "osc_1_pan",
+      "amount": 0.0,
+      "bipolar": true,
+      "id": "tremolo"
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "mod:tremolo",
+      "amount": 0.45
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "reverb_dry_wet",
+      "amount": 0.35
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "delay_dry_wet",
+      "amount": 0.25
+    },
+    {
+      "source": "mod_wheel",
+      "dest": "osc_1_distortion_amount",
+      "amount": 0.2
+    },
+    {
+      "source": "aftertouch",
+      "dest": "mod:tremolo",
+      "amount": 0.3
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "volume",
+      "amount": -0.03
+    }
+  ],
+  "play": {
+    "notes": [
+      {
+        "note": "F3",
+        "start": 0.0,
+        "dur": 1.6,
+        "vel": 0.7
+      },
+      {
+        "note": "A3",
+        "start": 0.02,
+        "dur": 1.6,
+        "vel": 0.6
+      },
+      {
+        "note": "C4",
+        "start": 0.03,
+        "dur": 1.6,
+        "vel": 0.6
+      },
+      {
+        "note": "E4",
+        "start": 0.04,
+        "dur": 1.6,
+        "vel": 0.75
+      },
+      {
+        "note": "E3",
+        "start": 1.8,
+        "dur": 1.5,
+        "vel": 0.65
+      },
+      {
+        "note": "G3",
+        "start": 1.82,
+        "dur": 1.5,
+        "vel": 0.55
+      },
+      {
+        "note": "B3",
+        "start": 1.83,
+        "dur": 1.5,
+        "vel": 0.6
+      },
+      {
+        "note": "D4",
+        "start": 1.84,
+        "dur": 1.5,
+        "vel": 0.7
+      },
+      {
+        "note": "D3",
+        "start": 3.5,
+        "dur": 2.2,
+        "vel": 0.8
+      },
+      {
+        "note": "F3",
+        "start": 3.52,
+        "dur": 2.2,
+        "vel": 0.6
+      },
+      {
+        "note": "A3",
+        "start": 3.53,
+        "dur": 2.2,
+        "vel": 0.6
+      },
+      {
+        "note": "C4",
+        "start": 3.54,
+        "dur": 2.2,
+        "vel": 0.65
+      },
+      {
+        "note": "E4",
+        "start": 3.56,
+        "dur": 2.2,
+        "vel": 0.9
+      }
+    ],
+    "tail": 2.0
+  },
+  "tour": {
+    "chord": [
+      "F3",
+      "A3",
+      "C4",
+      "E4"
+    ],
+    "dur": 1.2,
+    "tail": 0.8,
+    "vel": 0.7
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "duration": 3.6,
+  "peak_db": -18.6,
+  "rms_db": -35.0,
+  "crest_db": 16.3,
+  "attack_ms": 48.6,
+  "rise50_ms": 0.0,
+  "peak_time": 0.186,
+  "sustain_db": -21.7,
+  "decay_20db": 1.265,
+  "release_60db": null,
+  "f0_hz": 174.66,
+  "f0_note": "F3+0c",
+  "pitch_clarity": 0.99,
+  "pitch_start": "F3+2c",
+  "pitch_end": "F3+2c",
+  "peaks": [
+    "175Hz F3-0c (0dB)",
+    "349Hz F4+1c (-3dB)",
+    "523Hz C5-1c (-5dB)",
+    "699Hz F5+0c (-1dB)",
+    "874Hz A5-12c (-8dB)",
+    "1048Hz C6+3c (-5dB)",
+    "1224Hz D#6-29c (-12dB)",
+    "1398Hz F6+1c (-7dB)"
+  ],
+  "centroid_hz": 694,
+  "centroid_start": 826,
+  "centroid_end": 480,
+  "attack_centroid_hz": 562,
+  "onset_sweep": "",
+  "rolloff_hz": 1044,
+  "flatness": 0.0,
+  "hf_slope_db_oct": -32.4,
+  "envelope_peaks_hz": [
+    189,
+    309,
+    627
+  ],
+  "even_odd_db": 4.9,
+  "tail_300ms_db": -28.2,
+  "roughness": 0.019,
+  "roughness_band_hz": 793.7005259840997,
+  "harmonicity": 0.945,
+  "bands": {
+    "sub": 0.0,
+    "bass": 28.8,
+    "low-mid": 53.0,
+    "mid": 18.2,
+    "presence": 0.0,
+    "air": 0.0
+  },
+  "tremolo_hz": 1.25,
+  "tremolo_db": 5.5,
+  "pulse_rate_early_hz": 0.0,
+  "pulse_rate_late_hz": 0.0,
+  "wobble_hz": 1.09,
+  "wobble_pct": 68.4,
+  "glide_st_per_s": 0.0,
+  "glide_consistency": 0.0,
+  "width": 0.315,
+  "pitch_wobble_cents": 2.7,
+  "vibrato_hz": 0.0,
+  "autopan_hz": 4.59,
+  "autopan_db": 6.5,
+  "correlation": 0.821,
+  "clipped": 0,
+  "timeline": [
+    {
+      "t": 0.0,
+      "level_db": -27.7,
+      "centroid_hz": 862
+    },
+    {
+      "t": 0.36,
+      "level_db": -29.1,
+      "centroid_hz": 500
+    },
+    {
+      "t": 0.72,
+      "level_db": -38.3,
+      "centroid_hz": 564
+    },
+    {
+      "t": 1.08,
+      "level_db": -40.4,
+      "centroid_hz": 450
+    },
+    {
+      "t": 1.44,
+      "level_db": -49.5,
+      "centroid_hz": 461
+    },
+    {
+      "t": 1.8,
+      "level_db": -53.4,
+      "centroid_hz": 563
+    },
+    {
+      "t": 2.16,
+      "level_db": -59.5,
+      "centroid_hz": 490
+    },
+    {
+      "t": 2.52,
+      "level_db": -64.9,
+      "centroid_hz": 671
+    },
+    {
+      "t": 2.88,
+      "level_db": -69.8,
+      "centroid_hz": 532
+    },
+    {
+      "t": 3.24,
+      "level_db": -75.8,
+      "centroid_hz": 704
+    }
+  ],
+  "words": [
+    "hard attack",
+    "warm",
+    "clean tone",
+    "smooth top end",
+    "closes down over time (x1.7 darker)",
+    "pulsing ~1.2 Hz (6 dB)",
+    "wobbling brightness ~1.1 Hz",
+    "auto-panning ~4.6 Hz",
+    "wide stereo"
+  ]
+}

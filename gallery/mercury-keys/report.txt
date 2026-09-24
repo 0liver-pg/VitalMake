@@ -1,0 +1,22 @@
+== Mercury Keys - first note alone ==
+Character: hard attack, warm, clean tone, smooth top end, closes down over time (x1.7 darker), pulsing ~1.2 Hz (6 dB), wobbling brightness ~1.1 Hz, auto-panning ~4.6 Hz, wide stereo
+Level: peak -18.6 dBFS, rms -35.0 dBFS, crest 16.3 dB | Envelope: attack 49 ms (half-level in 0 ms), peak at 0.19s, -20 dB after 1.26s, sustain -22 dB
+Pitch: F3+0c (174.66 Hz, clarity 0.99)
+Strongest partials: 175Hz F3-0c (0dB); 349Hz F4+1c (-3dB); 523Hz C5-1c (-5dB); 699Hz F5+0c (-1dB); 874Hz A5-12c (-8dB); 1048Hz C6+3c (-5dB); 1224Hz D#6-29c (-12dB); 1398Hz F6+1c (-7dB)
+Spectrum: centroid 694 Hz (start 826 -> end 480), 85% rolloff 1044 Hz, flatness 0.000, harmonicity 0.94, top-end slope -32.4 dB/oct (2-16 kHz)
+Shape: spectral-envelope peaks 189, 309, 627 Hz; even vs odd harmonics +5 dB (full, saw-like); level 300 ms after release -28 dB re peak
+Roughness (20-150 Hz beating, held part): 0.019, worst near 794 Hz (pure tone ~0, two sines 70 Hz apart ~0.32)
+Energy by band: sub 0.0%, bass 28.8%, low-mid 53.0%, mid 18.2%, presence 0.0%, air 0.0%
+Motion: level pulses at 1.25 Hz (5.5 dB p-p); brightness wobbles at 1.09 Hz (±34%); stereo image swings L/R at 4.59 Hz (6.5 dB balance p-p)
+Stereo: width 0.315 (side/mid), L/R correlation 0.821
+Timeline (t: level dB, centroid Hz): 0.0s:-28/862  0.36s:-29/500  0.72s:-38/564  1.08s:-40/450  1.44s:-50/461  1.8s:-53/563  2.16s:-60/490  2.52s:-65/671  2.88s:-70/532  3.24s:-76/704
+Phrase: 7.8s, peak -8.8 dBFS, rms -27.6 dBFS, centroid 879 Hz, width 0.356, partials: 171Hz F3-34c; 294Hz D4-0c; 331Hz E4+5c; 441Hz A4+6c; 523Hz C5-1c; 588Hz D5+1c; 659Hz E5-0c; 989Hz B5+1c
+
+Expression check (probe note, low -> high):
+M1 TINE (0 -> 1): brightness 757 -> 1115 Hz (x1.47); spectral-envelope peaks [296, 1200] -> [189, 296, 583] Hz; onset brightness 582 -> 779 Hz
+M2 WARMTH (0 -> 1): brightness 1100 -> 582 Hz (x0.53); brightness wobble ±44% -> ±21%; onset brightness 1075 -> 393 Hz
+M3 TREMOLO (0 -> 1): auto-pan 0.0 Hz/3 dB -> 4.6 Hz/21 dB; spectral-envelope peaks [189, 296] -> [189, 296, 609] Hz; stereo width 0.338 -> 0.528
+M4 SPACE (0 -> 1): level -26 -> -28 dB; spectral-envelope peaks [189, 296] -> [189, 296, 627] Hz; level 300 ms after release -44 -> -17 dB; tail to -60 dB 0.71s -> beyond the render; stereo width 0.28 -> 0.601; brightness wobble ±17% -> ±32%; strongest partials F3 A3 C4 E4 -> F3 A3 E4 C5
+Mod wheel (0 -> 1): brightness 936 -> 1509 Hz (x1.61); top-end slope -32 -> -27 dB/oct; spectral-envelope peaks [189, 296] -> [189, 296, 778] Hz; level 300 ms after release -29 -> -23 dB; brightness wobble ±36% -> ±16%; partials shift by 205 cents (median) - detune/bend; strongest partials F3 A3 C4 E4 -> F3 E4 E5 A5
+Aftertouch (0 -> 1): auto-pan 4.6 Hz/5 dB -> 4.6 Hz/20 dB; spectral-envelope peaks [189, 296] -> [189, 296, 618] Hz; stereo width 0.347 -> 0.513
+Velocity (0.3 -> 1): level -32 -> -25 dB; brightness 615 -> 1150 Hz (x1.87); spectral-envelope peaks [189, 296] -> [189, 296, 583] Hz; level 300 ms after release -29 -> -24 dB; brightness wobble ±22% -> ±34%; roughness 0.10 -> 0.16

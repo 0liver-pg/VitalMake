@@ -1,0 +1,86 @@
+[
+  {
+    "control": "M1 SNAP",
+    "file": "tour-macro_control_1.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "brightness 217 -> 320 Hz (x1.47); top-end slope -15 -> -8 dB/oct; brightness wobble \u00b114% -> \u00b133%",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M2 WAH",
+    "file": "tour-macro_control_2.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "brightness 262 -> 328 Hz (x1.25); top-end slope -13 -> -8 dB/oct; onset brightness 567 -> 354 Hz",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M3 BODY",
+    "file": "tour-macro_control_3.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -24 -> -20 dB; brightness 302 -> 241 Hz (x0.80); spectral-envelope peaks [189, 362] -> [189] Hz; level 300 ms after release -101 -> -106 dB; onset brightness 910 -> 264 Hz",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M4 GRIT",
+    "file": "tour-macro_control_4.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -24 -> -20 dB; brightness 257 -> 349 Hz (x1.36); spectral-envelope peaks [189, 367] -> [231] Hz; onset brightness 351 -> 786 Hz",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Mod wheel",
+    "file": "tour-mod_wheel.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "brightness 282 -> 430 Hz (x1.52); spectral-envelope peaks [189, 367] -> [287] Hz",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Aftertouch",
+    "file": "tour-aftertouch.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -22 -> -24 dB; brightness 282 -> 363 Hz (x1.29)",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Velocity",
+    "file": "tour-velocity.mp3",
+    "steps": [
+      0.3,
+      0.53,
+      0.77,
+      1.0
+    ],
+    "changes": "level -24 -> -21 dB; top-end slope -15 -> -10 dB/oct; level 300 ms after release -101 -> -104 dB; brightness wobble \u00b115% -> \u00b125%; onset brightness 814 -> 411 Hz",
+    "range": "0.3 -> 1"
+  }
+]

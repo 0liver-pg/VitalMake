@@ -9,6 +9,8 @@ from pathlib import Path
 
 from . import studio
 
+KIT = ["juno-haze", "bend-bloom", "mercury-keys", "persona-3", "glitter-pluck", "choir-of-machines", "pump-chords",
+       "pulsar-ii", "stadium-lead", "velvet-sub", "fuzz-rider", "rubber-band"]
 ORDER = ["glass-choir", "words-as-waves", "endless-staircase", "robot-babble", "midnight-reese", "wub-machine",
          "gravity-kick", "laser-tag", "tin-kalimba", "neon-arp"]
 EXPERIMENTS = ["blind-match", "llm-blind-match"]
@@ -21,7 +23,8 @@ def _entry(d: Path) -> dict | None:
     L = json.loads((d / "listening.json").read_text())
     report = (d / "report.txt").read_text().strip()
     vital = next(d.glob("*.vital"), None)
-    return {"slug": d.name, "spec": spec, "L": L, "report": report, "vital": vital.name if vital else ""}
+    tour = json.loads((d / "tour.json").read_text()) if (d / "tour.json").exists() else []
+    return {"slug": d.name, "spec": spec, "L": L, "report": report, "vital": vital.name if vital else "", "tour": tour}
 
 
 def _mods(spec: dict) -> list[str]:
@@ -41,15 +44,28 @@ def _card(e: dict) -> str:
     wt_txt = ", ".join(f"{k}: {len(v['frames'] if isinstance(v, dict) else v)} frame(s)" for k, v in wt.items()) or "Vital init saw"
     spec_json = esc(json.dumps(s, indent=2))
     report = esc(e["report"])
+    controls = ""
+    if e.get("tour"):
+        rows = []
+        for t in e["tour"]:
+            player = (f'<audio controls preload="none" src="{e["slug"]}/{t["file"]}"></audio>' if t.get("file")
+                      else '<span class="small">no audio</span>')
+            dead = " dead" if t.get("changes", "").startswith(("NO MEASURABLE", "not testable")) else ""
+            rows.append(f'<li class="ctl{dead}"><div class="ctl-head"><strong>{esc(t["control"])}</strong>'
+                        f'<span class="small">{esc(t.get("range", ""))}</span></div>'
+                        f'<p class="ctl-change">{esc(t.get("changes", ""))}</p>{player}</li>')
+        controls = ('<h3>Controls, measured</h3><p class="small">Each clip plays the same notes with the control at 0, ⅓, ⅔ '
+                    'and 1 (velocity from 0.3 to 1). The line above each clip is what the ears measured between the two ends.</p>'
+                    f'<ul class="controls">{"".join(rows)}</ul>')
     return f"""
 <article class="sound" id="{e['slug']}">
   <header class="sound-head">
-    <h2>{esc(s.get('name', e['slug']))}</h2>
+    <h2>{esc(s.get('name', e['slug']))}{f' <span class="style">{esc(s["style"])}</span>' if s.get("style") else ""}</h2>
     <p class="brief">{esc(s.get('description', ''))}</p>
   </header>
   <div class="sound-body">
     <div class="listen">
-      <audio controls preload="none" src="{e['slug']}/sound.wav"></audio>
+      <audio controls preload="none" src="{e['slug']}/sound.mp3"></audio>
       <figure><img loading="lazy" src="{e['slug']}/sheet.png" alt="Spectrogram and waveform of {esc(s.get('name',''))}"></figure>
     </div>
     <div class="read">
@@ -61,6 +77,7 @@ def _card(e: dict) -> str:
         <div><dt>Attack</dt><dd>{L.get('attack_ms'):.0f} ms</dd></div>
         <div><dt>Width</dt><dd>{L.get('width')}</dd></div>
       </dl>
+      {controls}
       <details><summary>Full listening report</summary><pre>{report}</pre></details>
       <h3>How it was built</h3>
       <p class="small">Wavetables: {esc(wt_txt)} · {len(s.get('params', {}))} settings · preset file <code>{esc(e['vital'])}</code></p>
@@ -75,19 +92,19 @@ def _card(e: dict) -> str:
 
 def build_gallery(extra_html: str = "") -> Path:
     root = studio.GALLERY
-    entries = []
-    names = ORDER + sorted(p.stem for p in studio.PATCHES.glob("*.json") if p.stem not in ORDER)
-    for slug in names:
-        e = _entry(root / slug)
-        if e:
-            entries.append(e)
+    entries = [e for e in (_entry(root / slug) for slug in ORDER) if e]
+    kit = [e for e in (_entry(root / slug) for slug in KIT) if e]
     exp = [e for e in (_entry(root / s) for s in EXPERIMENTS) if e]
     notes = studio.ROOT / "experiments" / "summary.html"
     extra_html = extra_html or (notes.read_text() if notes.exists() else "")
-    toc = "".join(f'<a href="#{e["slug"]}">{html.escape(e["spec"].get("name", e["slug"]))}</a>' for e in entries)
+    link = lambda e: f'<a href="#{e["slug"]}">{html.escape(e["spec"].get("name", e["slug"]))}</a>'  # noqa: E731
+    toc = "".join(link(e) for e in entries)
+    kit_toc = "".join(link(e) for e in kit)
     body = "".join(_card(e) for e in entries)
     exp_body = "".join(_card(e) for e in exp)
     page = TEMPLATE.replace("{{TOC}}", toc).replace("{{SOUNDS}}", body).replace("{{COUNT}}", str(len(entries)))
+    page = page.replace("{{KIT_TOC}}", kit_toc).replace("{{KIT}}", "".join(_card(e) for e in kit))
+    page = page.replace("{{KIT_COUNT}}", str(len(kit)))
     page = page.replace("{{EXPERIMENTS}}", extra_html + exp_body)
     out = root / "index.html"
     out.write_text(page)
@@ -146,6 +163,13 @@ h3 { font: 600 12px/1 var(--mono); letter-spacing: .1em; text-transform: upperca
 .facts dt { font: 500 11px/1 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
 .facts dd { margin: 4px 0 0; font: 500 15px/1.2 var(--mono); font-variant-numeric: tabular-nums; }
 @media (max-width: 480px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.style { font: 500 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); vertical-align: middle; margin-left: 8px; }
+.controls { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.ctl { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; display: grid; gap: 6px; }
+.ctl.dead { border-style: dashed; }
+.ctl-head { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.ctl-change { margin: 0; font: 12.5px/1.5 var(--mono); color: var(--muted); }
+.ctl audio { height: 32px; }
 .mods { margin: 0; padding-left: 18px; font: 13px/1.6 var(--mono); }
 .small { margin: 0; font-size: 13px; color: var(--muted); }
 code { font: 12.5px var(--mono); }
@@ -167,10 +191,20 @@ th { color: var(--muted); font-weight: 500; }
   <header class="masthead">
     <span class="eyebrow">VitalMake · Vital synthesizer, driven by text</span>
     <h1>Sounds designed by a model that cannot hear</h1>
-    <p class="lede">Each patch below was written as JSON by Claude, rendered headlessly through the real Vital engine, and judged only through a machine-listening report and a spectrogram image. Press play to hear what it could only read about. {{COUNT}} sounds, plus two blind-reconstruction experiments at the end.</p>
+    <p class="lede">Each patch below was written as JSON by Claude, rendered headlessly through the real Vital engine, and judged only through a machine-listening report and a spectrogram image. Press play to hear what it could only read about.</p>
   </header>
-  <nav class="toc" aria-label="Sounds">{{TOC}}<a href="#experiments">Blind match</a></nav>
-  {{SOUNDS}}
+  <section id="kit">
+    <h2 class="section-title">Song kit</h2>
+    <p class="lede">{{KIT_COUNT}} presets meant for real songs, pitched at rock with a Magdalena Bay tint. Every one has four named macros plus mod wheel, velocity and aftertouch routings, and every control was checked by ear-substitute before it shipped: a control that measured no change got rewired.</p>
+    <nav class="toc" aria-label="Song kit">{{KIT_TOC}}</nav>
+    {{KIT}}
+  </section>
+  <section id="first">
+    <h2 class="section-title">First experiments</h2>
+    <p class="lede">The first {{COUNT}} sounds: showcase patches made while building the tools.</p>
+    <nav class="toc" aria-label="First experiments">{{TOC}}<a href="#experiments">Blind match</a></nav>
+    {{SOUNDS}}
+  </section>
   <section id="experiments">
     <h2 class="section-title">Blind match</h2>
     {{EXPERIMENTS}}

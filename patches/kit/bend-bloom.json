@@ -1,0 +1,278 @@
+{
+  "name": "Bend Bloom",
+  "style": "Keys",
+  "description": "After MB2: glassy chords where the mod wheel bends each note by its pitch class (C sinks, B rises), so a chord blooms into a microtonal cluster and folds back in tune when you let go. SPREAD sets how far; SPLIT also pulls the two layers of every note apart.",
+  "wavetables": {
+    "osc_1": [
+      {
+        "partials": 40,
+        "falloff": 1.35
+      }
+    ],
+    "osc_2": [
+      {
+        "harmonics": [
+          1,
+          0,
+          0,
+          0.4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.18
+        ]
+      }
+    ]
+  },
+  "macros": {
+    "1": {
+      "name": "SPREAD",
+      "value": 0.5
+    },
+    "2": {
+      "name": "SPLIT",
+      "value": 0.2
+    },
+    "3": {
+      "name": "GLASS",
+      "value": 0.45
+    },
+    "4": {
+      "name": "HAZE",
+      "value": 0.4
+    }
+  },
+  "params": {
+    "osc_1_level": 0.6,
+    "osc_1_unison_voices": 3,
+    "osc_1_unison_detune": "7%",
+    "osc_1_stereo_spread": "70%",
+    "osc_2_on": "On",
+    "osc_2_level": 0.3,
+    "osc_2_unison_voices": 2,
+    "osc_2_unison_detune": "4%",
+    "osc_2_stereo_spread": "60%",
+    "filter_1_on": "On",
+    "filter_1_model": "Analog",
+    "filter_1_style": "12dB",
+    "filter_1_cutoff": "2.6kHz",
+    "filter_1_keytrack": "50%",
+    "osc_2_destination": "FILTER 1",
+    "env_1_attack": "4ms",
+    "env_1_decay": "2.5s",
+    "env_1_decay_power": -2,
+    "env_1_sustain": 0.45,
+    "env_1_release": "1.2s",
+    "chorus_on": "On",
+    "chorus_dry_wet": "25%",
+    "chorus_frequency": "0.3Hz",
+    "reverb_on": "On",
+    "reverb_dry_wet": "15%",
+    "reverb_decay_time": "4s",
+    "reverb_size": "75%",
+    "eq_on": "On",
+    "eq_low_cutoff": "120Hz",
+    "eq_low_gain": "-4dB",
+    "eq_high_cutoff": "8kHz",
+    "eq_high_gain": "-3dB",
+    "polyphony": 8,
+    "volume": "-15dB",
+    "velocity_track": "40%"
+  },
+  "mods": [
+    {
+      "source": "note_in_octave",
+      "dest": "osc_1_transpose",
+      "amount": 0.0,
+      "bipolar": true,
+      "id": "pc1"
+    },
+    {
+      "source": "note_in_octave",
+      "dest": "osc_2_transpose",
+      "amount": 0.0,
+      "bipolar": true,
+      "id": "pc2"
+    },
+    {
+      "source": "mod_wheel",
+      "dest": "mod:pc1",
+      "amount": 0.0,
+      "id": "mw1"
+    },
+    {
+      "source": "mod_wheel",
+      "dest": "mod:pc2",
+      "amount": 0.0,
+      "id": "mw2"
+    },
+    {
+      "source": "macro_control_1",
+      "dest": "mod:mw1",
+      "amount": 0.0105
+    },
+    {
+      "source": "macro_control_1",
+      "dest": "mod:mw2",
+      "amount": 0.0105
+    },
+    {
+      "source": "mod_wheel",
+      "dest": "osc_1_transpose",
+      "amount": 0.0,
+      "id": "split1"
+    },
+    {
+      "source": "mod_wheel",
+      "dest": "osc_2_transpose",
+      "amount": 0.0,
+      "id": "split2"
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "mod:split1",
+      "amount": -0.008
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "mod:split2",
+      "amount": 0.008
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "osc_2_level",
+      "amount": 0.45
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "osc_1_level",
+      "amount": -0.2
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "reverb_dry_wet",
+      "amount": 0.35
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "chorus_dry_wet",
+      "amount": 0.3
+    },
+    {
+      "source": "velocity",
+      "dest": "filter_1_cutoff",
+      "amount": "+10st"
+    },
+    {
+      "source": "aftertouch",
+      "dest": "filter_1_cutoff",
+      "amount": "+12st"
+    }
+  ],
+  "play": {
+    "notes": [
+      {
+        "note": "C3",
+        "start": 0,
+        "dur": 1.8
+      },
+      {
+        "note": "G3",
+        "start": 0,
+        "dur": 1.8
+      },
+      {
+        "note": "B3",
+        "start": 0,
+        "dur": 1.8
+      },
+      {
+        "note": "E4",
+        "start": 0,
+        "dur": 1.8
+      },
+      {
+        "note": "C3",
+        "start": 2.0,
+        "dur": 1.8,
+        "set": {
+          "mod_wheel": 0.5
+        }
+      },
+      {
+        "note": "G3",
+        "start": 2.0,
+        "dur": 1.8,
+        "set": {
+          "mod_wheel": 0.5
+        }
+      },
+      {
+        "note": "B3",
+        "start": 2.0,
+        "dur": 1.8,
+        "set": {
+          "mod_wheel": 0.5
+        }
+      },
+      {
+        "note": "E4",
+        "start": 2.0,
+        "dur": 1.8,
+        "set": {
+          "mod_wheel": 0.5
+        }
+      },
+      {
+        "note": "C3",
+        "start": 4.0,
+        "dur": 2.6,
+        "set": {
+          "mod_wheel": 1.0
+        }
+      },
+      {
+        "note": "G3",
+        "start": 4.0,
+        "dur": 2.6,
+        "set": {
+          "mod_wheel": 1.0
+        }
+      },
+      {
+        "note": "B3",
+        "start": 4.0,
+        "dur": 2.6,
+        "set": {
+          "mod_wheel": 1.0
+        }
+      },
+      {
+        "note": "E4",
+        "start": 4.0,
+        "dur": 2.6,
+        "set": {
+          "mod_wheel": 1.0
+        }
+      }
+    ],
+    "tail": 2.5,
+    "vel": 0.7
+  },
+  "tour": {
+    "chord": [
+      "C3",
+      "G3",
+      "B3",
+      "E4"
+    ],
+    "dur": 1.4,
+    "tail": 0.8,
+    "vel": 0.7,
+    "set": {
+      "mod_wheel": 0.8
+    }
+  }
+}

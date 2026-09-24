@@ -48,7 +48,13 @@ def vital_spec_help() -> str:
         "destination: 'modulation_3_amount'. env_1 is hard-wired to amplitude.",
         "Modulation sources: " + ", ".join(P.MOD_SOURCES),
         "Modulation destinations (N = 1..3 for osc/filter, 1..6 env, 1..8 lfo, 1..4 random): " + ", ".join(dests),
+        "Mods may carry an 'id'; target another mod's amount with dest 'mod:<id>' (macro scales mod-wheel depth, etc.). "
+        "Macros: {'1': {'name': 'BRIGHT', 'value': 0.4}}. A play note can hold a control: {'note': 'C3', 'set': {'mod_wheel': 0.7}}. "
+        "vital_make runs an expression check on every macro, mod wheel, velocity and aftertouch route and reports what "
+        "measurably changed; 'NO MEASURABLE CHANGE' means the control needs rewiring.",
         "Sound-design notes: MIDI C3 = 48 (130.8 Hz); keep bass fundamentals at or above E1 (41 Hz). "
+        "Vital's velocity_track defaults to 0% (no velocity -> level): set it (keys ~50%, bass ~30%, pads ~20%). "
+        "Keep bass mono (osc stereo spread <= 20%). Compensate distortion drive macros with a negative volume mod. "
         "Chords are summed renders, so lower 'volume' for dense chords. Renders are deterministic.",
     ])
 

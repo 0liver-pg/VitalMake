@@ -1,0 +1,247 @@
+{
+  "name": "Persona 3",
+  "style": "Keys",
+  "description": "A gentler take on Persona 2, keeping its controls: FILTER, TONE (warm square to soft saw), FOLD and VEL SENS (how much velocity moves level and brightness), plus aftertouch for grit. Harshness is designed out: 5-voice unison instead of 15, soft wavefolding filtered after the fold, and output that stays under 0 dBFS.",
+  "wavetables": {
+    "osc_1": {
+      "name": "Warm Square",
+      "frames": [
+        {
+          "partials": 60,
+          "falloff": 1.15,
+          "odd": true
+        }
+      ]
+    },
+    "osc_2": {
+      "name": "Soft Saw",
+      "frames": [
+        {
+          "partials": 50,
+          "falloff": 1.3
+        }
+      ]
+    }
+  },
+  "lfos": {
+    "lfo_1": {
+      "shape": "sine"
+    }
+  },
+  "macros": {
+    "1": {
+      "name": "FILTER",
+      "value": 0.55
+    },
+    "2": {
+      "name": "TONE",
+      "value": 0.4
+    },
+    "3": {
+      "name": "FOLD",
+      "value": 0.15
+    },
+    "4": {
+      "name": "VEL SENS",
+      "value": 0.6
+    }
+  },
+  "params": {
+    "osc_1_level": 0.7,
+    "osc_1_unison_voices": 5,
+    "osc_1_unison_detune": "11%",
+    "osc_1_stereo_spread": "60%",
+    "osc_2_on": "On",
+    "osc_2_level": 0.0,
+    "osc_2_unison_voices": 3,
+    "osc_2_unison_detune": "8%",
+    "osc_2_stereo_spread": "60%",
+    "osc_2_destination": "FILTER 1",
+    "filter_1_on": "On",
+    "filter_1_model": "Analog",
+    "filter_1_style": "24dB",
+    "filter_1_cutoff": "320Hz",
+    "filter_1_resonance": "8%",
+    "filter_1_keytrack": "50%",
+    "env_1_attack": "3ms",
+    "env_1_decay": "6s",
+    "env_1_decay_power": -3,
+    "env_1_sustain": 0.3,
+    "env_1_release": "280ms",
+    "env_2_attack": "0ms",
+    "env_2_decay": "700ms",
+    "env_2_sustain": 0.3,
+    "lfo_1_sync": "Seconds",
+    "lfo_1_frequency": "0.6Hz",
+    "distortion_on": "On",
+    "distortion_type": "Sine Fold",
+    "distortion_drive": "6dB",
+    "distortion_mix": "0%",
+    "distortion_filter_order": "Post",
+    "distortion_filter_cutoff": "4.5kHz",
+    "distortion_filter_resonance": "5%",
+    "distortion_filter_blend": 0,
+    "compressor_on": "On",
+    "compressor_mix": "35%",
+    "chorus_on": "On",
+    "chorus_dry_wet": "15%",
+    "reverb_on": "On",
+    "reverb_dry_wet": "10%",
+    "reverb_decay_time": "2s",
+    "eq_on": "On",
+    "eq_low_cutoff": "100Hz",
+    "eq_low_gain": "-3dB",
+    "eq_high_cutoff": "8kHz",
+    "eq_high_gain": "-5dB",
+    "polyphony": 16,
+    "legato": "Off",
+    "volume": "-13dB",
+    "velocity_track": "10%"
+  },
+  "mods": [
+    {
+      "source": "macro_control_1",
+      "dest": "filter_1_cutoff",
+      "amount": "+44st"
+    },
+    {
+      "source": "env_2",
+      "dest": "filter_1_cutoff",
+      "amount": "+10st"
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "osc_1_level",
+      "amount": -0.55
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "osc_2_level",
+      "amount": 0.7
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "distortion_mix",
+      "amount": 0.7
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "distortion_drive",
+      "amount": 0.12
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "volume",
+      "amount": -0.03
+    },
+    {
+      "source": "velocity",
+      "dest": "filter_1_cutoff",
+      "amount": 0.0,
+      "id": "velcut"
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "mod:velcut",
+      "amount": 0.14
+    },
+    {
+      "source": "random",
+      "dest": "osc_1_unison_detune",
+      "amount": 0.08,
+      "bipolar": true
+    },
+    {
+      "source": "lfo_1",
+      "dest": "osc_2_tune",
+      "amount": 0.03,
+      "bipolar": true
+    },
+    {
+      "source": "aftertouch",
+      "dest": "distortion_mix",
+      "amount": 0.4
+    },
+    {
+      "source": "mod_wheel",
+      "dest": "filter_1_cutoff",
+      "amount": "+14st"
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "velocity_track",
+      "amount": 0.35
+    }
+  ],
+  "play": {
+    "notes": [
+      {
+        "note": "E3",
+        "start": 0,
+        "dur": 1.5,
+        "vel": 0.75
+      },
+      {
+        "note": "G3",
+        "start": 0,
+        "dur": 1.5,
+        "vel": 0.65
+      },
+      {
+        "note": "B3",
+        "start": 0,
+        "dur": 1.5,
+        "vel": 0.7
+      },
+      {
+        "note": "D4",
+        "start": 1.6,
+        "dur": 0.35,
+        "vel": 0.9
+      },
+      {
+        "note": "B3",
+        "start": 2.0,
+        "dur": 0.35,
+        "vel": 0.6
+      },
+      {
+        "note": "G3",
+        "start": 2.4,
+        "dur": 0.35,
+        "vel": 0.75
+      },
+      {
+        "note": "C3",
+        "start": 2.8,
+        "dur": 1.8,
+        "vel": 0.8
+      },
+      {
+        "note": "E3",
+        "start": 2.8,
+        "dur": 1.8,
+        "vel": 0.6
+      },
+      {
+        "note": "G3",
+        "start": 2.8,
+        "dur": 1.8,
+        "vel": 0.65
+      },
+      {
+        "note": "B3",
+        "start": 2.8,
+        "dur": 1.8,
+        "vel": 0.7
+      }
+    ],
+    "tail": 1.2
+  },
+  "tour": {
+    "note": "E3",
+    "dur": 1.4,
+    "tail": 0.6,
+    "vel": 0.75
+  }
+}

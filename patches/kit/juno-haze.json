@@ -1,0 +1,283 @@
+{
+  "name": "Juno Haze",
+  "style": "Pad",
+  "description": "Hazy 80s polysynth chords: saw plus a slowly breathing pulse wave, a 4-pole filter that opens with each chord, thick chorus and a tape wobble you can dial in. Sits under a vocal or a guitar.",
+  "wavetables": {
+    "osc_2": {
+      "name": "PWM",
+      "frames": [
+        {
+          "shape": "pulse",
+          "width": 0.5
+        },
+        {
+          "shape": "pulse",
+          "width": 0.3
+        },
+        {
+          "shape": "pulse",
+          "width": 0.14
+        }
+      ]
+    }
+  },
+  "lfos": {
+    "lfo_1": {
+      "shape": "sine"
+    },
+    "lfo_3": {
+      "shape": "triangle"
+    }
+  },
+  "macros": {
+    "1": {
+      "name": "BRIGHT",
+      "value": 0.4
+    },
+    "2": {
+      "name": "WARBLE",
+      "value": 0.25
+    },
+    "3": {
+      "name": "SWELL",
+      "value": 0.2
+    },
+    "4": {
+      "name": "SPACE",
+      "value": 0.4
+    }
+  },
+  "params": {
+    "osc_1_level": 0.55,
+    "osc_1_unison_voices": 4,
+    "osc_1_unison_detune": "12%",
+    "osc_1_stereo_spread": "80%",
+    "osc_2_on": "On",
+    "osc_2_level": 0.45,
+    "osc_2_unison_voices": 2,
+    "osc_2_unison_detune": "6%",
+    "osc_2_wave_frame": 128,
+    "osc_2_destination": "FILTER 1",
+    "filter_1_on": "On",
+    "filter_1_model": "Analog",
+    "filter_1_style": "24dB",
+    "filter_1_cutoff": "700Hz",
+    "filter_1_resonance": "14%",
+    "filter_1_keytrack": "45%",
+    "env_1_attack": "60ms",
+    "env_1_decay": "1.5s",
+    "env_1_sustain": 0.85,
+    "env_1_release": "900ms",
+    "env_2_attack": "250ms",
+    "env_2_decay": "2.2s",
+    "env_2_sustain": 0.35,
+    "env_2_release": "900ms",
+    "lfo_1_sync": "Seconds",
+    "lfo_1_frequency": "5.2Hz",
+    "lfo_1_delay_time": "0.3s",
+    "lfo_1_fade_time": "0.5s",
+    "lfo_3_sync": "Seconds",
+    "lfo_3_frequency": "0.35Hz",
+    "random_1_style": "Perlin",
+    "random_1_sync": "Seconds",
+    "random_1_frequency": "1.3Hz",
+    "chorus_on": "On",
+    "chorus_voices": 1,
+    "chorus_frequency": "0.55Hz",
+    "chorus_mod_depth": "70%",
+    "chorus_feedback": "0%",
+    "chorus_dry_wet": "50%",
+    "chorus_delay_1": "3.5ms",
+    "chorus_delay_2": "6ms",
+    "reverb_on": "On",
+    "reverb_dry_wet": "12%",
+    "reverb_decay_time": "3.5s",
+    "reverb_size": "70%",
+    "eq_on": "On",
+    "eq_low_cutoff": "140Hz",
+    "eq_low_gain": "-5dB",
+    "eq_high_cutoff": "8kHz",
+    "eq_high_gain": "-4dB",
+    "polyphony": 8,
+    "volume": "-14dB",
+    "velocity_track": "20%"
+  },
+  "mods": [
+    {
+      "source": "env_2",
+      "dest": "filter_1_cutoff",
+      "amount": "+22st"
+    },
+    {
+      "source": "velocity",
+      "dest": "filter_1_cutoff",
+      "amount": "+9st"
+    },
+    {
+      "source": "lfo_3",
+      "dest": "osc_2_wave_frame",
+      "amount": 0.4,
+      "bipolar": true
+    },
+    {
+      "source": "macro_control_1",
+      "dest": "filter_1_cutoff",
+      "amount": "+30st"
+    },
+    {
+      "source": "random_1",
+      "dest": "voice_tune",
+      "amount": 0.0,
+      "bipolar": true,
+      "id": "wow"
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "mod:wow",
+      "amount": 0.25
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "env_1_attack",
+      "amount": 0.35
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "env_2_attack",
+      "amount": 0.3
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "env_1_release",
+      "amount": 0.25
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "reverb_dry_wet",
+      "amount": 0.4
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "chorus_dry_wet",
+      "amount": 0.2
+    },
+    {
+      "source": "lfo_1",
+      "dest": "voice_tune",
+      "amount": 0.0,
+      "bipolar": true,
+      "id": "vibrato"
+    },
+    {
+      "source": "mod_wheel",
+      "dest": "mod:vibrato",
+      "amount": 0.12
+    },
+    {
+      "source": "aftertouch",
+      "dest": "filter_1_cutoff",
+      "amount": "+12st"
+    }
+  ],
+  "play": {
+    "notes": [
+      {
+        "note": "A3",
+        "start": 0.0,
+        "dur": 1.7
+      },
+      {
+        "note": "C4",
+        "start": 0.0,
+        "dur": 1.7
+      },
+      {
+        "note": "E4",
+        "start": 0.0,
+        "dur": 1.7
+      },
+      {
+        "note": "A2",
+        "start": 0.0,
+        "dur": 1.7,
+        "vel": 0.6
+      },
+      {
+        "note": "A3",
+        "start": 1.85,
+        "dur": 1.7
+      },
+      {
+        "note": "C4",
+        "start": 1.85,
+        "dur": 1.7
+      },
+      {
+        "note": "F4",
+        "start": 1.85,
+        "dur": 1.7
+      },
+      {
+        "note": "F2",
+        "start": 1.85,
+        "dur": 1.7,
+        "vel": 0.6
+      },
+      {
+        "note": "G3",
+        "start": 3.7,
+        "dur": 1.7
+      },
+      {
+        "note": "C4",
+        "start": 3.7,
+        "dur": 1.7
+      },
+      {
+        "note": "E4",
+        "start": 3.7,
+        "dur": 1.7
+      },
+      {
+        "note": "C3",
+        "start": 3.7,
+        "dur": 1.7,
+        "vel": 0.6
+      },
+      {
+        "note": "G3",
+        "start": 5.55,
+        "dur": 2.4
+      },
+      {
+        "note": "B3",
+        "start": 5.55,
+        "dur": 2.4
+      },
+      {
+        "note": "D4",
+        "start": 5.55,
+        "dur": 2.4
+      },
+      {
+        "note": "G2",
+        "start": 5.55,
+        "dur": 2.4,
+        "vel": 0.6
+      }
+    ],
+    "tail": 2.2,
+    "vel": 0.7
+  },
+  "tour": {
+    "chord": [
+      "A2",
+      "A3",
+      "C4",
+      "E4"
+    ],
+    "dur": 1.6,
+    "tail": 0.9,
+    "vel": 0.7
+  }
+}

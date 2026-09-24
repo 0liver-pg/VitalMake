@@ -81,7 +81,7 @@ def main(argv: list[str] | None = None) -> int:
         for p in args.patches:
             _make(p, args)
     elif args.cmd == "make-all":
-        for p in sorted(studio.PATCHES.glob("*.json")):
+        for p in sorted(studio.PATCHES.rglob("*.json")):
             _make(p, args)
         from .gallery import build_gallery
 

@@ -9,6 +9,7 @@ which makes renders deterministic and lets them run in parallel threads
     "play": {"chord": ["C3", "Eb3", "G3"], "dur": 3, "tail": 3, "vel": 0.7}
     "play": {"sequence": "C2 C2 _ Eb2 C2 _ G1 Bb1", "step": 0.18, "gate": 0.6, "tail": 1}
     "play": {"notes": [{"note": "C3", "start": 0, "dur": 1, "vel": 0.9}, ...], "tail": 2}
+    "play": {"notes": [{"note": "C3", "dur": 2, "set": {"mod_wheel": 0.8}}]}   static control per note
 """
 
 from __future__ import annotations
@@ -32,6 +33,7 @@ class Note:
     start: float
     dur: float
     vel: float = 0.8
+    set: dict | None = None  # static control values for this note, e.g. {"mod_wheel": 0.7}
 
 
 def parse_play(play: dict | None) -> tuple[list[Note], float]:
@@ -42,7 +44,7 @@ def parse_play(play: dict | None) -> tuple[list[Note], float]:
     if "notes" in play:
         for n in play["notes"]:
             notes.append(Note(note_to_midi(n.get("note", n.get("pitch", 48))), float(n.get("start", 0)),
-                              float(n.get("dur", 1)), float(n.get("vel", vel))))
+                              float(n.get("dur", 1)), float(n.get("vel", vel)), n.get("set") or play.get("set")))
     elif "sequence" in play:
         step = float(play.get("step", 0.25))
         gate = float(play.get("gate", 0.8))
@@ -57,7 +59,7 @@ def parse_play(play: dict | None) -> tuple[list[Note], float]:
         dur = float(play.get("dur", 1.5))
         chord = play.get("chord", [play.get("note", "C3")])
         for n in chord:
-            notes.append(Note(note_to_midi(n), 0.0, dur, vel))
+            notes.append(Note(note_to_midi(n), 0.0, dur, vel, play.get("set")))
     return notes, tail
 
 
@@ -66,10 +68,32 @@ def render(preset_json: str, play: dict | None = None, sr: int = SR, threads: in
     notes, tail = parse_play(play)
     total = max(n.start + n.dur for n in notes) + tail
 
+    variants: dict = {}
+
+    def preset_for(n: Note) -> str:
+        # Setting a control on a loaded Synth doesn't reach modulations that depend
+        # on it (e.g. mod wheel -> a mod's amount), so bake the values into the JSON.
+        if not n.set:
+            return preset_json
+        key = tuple(sorted(n.set.items()))
+        if key not in variants:
+            import json
+
+            from .controls import to_raw
+
+            data = json.loads(preset_json)
+            for k, v in n.set.items():
+                data["settings"][k] = to_raw(k, v)
+            variants[key] = json.dumps(data)
+        return variants[key]
+
+    for n in notes:  # build variants up front, outside the thread pool
+        preset_for(n)
+
     def one(n: Note) -> tuple[Note, np.ndarray]:
         synth = vita.Synth()
         synth.set_sample_rate(sr)
-        synth.load_json(preset_json)
+        synth.load_json(preset_for(n))
         return n, synth.render(n.pitch, n.vel, n.dur, n.dur + tail)
 
     out = np.zeros((2, int(total * sr) + 1), dtype=np.float32)
@@ -90,6 +114,18 @@ def write_wav(audio: np.ndarray, path: str | Path, sr: int = SR, normalize_db: f
     if normalize_db is not None and peak > 0:
         a *= 10 ** (normalize_db / 20) / peak
     sf.write(path, a.T, sr, subtype="PCM_24")
+    return path
+
+
+def write_mp3(audio: np.ndarray, path: str | Path, sr: int = SR, normalize_db: float | None = -1.0) -> Path:
+    """Small web copy (VBR MP3) for gallery players; WAV stays the analysis master."""
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    a = audio.astype(np.float64)
+    peak = np.abs(a).max()
+    if normalize_db is not None and peak > 0:
+        a *= 10 ** (normalize_db / 20) / peak
+    sf.write(path, a.T, sr, format="MP3", subtype="MPEG_LAYER_III", compression_level=0.2)
     return path
 
 

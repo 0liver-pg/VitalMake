@@ -1,0 +1,163 @@
+{
+  "name": "Velvet Sub",
+  "style": "Bass",
+  "description": "Round, Moog-style mono bass: saw through a ladder filter with a sine sub underneath. Velocity adds pluck; GROWL adds drive and resonance for rock verses; the mod wheel brings in an eighth-note filter wah.",
+  "wavetables": {
+    "osc_3": [
+      {
+        "shape": "sine"
+      }
+    ]
+  },
+  "lfos": {
+    "lfo_1": {
+      "shape": "triangle"
+    }
+  },
+  "macros": {
+    "1": {
+      "name": "TONE",
+      "value": 0.45
+    },
+    "2": {
+      "name": "PLUCK",
+      "value": 0.4
+    },
+    "3": {
+      "name": "GROWL",
+      "value": 0.2
+    },
+    "4": {
+      "name": "SUB",
+      "value": 0.5
+    }
+  },
+  "params": {
+    "osc_1_level": 0.75,
+    "osc_1_unison_voices": 2,
+    "osc_1_unison_detune": "4%",
+    "osc_1_stereo_spread": "20%",
+    "osc_3_on": "On",
+    "osc_3_level": 0.2,
+    "osc_3_destination": "DIRECT OUT",
+    "osc_3_random_phase": "0%",
+    "filter_1_on": "On",
+    "filter_1_model": "Ladder",
+    "filter_1_style": "24dB",
+    "filter_1_cutoff": "260Hz",
+    "filter_1_resonance": "18%",
+    "filter_1_drive": "4dB",
+    "filter_1_keytrack": "35%",
+    "env_1_attack": "2ms",
+    "env_1_decay": "900ms",
+    "env_1_sustain": 0.75,
+    "env_1_release": "70ms",
+    "env_2_attack": "0ms",
+    "env_2_decay": "420ms",
+    "env_2_sustain": 0.15,
+    "env_2_decay_power": -2,
+    "lfo_1_sync": "Tempo",
+    "lfo_1_tempo": "1/8",
+    "lfo_1_sync_type": "Trigger",
+    "distortion_on": "On",
+    "distortion_type": "Soft Clip",
+    "distortion_drive": "0dB",
+    "distortion_mix": "0%",
+    "eq_on": "On",
+    "eq_high_cutoff": "6kHz",
+    "eq_high_gain": "-4dB",
+    "polyphony": 1,
+    "legato": "On",
+    "portamento_time": "35ms",
+    "beats_per_minute": 110,
+    "volume": "-10dB",
+    "velocity_track": "30%"
+  },
+  "mods": [
+    {
+      "source": "env_2",
+      "dest": "filter_1_cutoff",
+      "amount": "+24st",
+      "id": "pluck"
+    },
+    {
+      "source": "velocity",
+      "dest": "mod:pluck",
+      "amount": 0.12
+    },
+    {
+      "source": "macro_control_1",
+      "dest": "filter_1_cutoff",
+      "amount": "+36st"
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "mod:pluck",
+      "amount": 0.15
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "env_2_decay",
+      "amount": -0.12
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "filter_1_resonance",
+      "amount": 0.35
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "filter_1_drive",
+      "amount": 0.35
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "distortion_mix",
+      "amount": 0.6
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "distortion_drive",
+      "amount": 0.2
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "volume",
+      "amount": -0.04
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "osc_3_level",
+      "amount": 0.55
+    },
+    {
+      "source": "lfo_1",
+      "dest": "filter_1_cutoff",
+      "amount": 0.0,
+      "id": "wah"
+    },
+    {
+      "source": "mod_wheel",
+      "dest": "mod:wah",
+      "amount": 0.2
+    },
+    {
+      "source": "aftertouch",
+      "dest": "filter_1_cutoff",
+      "amount": "+10st"
+    }
+  ],
+  "play": {
+    "sequence": "A1 _ A1 A2 _ A1 G1 _ C2 _ C2 D2 _ E2 D2 C2 A1 _ A1 A2 _ A1 G1 _ F1 _ F1 G1 _ A1! _ _",
+    "step": 0.136,
+    "gate": 0.8,
+    "vel": 0.75,
+    "tail": 0.5
+  },
+  "tour": {
+    "note": "A1",
+    "dur": 0.9,
+    "tail": 0.4,
+    "vel": 0.75
+  }
+}

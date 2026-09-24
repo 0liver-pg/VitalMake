@@ -1,0 +1,86 @@
+[
+  {
+    "control": "M1 TONE",
+    "file": "tour-macro_control_1.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -23 -> -28 dB; brightness 142 -> 517 Hz (x3.64); top-end slope -21 -> -11 dB/oct; level 300 ms after release -103 -> -99 dB; roughness 0.09 -> 0.33",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M2 PLUCK",
+    "file": "tour-macro_control_2.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -21 -> -28 dB; brightness 204 -> 277 Hz (x1.36); top-end slope -21 -> -10 dB/oct; level 300 ms after release -105 -> -98 dB; roughness 0.17 -> 0.25; onset brightness 156 -> 255 Hz",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M3 GROWL",
+    "file": "tour-macro_control_3.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -20 -> -22 dB; brightness 167 -> 332 Hz (x1.99); level 300 ms after release -104 -> -101 dB; brightness wobble \u00b111% -> \u00b122%; onset brightness 151 -> 539 Hz",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M4 SUB",
+    "file": "tour-macro_control_4.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -27 -> -22 dB; brightness 278 -> 185 Hz (x0.67); level 300 ms after release -96 -> -104 dB; brightness wobble \u00b129% -> \u00b112%; onset brightness 389 -> 117 Hz",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Mod wheel",
+    "file": "tour-mod_wheel.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -24 -> -26 dB; brightness 220 -> 411 Hz (x1.87); brightness wobble \u00b120% -> \u00b168%; roughness 0.12 -> 0.54",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Aftertouch",
+    "file": "tour-aftertouch.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -24 -> -29 dB; brightness 225 -> 429 Hz (x1.91); brightness wobble \u00b120% -> \u00b143%; roughness 0.12 -> 0.29",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Velocity",
+    "file": "tour-velocity.mp3",
+    "steps": [
+      0.3,
+      0.53,
+      0.77,
+      1.0
+    ],
+    "changes": "brightness 204 -> 263 Hz (x1.29); top-end slope -20 -> -10 dB/oct; roughness 0.11 -> 0.16; onset brightness 338 -> 222 Hz",
+    "range": "0.3 -> 1"
+  }
+]

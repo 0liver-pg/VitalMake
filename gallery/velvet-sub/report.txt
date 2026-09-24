@@ -1,0 +1,21 @@
+== Velvet Sub - first note alone ==
+Character: percussive attack, dark, clean tone, bass-heavy, mono
+Level: peak -15.6 dBFS, rms -30.6 dBFS, crest 15.0 dB | Envelope: attack 2 ms (half-level in 1 ms), peak at 0.01s, release to -60 dB in 0.09s
+Pitch: A1-1c (54.96 Hz, clarity 0.93)
+Strongest partials: 54Hz A1-24c (0dB); 110Hz A2+4c (-2dB); 164Hz E3-7c (-5dB); 220Hz A3-4c (-9dB); 274Hz C#4-18c (-11dB); 329Hz E4-4c (-13dB); 384Hz G4-35c (-14dB); 439Hz A4-5c (-15dB)
+Spectrum: centroid 412 Hz (start 246 -> end 259), 85% rolloff 226 Hz, flatness 0.003, harmonicity 0.92, top-end slope -10.6 dB/oct (2-16 kHz)
+Shape: even vs odd harmonics +3 dB (full, saw-like); level 300 ms after release -98 dB re peak
+Energy by band: sub 32.0%, bass 52.7%, low-mid 12.7%, mid 1.2%, presence 0.1%, air 0.0%
+Motion: no periodic modulation or glide detected
+Stereo: width 0.039 (side/mid), L/R correlation 0.997
+Timeline (t: level dB, centroid Hz): 0.0s:-23/353  0.06s:-25/519  0.12s:-34/425  0.17s:-71/228  0.24s:-120/0  0.3s:-120/0  0.36s:-120/0  0.43s:-120/0  0.49s:-120/0  0.55s:-120/0
+Phrase: 4.6s, peak -10.9 dBFS, rms -24.3 dBFS, centroid 414 Hz, width 0.103, partials: 54Hz A1-24c; 107Hz A2-46c; 143Hz C#3+49c; 196Hz G3-1c; 218Hz A3-14c; 265Hz C4+20c; 330Hz E4+1c; 387Hz G4-24c
+
+Expression check (probe note, low -> high):
+M1 TONE (0 -> 1): level -23 -> -28 dB; brightness 142 -> 517 Hz (x3.64); top-end slope -21 -> -11 dB/oct; level 300 ms after release -103 -> -99 dB; roughness 0.09 -> 0.33
+M2 PLUCK (0 -> 1): level -21 -> -28 dB; brightness 204 -> 277 Hz (x1.36); top-end slope -21 -> -10 dB/oct; level 300 ms after release -105 -> -98 dB; roughness 0.17 -> 0.25; onset brightness 156 -> 255 Hz
+M3 GROWL (0 -> 1): level -20 -> -22 dB; brightness 167 -> 332 Hz (x1.99); level 300 ms after release -104 -> -101 dB; brightness wobble ±11% -> ±22%; onset brightness 151 -> 539 Hz
+M4 SUB (0 -> 1): level -27 -> -22 dB; brightness 278 -> 185 Hz (x0.67); level 300 ms after release -96 -> -104 dB; brightness wobble ±29% -> ±12%; onset brightness 389 -> 117 Hz
+Mod wheel (0 -> 1): level -24 -> -26 dB; brightness 220 -> 411 Hz (x1.87); brightness wobble ±20% -> ±68%; roughness 0.12 -> 0.54
+Aftertouch (0 -> 1): level -24 -> -29 dB; brightness 225 -> 429 Hz (x1.91); brightness wobble ±20% -> ±43%; roughness 0.12 -> 0.29
+Velocity (0.3 -> 1): brightness 204 -> 263 Hz (x1.29); top-end slope -20 -> -10 dB/oct; roughness 0.11 -> 0.16; onset brightness 338 -> 222 Hz

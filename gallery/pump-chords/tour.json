@@ -1,0 +1,86 @@
+[
+  {
+    "control": "M1 PUMP",
+    "file": "tour-macro_control_1.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -24 -> -26 dB; attack 5 -> 73 ms; decay to -20 dB none -> 0.28s; spectral-envelope peaks [296] -> [296, 583] Hz; pulsing 1.3 Hz/4 dB -> 2.0 Hz/19 dB; pulse rate early->late x1.00 -> x0.59; onset brightness 537 -> 1084 Hz; strongest partials A2 E3 A3 C4 -> A2 A3 C4 E4",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M2 BRIGHT",
+    "file": "tour-macro_control_2.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "brightness 583 -> 1941 Hz (x3.33); top-end slope -28 -> -8 dB/oct; decay to -20 dB 0.17s -> 0.28s; pitch wobble 25c -> 16c; auto-pan 0.0 Hz/8 dB -> 0.0 Hz/5 dB; spectral-envelope peaks [192, 609] -> [296, 591] Hz; pulse rate early->late x0.51 -> x1.23; brightness wobble \u00b110% -> \u00b146%; onset brightness 533 -> 2129 Hz; strongest partials A2 A3 C4 E4 -> A2 E3 A3 C4",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M3 WIDTH",
+    "file": "tour-macro_control_3.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "decay to -20 dB 0.10s -> 0.70s; pitch wobble 8c -> 30c; auto-pan 0.0 Hz/4 dB -> 0.0 Hz/6 dB; spectral-envelope peaks [192, 483] -> [296] Hz; stereo width 0.588 -> 0.913; pulse rate early->late x0.43 -> x0.99; brightness wobble \u00b125% -> \u00b112%; strongest partials A2 A3 C4 E4 -> B2 E3 A3 C4",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M4 DRIVE",
+    "file": "tour-macro_control_4.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -29 -> -22 dB; top-end slope -26 -> -16 dB/oct; attack 87 -> 63 ms; decay to -20 dB 0.23s -> 0.67s; pitch wobble 15c -> 21c; auto-pan 0.0 Hz/5 dB -> 0.0 Hz/4 dB; spectral-envelope peaks [296, 583] -> [195, 583] Hz; pulsing 2.0 Hz/20 dB -> 2.0 Hz/17 dB; pulse rate early->late x1.40 -> x0.45; strongest partials A2 A3 C4 E4 -> A2 E3 A3 C4",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Mod wheel",
+    "file": "tour-mod_wheel.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "brightness 1035 -> 1848 Hz (x1.79); top-end slope -25 -> -9 dB/oct; decay to -20 dB 0.73s -> 0.22s; pitch wobble 18c -> 10c; spectral-envelope peaks [296, 583, 1407] -> [296, 583] Hz; pulse rate early->late x1.91 -> x0.57; brightness wobble \u00b118% -> \u00b142%; onset brightness 1016 -> 1881 Hz",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Aftertouch",
+    "file": "tour-aftertouch.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "brightness 1047 -> 1522 Hz (x1.45); top-end slope -25 -> -14 dB/oct; attack 94 -> 70 ms; decay to -20 dB 0.27s -> 0.72s; pitch wobble 25c -> 19c; auto-pan 2.9 Hz/6 dB -> 0.0 Hz/4 dB; spectral-envelope peaks [296, 618, 1427] -> [296] Hz; brightness wobble \u00b118% -> \u00b127%; onset brightness 1019 -> 1599 Hz",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Velocity",
+    "file": "tour-velocity.mp3",
+    "steps": [
+      0.3,
+      0.53,
+      0.77,
+      1.0
+    ],
+    "changes": "level -27 -> -26 dB; brightness 885 -> 1108 Hz (x1.25); top-end slope -28 -> -24 dB/oct; pitch wobble 12c -> 7c; spectral-envelope peaks [296] -> [296, 583] Hz; pulse rate early->late x1.01 -> x0.74",
+    "range": "0.3 -> 1"
+  }
+]

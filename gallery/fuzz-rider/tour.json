@@ -1,0 +1,86 @@
+[
+  {
+    "control": "M1 FUZZ",
+    "file": "tour-macro_control_1.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "brightness 139 -> 295 Hz (x2.12); brightness wobble \u00b127% -> \u00b114%; roughness 0.15 -> 0.25",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M2 TONE",
+    "file": "tour-macro_control_2.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -18 -> -16 dB; brightness 145 -> 240 Hz (x1.66); top-end slope -19 -> -14 dB/oct; even vs odd harmonics +1 -> +6 dB; roughness 0.18 -> 0.23",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M3 OCTAVE",
+    "file": "tour-macro_control_3.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "brightness 193 -> 385 Hz (x1.99); top-end slope -22 -> -16 dB/oct; even vs odd harmonics +1 -> +7 dB",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "M4 BITE",
+    "file": "tour-macro_control_4.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "brightness 161 -> 285 Hz (x1.77); even vs odd harmonics +1 -> +7 dB; roughness 0.24 -> 0.18; onset brightness 271 -> 427 Hz",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Mod wheel",
+    "file": "tour-mod_wheel.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "level -18 -> -16 dB; brightness 233 -> 286 Hz (x1.23); even vs odd harmonics +8 -> +0 dB; brightness wobble \u00b111% -> \u00b134%; roughness 0.17 -> 0.34; onset brightness 365 -> 260 Hz",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Aftertouch",
+    "file": "tour-aftertouch.mp3",
+    "steps": [
+      0.0,
+      0.33,
+      0.67,
+      1.0
+    ],
+    "changes": "even vs odd harmonics +5 -> -0 dB; partials shift by 12 cents (median) - detune/bend",
+    "range": "0 -> 1"
+  },
+  {
+    "control": "Velocity",
+    "file": "tour-velocity.mp3",
+    "steps": [
+      0.3,
+      0.53,
+      0.77,
+      1.0
+    ],
+    "changes": "brightness 156 -> 275 Hz (x1.76); brightness wobble \u00b17% -> \u00b117%; roughness 0.14 -> 0.23; onset brightness 248 -> 396 Hz",
+    "range": "0.3 -> 1"
+  }
+]

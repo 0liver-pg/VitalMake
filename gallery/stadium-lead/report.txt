@@ -1,0 +1,21 @@
+== Stadium Lead - first note alone ==
+Character: hard attack, sustained, bright, clean tone, closes down over time (x2.2 darker), wide stereo
+Level: peak -15.6 dBFS, rms -29.2 dBFS, crest 13.6 dB | Envelope: attack 41 ms (half-level in 3 ms), peak at 0.14s, sustain -1 dB
+Pitch: E4-0c (329.61 Hz, clarity 0.99)
+Strongest partials: 329Hz E4-2c (0dB); 660Hz E5+1c (-1dB); 988Hz B5+0c (-11dB); 1319Hz E6+0c (-11dB); 1642Hz G#6-20c (-17dB); 1654Hz G#6-7c (-16dB); 1977Hz B6+1c (-16dB); 2637Hz E7-0c (-19dB)
+Spectrum: centroid 1659 Hz (start 2233 -> end 1019), 85% rolloff 991 Hz, flatness 0.001, harmonicity 0.97, top-end slope -11.1 dB/oct (2-16 kHz)
+Shape: spectral-envelope peaks 296, 583 Hz; even vs odd harmonics +9 dB (full, saw-like); level 300 ms after release -15 dB re peak
+Energy by band: sub 0.0%, bass 0.0%, low-mid 86.4%, mid 12.7%, presence 0.8%, air 0.0%
+Motion: no periodic modulation or glide detected
+Stereo: width 0.383 (side/mid), L/R correlation 0.745
+Timeline (t: level dB, centroid Hz): 0.0s:-23/2061  0.22s:-23/1344  0.44s:-29/1343  0.67s:-38/1477  0.89s:-43/1367  1.13s:-47/1373  1.35s:-51/1068  1.57s:-59/1263  1.8s:-66/1331  2.02s:-69/1064
+Phrase: 6.6s, peak -10.0 dBFS, rms -22.2 dBFS, centroid 1654 Hz, width 0.339, partials: 329Hz E4-3c; 392Hz G4+0c; 440Hz A4-1c; 493Hz B4-3c; 587Hz D5-1c; 659Hz E5-1c; 988Hz B5-0c; 1320Hz E6+1c
+
+Expression check (probe note, low -> high):
+M1 DRIVE (0 -> 1): level -28 -> -23 dB; brightness 1377 -> 1828 Hz (x1.33); pitch wobble 3c -> 11c; auto-pan 2.2 Hz/5 dB -> 1.4 Hz/3 dB; spectral-envelope peaks [296, 886, 1697] -> [296, 583, 1469] Hz; level 300 ms after release -17 -> -7 dB
+M2 BITE (0 -> 1): level -25 -> -23 dB; brightness 1329 -> 1678 Hz (x1.26); top-end slope -18 -> -9 dB/oct; auto-pan 4.5 Hz/5 dB -> 1.2 Hz/4 dB; spectral-envelope peaks [296, 583, 1469] -> [296, 886, 1798] Hz; even vs odd harmonics +5 -> -2 dB; brightness wobble ±16% -> ±35%; onset brightness 1458 -> 2654 Hz
+M3 GLIDE: not testable offline (glide needs overlapping notes; vita renders one note at a time)
+M4 ECHO (0 -> 1): auto-pan 4.6 Hz/4 dB -> 2.3 Hz/7 dB; spectral-envelope peaks [296, 583] -> [296, 583, 1469] Hz; even vs odd harmonics +8 -> -2 dB; level 300 ms after release -21 -> -10 dB; stereo width 0.302 -> 0.673; onset brightness 2187 -> 1300 Hz
+Mod wheel (0 -> 1): attack 4 -> 33 ms; pitch wobble 4c -> 49c @ 5.6 Hz; auto-pan 2.3 Hz/6 dB -> 0.0 Hz/3 dB; spectral-envelope peaks [296, 583, 1469] -> [296, 583, 1824] Hz; brightness wobble ±16% -> ±26%; onset brightness 1531 -> 2378 Hz; strongest partials E4 E5 B5 E6 -> E4 E5 B5 B5
+Aftertouch (0 -> 1): level -25 -> -22 dB; brightness 1607 -> 2467 Hz (x1.54); top-end slope -13 -> -7 dB/oct; spectral-envelope peaks [296, 583, 1469] -> [296, 886, 2400] Hz; onset brightness 1794 -> 3121 Hz
+Velocity (0.3 -> 1): level -28 -> -22 dB; top-end slope -20 -> -11 dB/oct; attack 135 -> 3 ms; spectral-envelope peaks [296, 583, 1183] -> [296, 583, 1469] Hz; even vs odd harmonics +8 -> -0 dB; pulsing 4.6 Hz/6 dB -> 2.4 Hz/3 dB; brightness wobble ±28% -> ±17%; onset brightness 1466 -> 1948 Hz

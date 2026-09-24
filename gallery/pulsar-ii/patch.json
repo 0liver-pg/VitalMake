@@ -1,0 +1,247 @@
+{
+  "name": "Pulsar II",
+  "style": "Synth",
+  "description": "A rebuild of Pulsar with a richer tone: a detuned saw stack plus an octave-up square, each pulse retriggering a filter pluck rather than only chopping the volume, through phaser, echo and room. RATE sets the pulses per second, ACCEL makes them speed up while you hold.",
+  "wavetables": {
+    "osc_2": [
+      {
+        "shape": "pulse",
+        "width": 0.35
+      }
+    ],
+    "osc_3": [
+      {
+        "shape": "sine"
+      }
+    ]
+  },
+  "lfos": {
+    "lfo_1": {
+      "name": "Pulse gate",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0.04,
+          0.05
+        ],
+        [
+          0.35,
+          0.55
+        ],
+        [
+          0.75,
+          0.9
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "smooth": true
+    },
+    "lfo_3": {
+      "shape": "ramp_up"
+    }
+  },
+  "macros": {
+    "1": {
+      "name": "RATE",
+      "value": 0.45
+    },
+    "2": {
+      "name": "ACCEL",
+      "value": 0.0
+    },
+    "3": {
+      "name": "TONE",
+      "value": 0.45
+    },
+    "4": {
+      "name": "SPACE",
+      "value": 0.4
+    }
+  },
+  "params": {
+    "osc_1_level": 0.6,
+    "osc_1_unison_voices": 5,
+    "osc_1_unison_detune": "16%",
+    "osc_1_stereo_spread": "85%",
+    "osc_2_on": "On",
+    "osc_2_transpose": 12,
+    "osc_2_level": 0.35,
+    "osc_2_unison_voices": 3,
+    "osc_2_unison_detune": "9%",
+    "osc_2_stereo_spread": "60%",
+    "osc_3_on": "On",
+    "osc_3_transpose": -12,
+    "osc_3_level": 0.28,
+    "osc_3_destination": "DIRECT OUT",
+    "filter_1_on": "On",
+    "filter_1_model": "Analog",
+    "filter_1_style": "24dB",
+    "filter_1_cutoff": "2.2kHz",
+    "filter_1_resonance": "22%",
+    "filter_1_keytrack": "50%",
+    "osc_2_destination": "FILTER 1",
+    "env_1_attack": "8ms",
+    "env_1_decay": "2s",
+    "env_1_sustain": 0.9,
+    "env_1_release": "700ms",
+    "lfo_1_sync": "Seconds",
+    "lfo_1_frequency": "4Hz",
+    "lfo_1_sync_type": "Sync",
+    "lfo_3_sync": "Seconds",
+    "lfo_3_frequency": "0.2Hz",
+    "lfo_3_sync_type": "Envelope",
+    "phaser_on": "On",
+    "phaser_dry_wet": "35%",
+    "phaser_feedback": "45%",
+    "phaser_frequency": "0.25Hz",
+    "phaser_sync": "Seconds",
+    "delay_on": "On",
+    "delay_style": "Ping Pong",
+    "delay_sync": "Tempo Dotted",
+    "delay_tempo": "1/8",
+    "delay_feedback": "35%",
+    "delay_dry_wet": "10%",
+    "reverb_on": "On",
+    "reverb_dry_wet": "10%",
+    "reverb_decay_time": "2.2s",
+    "eq_on": "On",
+    "eq_low_cutoff": "110Hz",
+    "eq_low_gain": "-3dB",
+    "eq_high_cutoff": "7.5kHz",
+    "eq_high_gain": "-3dB",
+    "beats_per_minute": 120,
+    "volume": "-12dB",
+    "velocity_track": "25%"
+  },
+  "mods": [
+    {
+      "source": "lfo_1",
+      "dest": "voice_amplitude",
+      "amount": -0.55,
+      "id": "gate"
+    },
+    {
+      "source": "lfo_1",
+      "dest": "filter_1_cutoff",
+      "amount": "-30st"
+    },
+    {
+      "source": "macro_control_1",
+      "dest": "lfo_1_frequency",
+      "amount": 0.14
+    },
+    {
+      "source": "lfo_3",
+      "dest": "lfo_1_frequency",
+      "amount": 0.0,
+      "id": "accel"
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "mod:accel",
+      "amount": 0.14
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "filter_1_cutoff",
+      "amount": "+24st"
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "filter_1_resonance",
+      "amount": 0.25
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "delay_dry_wet",
+      "amount": 0.3
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "reverb_dry_wet",
+      "amount": 0.3
+    },
+    {
+      "source": "mod_wheel",
+      "dest": "mod:gate",
+      "amount": -0.3
+    },
+    {
+      "source": "velocity",
+      "dest": "filter_1_cutoff",
+      "amount": "+8st"
+    },
+    {
+      "source": "aftertouch",
+      "dest": "phaser_dry_wet",
+      "amount": 0.4
+    }
+  ],
+  "play": {
+    "notes": [
+      {
+        "note": "E3",
+        "start": 0,
+        "dur": 2.3
+      },
+      {
+        "note": "G3",
+        "start": 0,
+        "dur": 2.3
+      },
+      {
+        "note": "B3",
+        "start": 0,
+        "dur": 2.3
+      },
+      {
+        "note": "C3",
+        "start": 2.4,
+        "dur": 2.3
+      },
+      {
+        "note": "E3",
+        "start": 2.4,
+        "dur": 2.3
+      },
+      {
+        "note": "G3",
+        "start": 2.4,
+        "dur": 2.3
+      },
+      {
+        "note": "D3",
+        "start": 4.8,
+        "dur": 3.0
+      },
+      {
+        "note": "F#3",
+        "start": 4.8,
+        "dur": 3.0
+      },
+      {
+        "note": "A3",
+        "start": 4.8,
+        "dur": 3.0
+      }
+    ],
+    "tail": 2.0,
+    "vel": 0.75
+  },
+  "tour": {
+    "chord": [
+      "E3",
+      "G3",
+      "B3"
+    ],
+    "dur": 2.0,
+    "tail": 0.8,
+    "vel": 0.75
+  }
+}

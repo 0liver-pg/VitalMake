@@ -1,0 +1,247 @@
+{
+  "name": "Pump Chords",
+  "style": "Synth",
+  "description": "Big synth-pop chords that breathe with the kick: a wide saw stack with a tempo-locked sidechain duck on every beat. PUMP sets the duck depth, WIDTH spreads the stack, DRIVE warms it up for rock mixes.",
+  "lfos": {
+    "lfo_1": {
+      "name": "Duck",
+      "points": [
+        [
+          0,
+          1
+        ],
+        [
+          0.08,
+          0.95
+        ],
+        [
+          0.45,
+          0.1
+        ],
+        [
+          0.7,
+          0.0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "smooth": true
+    }
+  },
+  "macros": {
+    "1": {
+      "name": "PUMP",
+      "value": 0.6
+    },
+    "2": {
+      "name": "BRIGHT",
+      "value": 0.45
+    },
+    "3": {
+      "name": "WIDTH",
+      "value": 0.5
+    },
+    "4": {
+      "name": "DRIVE",
+      "value": 0.2
+    }
+  },
+  "params": {
+    "osc_1_level": 0.6,
+    "osc_1_unison_voices": 7,
+    "osc_1_unison_detune": "10%",
+    "osc_1_stereo_spread": "50%",
+    "osc_2_on": "On",
+    "osc_2_transpose": -12,
+    "osc_2_level": 0.3,
+    "osc_2_unison_voices": 2,
+    "osc_2_unison_detune": "5%",
+    "osc_2_destination": "FILTER 1",
+    "filter_1_on": "On",
+    "filter_1_model": "Analog",
+    "filter_1_style": "24dB",
+    "filter_1_cutoff": "900Hz",
+    "filter_1_resonance": "12%",
+    "filter_1_keytrack": "40%",
+    "env_1_attack": "8ms",
+    "env_1_decay": "1s",
+    "env_1_sustain": 0.9,
+    "env_1_release": "300ms",
+    "lfo_1_sync": "Tempo",
+    "lfo_1_tempo": "1/4",
+    "lfo_1_sync_type": "Sync",
+    "distortion_on": "On",
+    "distortion_type": "Soft Clip",
+    "distortion_drive": "0dB",
+    "distortion_mix": "100%",
+    "chorus_on": "On",
+    "chorus_dry_wet": "20%",
+    "reverb_on": "On",
+    "reverb_dry_wet": "12%",
+    "reverb_decay_time": "2s",
+    "eq_on": "On",
+    "eq_low_mode": "High Pass",
+    "eq_low_cutoff": "110Hz",
+    "eq_band_cutoff": "3.5kHz",
+    "eq_band_gain": "-3dB",
+    "eq_band_resonance": 20,
+    "eq_high_cutoff": "8kHz",
+    "eq_high_gain": "-4dB",
+    "beats_per_minute": 120,
+    "polyphony": 10,
+    "volume": "-14dB",
+    "velocity_track": "20%"
+  },
+  "mods": [
+    {
+      "source": "lfo_1",
+      "dest": "voice_amplitude",
+      "amount": 0.0,
+      "id": "pump"
+    },
+    {
+      "source": "macro_control_1",
+      "dest": "mod:pump",
+      "amount": -0.85
+    },
+    {
+      "source": "macro_control_2",
+      "dest": "filter_1_cutoff",
+      "amount": "+36st"
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "osc_1_unison_detune",
+      "amount": 0.25
+    },
+    {
+      "source": "macro_control_3",
+      "dest": "osc_1_stereo_spread",
+      "amount": 0.5
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "distortion_drive",
+      "amount": 0.3
+    },
+    {
+      "source": "macro_control_4",
+      "dest": "volume",
+      "amount": -0.1
+    },
+    {
+      "source": "velocity",
+      "dest": "filter_1_cutoff",
+      "amount": "+8st"
+    },
+    {
+      "source": "mod_wheel",
+      "dest": "filter_1_cutoff",
+      "amount": "+18st"
+    },
+    {
+      "source": "aftertouch",
+      "dest": "filter_1_cutoff",
+      "amount": "+12st"
+    }
+  ],
+  "play": {
+    "notes": [
+      {
+        "note": "A3",
+        "start": 0,
+        "dur": 1.95
+      },
+      {
+        "note": "C4",
+        "start": 0,
+        "dur": 1.95
+      },
+      {
+        "note": "E4",
+        "start": 0,
+        "dur": 1.95
+      },
+      {
+        "note": "A2",
+        "start": 0,
+        "dur": 1.95
+      },
+      {
+        "note": "G3",
+        "start": 2,
+        "dur": 1.95
+      },
+      {
+        "note": "C4",
+        "start": 2,
+        "dur": 1.95
+      },
+      {
+        "note": "E4",
+        "start": 2,
+        "dur": 1.95
+      },
+      {
+        "note": "C3",
+        "start": 2,
+        "dur": 1.95
+      },
+      {
+        "note": "F3",
+        "start": 4,
+        "dur": 1.95
+      },
+      {
+        "note": "A3",
+        "start": 4,
+        "dur": 1.95
+      },
+      {
+        "note": "D4",
+        "start": 4,
+        "dur": 1.95
+      },
+      {
+        "note": "D3",
+        "start": 4,
+        "dur": 1.95
+      },
+      {
+        "note": "G3",
+        "start": 6,
+        "dur": 1.95
+      },
+      {
+        "note": "B3",
+        "start": 6,
+        "dur": 1.95
+      },
+      {
+        "note": "D4",
+        "start": 6,
+        "dur": 1.95
+      },
+      {
+        "note": "G2",
+        "start": 6,
+        "dur": 1.95
+      }
+    ],
+    "tail": 1.2,
+    "vel": 0.75
+  },
+  "tour": {
+    "chord": [
+      "A2",
+      "A3",
+      "C4",
+      "E4"
+    ],
+    "dur": 2.0,
+    "tail": 0.6,
+    "vel": 0.75
+  }
+}

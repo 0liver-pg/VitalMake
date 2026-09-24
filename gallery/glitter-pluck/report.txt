@@ -1,0 +1,21 @@
+== Glitter Pluck - first note alone ==
+Character: hard attack, bright, clean tone, wide stereo
+Level: peak -19.7 dBFS, rms -41.7 dBFS, crest 22.0 dB | Envelope: attack 2 ms (half-level in 0 ms), peak at 0.02s
+Pitch: E4+15c (332.58 Hz, clarity 0.81)
+Strongest partials: 330Hz E4+4c (0dB); 411Hz G#4-18c (-9dB); 660Hz E5+1c (-12dB); 699Hz F5+1c (-20dB); 1321Hz E6+4c (-11dB); 1775Hz A6+15c (-21dB); 1814Hz A#6-47c (-21dB); 1994Hz B6+16c (-21dB)
+Spectrum: centroid 1565 Hz (start 2478 -> end 1558), 85% rolloff 1292 Hz, flatness 0.012, harmonicity 0.76, top-end slope -9.5 dB/oct (2-16 kHz)
+Shape: spectral-envelope peaks 296, 1183 Hz; even vs odd harmonics +12 dB (full, saw-like); level 300 ms after release -19 dB re peak
+Energy by band: sub 0.0%, bass 0.1%, low-mid 83.7%, mid 15.0%, presence 1.2%, air 0.0%
+Motion: no periodic modulation or glide detected
+Stereo: width 0.785 (side/mid), L/R correlation 0.24
+Timeline (t: level dB, centroid Hz): 0.0s:-33/1654  0.22s:-39/1287  0.45s:-46/1334  0.67s:-46/1875  0.91s:-50/1493  1.13s:-51/1385  1.36s:-55/1523  1.58s:-59/1287  1.81s:-59/1327  2.03s:-63/1377
+Phrase: 6.2s, peak -12.3 dBFS, rms -30.7 dBFS, centroid 1642 Hz, width 0.714, partials: 223Hz A3+24c; 246Hz B3-7c; 278Hz C#4+2c; 330Hz E4+2c; 369Hz F#4-6c; 416Hz G#4+3c; 496Hz B4+8c; 554Hz C#5-2c
+
+Expression check (probe note, low -> high):
+M1 LENGTH (0 -> 1): level -44 -> -32 dB; attack 1 -> 44 ms; level 300 ms after release -28 -> -11 dB; stereo width 0.702 -> 0.854; strongest partials E4 G#4 B4 E5 -> E4 G#4 E5 B5
+M2 SHIMMER (0 -> 1): spectral-envelope peaks [296, 591, 1183] -> [296, 1183] Hz; level 300 ms after release -17 -> -23 dB; strongest partials E4 G#4 E5 B5 -> E4 G#4 E5 E6
+M3 CRUNCH (0 -> 1): level -37 -> -39 dB; brightness 1543 -> 2728 Hz (x1.77); even vs odd harmonics +12 -> +6 dB; level 300 ms after release -22 -> -18 dB; partials shift by 30 cents (median) - detune/bend; onset brightness 1340 -> 2124 Hz; strongest partials E4 G#4 E5 B5 -> E4 G#4 E5 E6
+M4 SPACE (0 -> 1): level -36 -> -39 dB; brightness 1276 -> 1549 Hz (x1.21); level 300 ms after release -31 -> -15 dB; stereo width 0.622 -> 0.952
+Mod wheel (0 -> 1): spectral-envelope peaks [296, 618, 1183] -> [296, 1183] Hz; strongest partials E4 F#4 G#4 E5 -> E4 G#4 C5 E5
+Aftertouch (0 -> 1): level -38 -> -36 dB; stereo width 0.822 -> 0.699; strongest partials E4 G#4 E5 F5 -> E4 G#4 E5 E6
+Velocity (0.3 -> 1): level -42 -> -35 dB; spectral-envelope peaks [296, 1183] -> [296, 618, 1166] Hz; level 300 ms after release -21 -> -24 dB; onset brightness 1185 -> 1559 Hz

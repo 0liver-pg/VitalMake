@@ -45,12 +45,25 @@ def make(spec: dict, slug: str | None = None, out_root: Path = GALLERY) -> dict:
         probe = R.render(preset_json, probe_play)
         P_ = E.listen(probe, R.SR, note_off=max(n.dur for n in first))
         text = E.report(P_, f"{name} - first note alone") + "\n" + E.phrase_line(L)
+        # the probe is the trustworthy description (pitch/motion trackers are
+        # confused by chord changes), so it's what the sheet and gallery show
+        L = P_
     else:
         text = E.report(L, name)
     if L.peak_db < -30:
         text += "\nWARNING: very quiet render - check levels, filter cutoff, osc levels."
 
+    from . import expression as X
+
+    for old in out.glob("tour-*.*"):
+        old.unlink()
+    expr_text, tour_files = X.tour(spec, out) if X.controls_used(spec) else ("", [])
+    if expr_text:
+        text += "\n\nExpression check (probe note, low -> high):\n" + expr_text
+    (out / "tour.json").write_text(json.dumps(tour_files, indent=2) + "\n")
+
     wav = R.write_wav(audio, out / "sound.wav")
+    R.write_mp3(audio, out / "sound.mp3")
     vital = out / f"{name}.vital"
     for old in out.glob("*.vital"):
         old.unlink()
