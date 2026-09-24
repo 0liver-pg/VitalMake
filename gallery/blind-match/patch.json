@@ -48,5 +48,6 @@
     "env_2_decay": "237 ms",
     "modulation_1_amount": "0.288"
   },
-  "fit_distance": 0.1261
+  "fit_distance": 0.1261,
+  "description": "CMA-ES recovering the hidden pluck from the audio alone: 900 renders, six free knobs, structure given."
 }

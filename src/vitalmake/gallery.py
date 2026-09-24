@@ -94,7 +94,7 @@ def build_gallery(extra_html: str = "") -> Path:
     return out
 
 
-TEMPLATE = """<title>Sounds Made Deaf</title>
+TEMPLATE = """<title>Sounds Without Ears</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>

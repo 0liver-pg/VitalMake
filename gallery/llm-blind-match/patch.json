@@ -1,0 +1,93 @@
+{
+  "name": "LLM Blind Match",
+  "wavetables": {
+    "osc_1": [
+      {
+        "harmonics": [
+          1.35,
+          0.5,
+          0.3333,
+          0.25,
+          0.2,
+          0.1667,
+          0.1429,
+          0.125,
+          0.1111,
+          0.1,
+          0.0909,
+          0.0833,
+          0.0769,
+          0.0714,
+          0.0667,
+          0.0625,
+          0.0588,
+          0.0556,
+          0.0526,
+          0.05,
+          0.0476,
+          0.0455,
+          0.0435,
+          0.0417,
+          0.04,
+          0.0385,
+          0.037,
+          0.0357,
+          0.0345,
+          0.0333,
+          0.0323,
+          0.0312,
+          0.0303,
+          0.0294,
+          0.0286,
+          0.0278,
+          0.027,
+          0.0263,
+          0.0256,
+          0.025,
+          0.0244,
+          0.0238,
+          0.0233,
+          0.0227,
+          0.0222,
+          0.0217,
+          0.0213,
+          0.0208,
+          0.0204,
+          0.02
+        ]
+      }
+    ]
+  },
+  "params": {
+    "osc_1_level": 1.0,
+    "volume": "5dB",
+    "osc_1_unison_voices": 3,
+    "osc_1_unison_detune": "10%",
+    "filter_1_on": "On",
+    "filter_1_model": "Analog",
+    "filter_1_style": "24dB",
+    "filter_1_cutoff": "600Hz",
+    "filter_1_resonance": "30%",
+    "env_1_attack": "2ms",
+    "env_1_decay": "0.9s",
+    "env_1_decay_power": -8,
+    "env_1_sustain": 0.07,
+    "env_1_release": "90ms",
+    "env_2_attack": "0ms",
+    "env_2_decay": "0.35s",
+    "env_2_sustain": 0
+  },
+  "mods": [
+    {
+      "source": "env_2",
+      "dest": "filter_1_cutoff",
+      "amount": "+30st"
+    }
+  ],
+  "play": {
+    "note": "A2",
+    "dur": 0.6,
+    "tail": 0.8
+  },
+  "description": "Claude reconstructing the hidden pluck from listening reports and spectrograms alone: best of 12 renders."
+}

@@ -1,4 +1,4 @@
-<title>Sounds Made Deaf</title>
+<title>Sounds Without Ears</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -1225,11 +1225,28 @@ Phrase: 5.2s, peak -7.1 dBFS, rms -24.9 dBFS, centroid 1538 Hz, width 0.619, par
 </article>
   <section id="experiments">
     <h2 class="section-title">Blind match</h2>
-    
+    <div class="experiment">
+  <p>A hidden pluck patch was rendered once (A2, held 0.6 s). Two players then tried to rebuild it from that audio alone. <strong>CMA-ES</strong> was told the patch structure and given six free knobs and 900 renders, but it never sees anything except a single distance number. <strong>Claude</strong> (a separate agent that had no access to the answer) had no structure hint and only 12 renders. It worked from the listening reports, the spectrogram sheets and the distance.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>setting</th><th>hidden truth</th><th>CMA-ES</th><th>Claude</th></tr></thead>
+    <tbody>
+      <tr><td>oscillator</td><td>init saw, 3 voices, 15% detune</td><td>(given)</td><td>50-harmonic saw, fat fundamental, 3 voices, 10%</td></tr>
+      <tr><td>filter</td><td>Analog 24 dB</td><td>(given)</td><td>Analog 24 dB</td></tr>
+      <tr><td>cutoff</td><td>700 Hz</td><td>487 Hz</td><td>600 Hz</td></tr>
+      <tr><td>resonance</td><td>55%</td><td>55.7%</td><td>30%</td></tr>
+      <tr><td>amp decay / sustain</td><td>450 ms / 0.10</td><td>403 ms / 0.17</td><td>900 ms, curved / 0.07</td></tr>
+      <tr><td>filter env decay</td><td>160 ms</td><td>237 ms</td><td>350 ms</td></tr>
+      <tr><td>filter env depth</td><td>+42 st</td><td>+37 st</td><td>+30 st</td></tr>
+      <tr><th>spectral distance</th><th>0</th><th>0.126</th><th>0.634 (first guess 1.267)</th></tr>
+    </tbody>
+  </table></div>
+  <p>What this shows: the model got the <em>kind</em> of sound right on its first try (pitch, saw source, plucky shape) and worked out the 24 dB slope from a detail in the spectrogram image, not from the text report. The optimiser got the <em>numbers</em> closer but was handed the structure. Both hit the same ambiguity: cutoff, envelope depth and envelope decay trade off against each other, so several patches sound nearly the same. Claude's lab notebook is in <code>experiments/llm-blind-match.md</code>. It asks for new ears: per-harmonic decay times, a target-minus-candidate difference map, and the distance broken down by band.</p>
+</div>
+
 <article class="sound" id="blind-match">
   <header class="sound-head">
     <h2>Blind Match</h2>
-    <p class="brief"></p>
+    <p class="brief">CMA-ES recovering the hidden pluck from the audio alone: 900 renders, six free knobs, structure given.</p>
   </header>
   <div class="sound-body">
     <div class="listen">
@@ -1310,7 +1327,138 @@ Timeline (t: level dB, centroid Hz): 0.0s:-27/732  0.14s:-41/438  0.28s:-51/351 
     &quot;env_2_decay&quot;: &quot;237 ms&quot;,
     &quot;modulation_1_amount&quot;: &quot;0.288&quot;
   },
-  &quot;fit_distance&quot;: 0.1261
+  &quot;fit_distance&quot;: 0.1261,
+  &quot;description&quot;: &quot;CMA-ES recovering the hidden pluck from the audio alone: 900 renders, six free knobs, structure given.&quot;
+}</pre></details>
+    </div>
+  </div>
+</article>
+<article class="sound" id="llm-blind-match">
+  <header class="sound-head">
+    <h2>LLM Blind Match</h2>
+    <p class="brief">Claude reconstructing the hidden pluck from listening reports and spectrograms alone: best of 12 renders.</p>
+  </header>
+  <div class="sound-body">
+    <div class="listen">
+      <audio controls preload="none" src="llm-blind-match/sound.wav"></audio>
+      <figure><img loading="lazy" src="llm-blind-match/sheet.png" alt="Spectrogram and waveform of LLM Blind Match"></figure>
+    </div>
+    <div class="read">
+      <h3>What the ears reported</h3>
+      <ul class="chips"><li>percussive attack</li><li>short, plucky decay</li><li>warm</li><li>clean tone</li><li>bass-heavy</li><li>closes down over time (x2.4 darker)</li><li>wide stereo</li></ul>
+      <dl class="facts">
+        <div><dt>Pitch</dt><dd>A2-5c</dd></div>
+        <div><dt>Centroid</dt><dd>616 Hz</dd></div>
+        <div><dt>Attack</dt><dd>0 ms</dd></div>
+        <div><dt>Width</dt><dd>0.461</dd></div>
+      </dl>
+      <details><summary>Full listening report</summary><pre>== LLM Blind Match ==
+Character: percussive attack, short, plucky decay, warm, clean tone, bass-heavy, closes down over time (x2.4 darker), wide stereo
+Level: peak -2.5 dBFS, rms -24.9 dBFS, crest 22.4 dB | Envelope: attack 0 ms (half-level in 0 ms), peak at 0.02s, -20 dB after 0.17s, sustain -38 dB, release to -60 dB in 0.06s
+Pitch: A2-5c (109.69 Hz, clarity 0.98)
+Strongest partials: 110Hz A2+6c (0dB); 219Hz A3-9c (-9dB); 330Hz E4+2c (-9dB); 441Hz A4+5c (-13dB); 548Hz C#5-21c (-15dB); 658Hz E5-3c (-17dB); 772Hz G5-28c (-18dB); 878Hz A5-4c (-19dB)
+Spectrum: centroid 616 Hz (start 626 -&gt; end 261), 85% rolloff 345 Hz, flatness 0.000, harmonicity 0.84
+Energy by band: sub 0.1%, bass 75.7%, low-mid 20.0%, mid 4.1%, presence 0.0%, air 0.0%
+Motion: no periodic modulation or glide detected
+Stereo: width 0.461 (side/mid), L/R correlation 0.666
+Timeline (t: level dB, centroid Hz): 0.0s:-15/623  0.14s:-31/422  0.28s:-41/250  0.42s:-47/239  0.56s:-55/268  0.7s:-116/293  0.84s:-120/0  0.98s:-120/0  1.11s:-120/0  1.25s:-120/0</pre></details>
+      <h3>How it was built</h3>
+      <p class="small">Wavetables: osc_1: 1 frame(s) · 17 settings · preset file <code>LLM Blind Match.vital</code></p>
+      <ul class="mods"><li>env_2 → filter_1_cutoff +30st</li></ul>
+      <details><summary>Patch spec (JSON)</summary>
+        <button class="copy" type="button" data-target="spec-llm-blind-match">Copy JSON</button>
+        <pre id="spec-llm-blind-match">{
+  &quot;name&quot;: &quot;LLM Blind Match&quot;,
+  &quot;wavetables&quot;: {
+    &quot;osc_1&quot;: [
+      {
+        &quot;harmonics&quot;: [
+          1.35,
+          0.5,
+          0.3333,
+          0.25,
+          0.2,
+          0.1667,
+          0.1429,
+          0.125,
+          0.1111,
+          0.1,
+          0.0909,
+          0.0833,
+          0.0769,
+          0.0714,
+          0.0667,
+          0.0625,
+          0.0588,
+          0.0556,
+          0.0526,
+          0.05,
+          0.0476,
+          0.0455,
+          0.0435,
+          0.0417,
+          0.04,
+          0.0385,
+          0.037,
+          0.0357,
+          0.0345,
+          0.0333,
+          0.0323,
+          0.0312,
+          0.0303,
+          0.0294,
+          0.0286,
+          0.0278,
+          0.027,
+          0.0263,
+          0.0256,
+          0.025,
+          0.0244,
+          0.0238,
+          0.0233,
+          0.0227,
+          0.0222,
+          0.0217,
+          0.0213,
+          0.0208,
+          0.0204,
+          0.02
+        ]
+      }
+    ]
+  },
+  &quot;params&quot;: {
+    &quot;osc_1_level&quot;: 1.0,
+    &quot;volume&quot;: &quot;5dB&quot;,
+    &quot;osc_1_unison_voices&quot;: 3,
+    &quot;osc_1_unison_detune&quot;: &quot;10%&quot;,
+    &quot;filter_1_on&quot;: &quot;On&quot;,
+    &quot;filter_1_model&quot;: &quot;Analog&quot;,
+    &quot;filter_1_style&quot;: &quot;24dB&quot;,
+    &quot;filter_1_cutoff&quot;: &quot;600Hz&quot;,
+    &quot;filter_1_resonance&quot;: &quot;30%&quot;,
+    &quot;env_1_attack&quot;: &quot;2ms&quot;,
+    &quot;env_1_decay&quot;: &quot;0.9s&quot;,
+    &quot;env_1_decay_power&quot;: -8,
+    &quot;env_1_sustain&quot;: 0.07,
+    &quot;env_1_release&quot;: &quot;90ms&quot;,
+    &quot;env_2_attack&quot;: &quot;0ms&quot;,
+    &quot;env_2_decay&quot;: &quot;0.35s&quot;,
+    &quot;env_2_sustain&quot;: 0
+  },
+  &quot;mods&quot;: [
+    {
+      &quot;source&quot;: &quot;env_2&quot;,
+      &quot;dest&quot;: &quot;filter_1_cutoff&quot;,
+      &quot;amount&quot;: &quot;+30st&quot;
+    }
+  ],
+  &quot;play&quot;: {
+    &quot;note&quot;: &quot;A2&quot;,
+    &quot;dur&quot;: 0.6,
+    &quot;tail&quot;: 0.8
+  },
+  &quot;description&quot;: &quot;Claude reconstructing the hidden pluck from listening reports and spectrograms alone: best of 12 renders.&quot;
 }</pre></details>
     </div>
   </div>

@@ -1,0 +1,17 @@
+<div class="experiment">
+  <p>A hidden pluck patch was rendered once (A2, held 0.6 s). Two players then tried to rebuild it from that audio alone. <strong>CMA-ES</strong> was told the patch structure and given six free knobs and 900 renders, but it never sees anything except a single distance number. <strong>Claude</strong> (a separate agent that had no access to the answer) had no structure hint and only 12 renders. It worked from the listening reports, the spectrogram sheets and the distance.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>setting</th><th>hidden truth</th><th>CMA-ES</th><th>Claude</th></tr></thead>
+    <tbody>
+      <tr><td>oscillator</td><td>init saw, 3 voices, 15% detune</td><td>(given)</td><td>50-harmonic saw, fat fundamental, 3 voices, 10%</td></tr>
+      <tr><td>filter</td><td>Analog 24 dB</td><td>(given)</td><td>Analog 24 dB</td></tr>
+      <tr><td>cutoff</td><td>700 Hz</td><td>487 Hz</td><td>600 Hz</td></tr>
+      <tr><td>resonance</td><td>55%</td><td>55.7%</td><td>30%</td></tr>
+      <tr><td>amp decay / sustain</td><td>450 ms / 0.10</td><td>403 ms / 0.17</td><td>900 ms, curved / 0.07</td></tr>
+      <tr><td>filter env decay</td><td>160 ms</td><td>237 ms</td><td>350 ms</td></tr>
+      <tr><td>filter env depth</td><td>+42 st</td><td>+37 st</td><td>+30 st</td></tr>
+      <tr><th>spectral distance</th><th>0</th><th>0.126</th><th>0.634 (first guess 1.267)</th></tr>
+    </tbody>
+  </table></div>
+  <p>What this shows: the model got the <em>kind</em> of sound right on its first try (pitch, saw source, plucky shape) and worked out the 24 dB slope from a detail in the spectrogram image, not from the text report. The optimiser got the <em>numbers</em> closer but was handed the structure. Both hit the same ambiguity: cutoff, envelope depth and envelope decay trade off against each other, so several patches sound nearly the same. Claude's lab notebook is in <code>experiments/llm-blind-match.md</code>. It asks for new ears: per-harmonic decay times, a target-minus-candidate difference map, and the distance broken down by band.</p>
+</div>

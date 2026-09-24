@@ -1,0 +1,10 @@
+== LLM Blind Match ==
+Character: percussive attack, short, plucky decay, warm, clean tone, bass-heavy, closes down over time (x2.4 darker), wide stereo
+Level: peak -2.5 dBFS, rms -24.9 dBFS, crest 22.4 dB | Envelope: attack 0 ms (half-level in 0 ms), peak at 0.02s, -20 dB after 0.17s, sustain -38 dB, release to -60 dB in 0.06s
+Pitch: A2-5c (109.69 Hz, clarity 0.98)
+Strongest partials: 110Hz A2+6c (0dB); 219Hz A3-9c (-9dB); 330Hz E4+2c (-9dB); 441Hz A4+5c (-13dB); 548Hz C#5-21c (-15dB); 658Hz E5-3c (-17dB); 772Hz G5-28c (-18dB); 878Hz A5-4c (-19dB)
+Spectrum: centroid 616 Hz (start 626 -> end 261), 85% rolloff 345 Hz, flatness 0.000, harmonicity 0.84
+Energy by band: sub 0.1%, bass 75.7%, low-mid 20.0%, mid 4.1%, presence 0.0%, air 0.0%
+Motion: no periodic modulation or glide detected
+Stereo: width 0.461 (side/mid), L/R correlation 0.666
+Timeline (t: level dB, centroid Hz): 0.0s:-15/623  0.14s:-31/422  0.28s:-41/250  0.42s:-47/239  0.56s:-55/268  0.7s:-116/293  0.84s:-120/0  0.98s:-120/0  1.11s:-120/0  1.25s:-120/0
